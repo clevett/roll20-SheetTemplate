@@ -4,10 +4,12 @@
 <input class="sheet_type" name="attr_sheet_type" type="hidden" value="pc">
 
 <div class="tabs">
+	<!--- Toggles to whisper rolls to GM or roll in public --->
 	<div class="tab-whisper">
 		<input type="radio" name="attr_gm_toggle" value="" checked="checked" title="@{gm_toggle}" /><span data-i18n="public">Public</span>
 		<input type="radio" name="attr_gm_toggle" value="/w gm" title="@{gm_toggle}" /><span data-i18n="gm">To GM</span>
 	</div>
+	<!--- Tabs that can be used to switch between different areas of the sheet --->
 	<div class="tab-toggles">			
 		<input type="radio" name="attr_tab" value="options" title="Sheet Options" checked="checked"/><span>y</span>
 	</div>
@@ -16,28 +18,51 @@
 <!--*********************************************************************************************************-->
 <!--***************************             PC SHEET                              ***************************-->
 <!--*********************************************************************************************************-->
-	<div class="pc">
-	</div>
+<div class="pc">
+	<button type="roll" value="@{gm_toggle} &{template:rolls}{{header=Title}}{{dice=[[1d20]]}}{{desc=Some Text}}">
+</div>
 
 <!--*********************************************************************************************************-->
 <!--***************************             NPC SHEET                              ***************************-->
 <!--*********************************************************************************************************-->
-	<div class="npc">
-	</div>
+<div class="npc">
+</div>
 
 <!--*********************************************************************************************************-->
 <!--***************************              FOOTER                               ***************************-->
 <!--*********************************************************************************************************-->
-	<div class="footer"><span>Disclaimer</span><span> Version 0</span></div>
+<div class="footer">
+	<span>Disclaimer</span>
+	<span> Version 0</span>
+</div>
 
 <!--*********************************************************************************************************-->
 <!--***************************           ROLL TEMPLATE                           ***************************-->
 <!--*********************************************************************************************************-->
 	<div class="rolltemplates">
+		<rolltemplate class="sheet-rolltemplate-rolls">
+			 <div class="sheet-template-body">
+			 	<!--- Display a header on the template --->
+	    		<div class="sheet-template-header">
+	    			{{#header}}{{header}}{{/header}}
+	    		</div>
+	    		<!--- Display the dice roll in the template --->
+	    		{{#dice}}
+	    			<div class="sheet-template-row">{{dice}}</div>
+	    		{{/dice}}
+	    		<!--- Display a description. This is great for text included with a roll --->
+		    	{{#desc}}
+		    		<div class="sheet-template-row">
+		    			<span class="sheet-template-desc">
+		    			</span>
+		    		</div>
+	    		{{/desc}}
+	    	</div>
+		</rolltemplate>
 	</div>
 
 <!--*********************************************************************************************************-->
 <!--***************************              SCRIPTS                              ***************************-->
 <!--*********************************************************************************************************-->
-	<script type="text/worker">
-	</script>
+<script type="text/worker">
+</script>

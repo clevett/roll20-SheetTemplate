@@ -27,8 +27,7 @@
 		background-color: transparent;}
 
 	fieldset {
-		background: transparent;
-		display: inline-flex;}
+		background: transparent;}
 
 	input[type="text"],
 	input[type="number"] {
@@ -64,7 +63,9 @@
 		vertical-align: top;
 		white-space: pre-line;}
 
-	.charsheet {width: 850px;}
+	.charsheet {
+		width: 850px;
+	}
 
 /**********************************************************************************************************/
 /***************************                  FOOTER                           ***************************/
@@ -91,9 +92,55 @@
 /**********************************************************************************************************/
 /***************************                 ROLL TEMPLATE                           *********************/
 /********************************************************************************************************/
-	.sheet-rolltemplate-example {
+	.sheet-rolltemplate-rolls div.sheet-template-body {
+		border: 2px solid #000 !important;
+		border-radius: 3px 3px 3px 3px;
+	}
 
-	};
+	.sheet-rolltemplate-rolls .sheet-template-header {
+		background-color: white;
+		border: 1px solid #000;
+		border-bottom: 2px solid #000;
+		color: black;
+		font-size: 20px;
+		font-variant: small-caps;
+		letter-spacing: 2px;
+		padding: 4px 0px 3px 0px;
+		text-align: center;
+	    text-transform: capitalize;
+	}
+
+	.sheet-rolltemplate-rolls .sheet-template-row {
+		background-color: #555;
+	}
+
+	/* Use this to alternate the background colors for each row */
+	.sheet-rolltemplate-rolls .sheet-template-row:nth-child(2n+0) {
+		background-color: #1c1c1c;
+	}
+
+	/* Remove some fo the built in styles around rolls */
+	.sheet-rolltemplate-rolls .inlinerollresult {
+		display:inline-block;
+		font-size: 25px;
+		background-color: transparent;
+		border: none;
+	}
+
+	.sheet-rolltemplate-rolls .inlinerollresult.fullfail,
+	.sheet-rolltemplate-rolls .inlinerollresult.fullcrit,
+	.sheet-rolltemplate-rolls.inlinerollresult.importantroll {
+		border: none;
+	}
+
+	/* Change the colors of Full Fails & Full Crits from their built in defaults */
+	.sheet-rolltemplate-rolls .inlinerollresult.fullfail {
+		color: #FCD116;
+	}
+
+	.sheet-rolltemplate-rolls .inlinerollresult.fullcrit {
+		color: #fff;
+	}
 
 
 /**********************************************************************************************************/
