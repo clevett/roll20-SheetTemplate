@@ -92,22 +92,26 @@
 /**********************************************************************************************************/
 /***************************                 ROLL TEMPLATE                           *********************/
 /********************************************************************************************************/
-	.sheet-rolltemplate-rolls div.sheet-template-body {
-		border: 2px solid #000 !important;
-		border-radius: 3px 3px 3px 3px;
+	.sheet-rolltemplate-rolls {
+
+	}
+
+	.sheet-rolltemplate-rolls .sheet-template-body {
+		border    : 1px solid #000;
+		text-align: center;
 	}
 
 	.sheet-rolltemplate-rolls .sheet-template-header {
 		background-color: white;
-		border: 1px solid #000;
-		border-bottom: 2px solid #000;
-		color: black;
-		font-size: 20px;
-		font-variant: small-caps;
-		letter-spacing: 2px;
-		padding: 4px 0px 3px 0px;
-		text-align: center;
-	    text-transform: capitalize;
+		border          : 1px solid #000;
+		border-bottom   : 2px solid #000;
+		color           : black;
+		font-size       : 20px;
+		font-variant    : small-caps;
+		letter-spacing  : 2px;
+		padding         : 4px 0px 3px 0px;
+		text-align      : center;
+		text-transform  : capitalize;
 	}
 
 	.sheet-rolltemplate-rolls .sheet-template-row {
@@ -121,10 +125,12 @@
 
 	/* Remove some fo the built in styles around rolls */
 	.sheet-rolltemplate-rolls .inlinerollresult {
-		display:inline-block;
-		font-size: 25px;
 		background-color: transparent;
-		border: none;
+		border          : none;
+		color           : black;
+		display         :inline-block;
+		font-size       : 25px;
+		padding         : 5px;
 	}
 
 	.sheet-rolltemplate-rolls .inlinerollresult.fullfail,
@@ -135,11 +141,11 @@
 
 	/* Change the colors of Full Fails & Full Crits from their built in defaults */
 	.sheet-rolltemplate-rolls .inlinerollresult.fullfail {
-		color: #FCD116;
+		color: white;
 	}
 
 	.sheet-rolltemplate-rolls .inlinerollresult.fullcrit {
-		color: #fff;
+		color: white;
 	}
 
 

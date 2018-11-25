@@ -6,8 +6,8 @@
 <div class="tabs">
 	<!--- Toggles to whisper rolls to GM or roll in public --->
 	<div class="tab-whisper">
-		<input type="radio" name="attr_gm_toggle" value="" checked="checked" title="@{gm_toggle}" /><span data-i18n="public">Public</span>
-		<input type="radio" name="attr_gm_toggle" value="/w gm" title="@{gm_toggle}" /><span data-i18n="gm">To GM</span>
+		<input type="radio" name="attr_gm_toggle" value="" checked="checked" title="@{gm_toggle}" /><span>Public</span>
+		<input type="radio" name="attr_gm_toggle" value="/w gm" title="@{gm_toggle}" /><span>To GM</span>
 	</div>
 	<!--- Tabs that can be used to switch between different areas of the sheet --->
 	<div class="tab-toggles">			
@@ -19,7 +19,7 @@
 <!--***************************             PC SHEET                              ***************************-->
 <!--*********************************************************************************************************-->
 <div class="pc">
-	<button type="roll" value="@{gm_toggle} &{template:rolls}{{header=Title}}{{dice=[[1d20]]}}{{desc=Some Text}}">
+	<button type="roll" value="@{gm_toggle} &{template:rolls}{{header=Title}}{{dice=[[1d20]]}}{{desc=Some Text}}">A Button</button>
 </div>
 
 <!--*********************************************************************************************************-->
@@ -41,12 +41,12 @@
 <!--*********************************************************************************************************-->
 	<div class="rolltemplates">
 		<rolltemplate class="sheet-rolltemplate-rolls">
-			 <div class="sheet-template-body">
-			 	<!--- Display a header on the template --->
-	    		<div class="sheet-template-header">
-	    			{{#header}}{{header}}{{/header}}
-	    		</div>
-	    		<!--- Display the dice roll in the template --->
+		 	<!--- Display a header on the template --->
+    		<div class="sheet-template-header">
+    			{{#header}}{{header}}{{/header}}
+    		</div>
+    		<!--- Display the dice roll in the template --->
+	    	<div class="sheet-template-body">
 	    		{{#dice}}
 	    			<div class="sheet-template-row">{{dice}}</div>
 	    		{{/dice}}
