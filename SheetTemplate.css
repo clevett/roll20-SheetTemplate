@@ -85,9 +85,46 @@
 
 	};
 
-	.repcontrol {
+	/* This will make the Add & Modify words transparent so that only our symbols below show up */
+	 button.btn.repcontrol_add,
+	 button.btn.repcontrol_edit  {
+	 	color: transparent;
+	 }
 
-	};
+	 /* This will put icons next to the buttons. A `+` for Add and a lock for edit */
+	.repcontrol .repcontrol_edit:after,
+	.repcontrol .repcontrol_add:after  {
+	 	color           : #111518;
+	 	font-family     : pictos;
+	    font-size       : 2.5em;}
+
+	.repcontrol .repcontrol_edit:after {
+		content: '(';
+	}
+
+	.repcontrol .repcontrol_add:after {
+		content: '&';
+	}
+
+	.editmode ~ .repcontrol .repcontrol_edit:after {
+		content: ')';
+	}
+
+	/* These are the buttons that appear after the repcontrol_edit is clicked*/
+	.itemcontrol {
+		z-index: 10;
+	}
+
+	.itemcontrol .repcontrol_del,
+	.itemcontrol .repcontrol_move {
+	    font-size: 18px;
+	    margin-top: 0px;
+	    padding: 0px;
+	    width: 15px;}
+
+	.itemcontrol .repcontrol_del {
+		background-color: darkred;
+		font-family: pictos;}
 
 /**********************************************************************************************************/
 /***************************                 ROLL TEMPLATE                           *********************/
