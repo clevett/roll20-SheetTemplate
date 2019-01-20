@@ -15,13 +15,14 @@
 		font-size: 0.8em;
 		text-shadow: none;}
 
-		button:before {display: none;}
-		button:hover {background-color: transparent;}
+	button:before {display: none;}
+	button:hover {background-color: transparent;}
 
-		button[type="roll"] {
-			font-size: 1em;
-			margin: 0px 0px 0px 0px;
-			padding: 0px 0px;}
+	button[type="roll"],
+	button[type="action"] {
+		font-size: 1em;
+		margin: 0px;
+		padding: 0px;}
 
 	div {
 		background-color: transparent;}
@@ -64,8 +65,21 @@
 		white-space: pre-line;}
 
 	.charsheet {
-		width: 850px;
-	}
+		width: 850px;}
+
+	input.sheet-whisper-toggle + button {
+		font-family: "pictos";}
+
+/**********************************************************************************************************/
+/***************************              HIGHLIGHT BUTTONS                    ***************************/
+/********************************************************************************************************/
+	input.sheet-whisper-toggle[value*="gm"] + button[name*="whisper"],
+	input.sheet-type[value="core"] ~ div.sheet-tabs button[name*="core"],
+	input.sheet-type[value="npc"] ~ div.sheet-tabs button[name*="npc"],
+	input.sheet-type[value="options"] ~ div.sheet-tabs button[name*="options"] {
+		color           : #fff;
+		background-color: #7b1915;
+		box-shadow      : inset 0px 0px 3px 1px #e31715;}
 
 /**********************************************************************************************************/
 /***************************                  FOOTER                           ***************************/

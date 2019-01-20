@@ -3,16 +3,15 @@
 <!--*********************************************************************************************************-->
 <input class="sheet_type" name="attr_sheet_type" type="hidden" value="pc">
 
+<input class="type" name="attr_sheet_type" type="hidden" value="core">
 <div class="tabs">
-	<!--- Toggles to whisper rolls to GM or roll in public --->
-	<div class="tab-whisper">
-		<input type="radio" name="attr_gm_toggle" value="" checked="checked" title="@{gm_toggle}" /><span>Public</span>
-		<input type="radio" name="attr_gm_toggle" value="/w gm" title="@{gm_toggle}" /><span>To GM</span>
-	</div>
-	<!--- Tabs that can be used to switch between different areas of the sheet --->
-	<div class="tab-toggles">			
-		<input type="radio" name="attr_tab" value="options" title="Sheet Options" checked="checked"/><span>y</span>
-	</div>
+	<img class="logo" src="https://raw.githubusercontent.com/clevett/Warhammer40kWrathnGlory/master/wrathglorylogo.png" />
+	<!-- Buttong to toggle on GM whisper -->
+	<input class="whisper-toggle" type="hidden" name="attr_gm_toggle" value=" " /><button type="action" name="act_whisper">q</button>
+	<!-- Buttons to change page view -->
+	<button type="action" name="act_sheet_toggle_core" data-i18n="core">Core</button>
+	<button type="action" name="act_sheet_toggle_options" data-i18n="options">Options</button>
+	<button type="action" name="act_sheet_toggle_npc" data-i18n="npc">NPC</button>
 </div>
 
 <!--*********************************************************************************************************-->
@@ -33,8 +32,13 @@
 <!--*********************************************************************************************************-->
 <div class="footer">
 	<span>Disclaimer</span>
-	<span> Version 0</span>
+	<span>Version </span><span name="attr_version"></span>
 </div>
+
+<!--*********************************************************************************************************-->
+<!--***************************          HIDDEN ATTRIBUTES                        ***************************-->
+<!--*********************************************************************************************************-->
+	<input type="hidden" name="attr_version" value="1" />
 
 <!--*********************************************************************************************************-->
 <!--***************************           ROLL TEMPLATE                           ***************************-->
@@ -65,4 +69,21 @@
 <!--***************************              SCRIPTS                              ***************************-->
 <!--*********************************************************************************************************-->
 <script type="text/worker">
+
+['sheet_toggle_core', sheet_toggle_options', 'sheet_toggle_npc'].forEach(attr => {
+on(`clicked:${attr}`, function(eventinfo) {
+		setAttrs({
+			sheet_type : eventinfo.triggerName.split("_")[2]
+		});
+	});
+});
+
+on("clicked:whisper", function(eventinfo) {
+	getAttrs(["gm_toggle"], function (v) {
+		setAttrs({
+			gm_toggle : (v.gm_toggle.includes("gm")) ?  " " : "/w gm"
+		}); 
+	});
+});
+
 </script>
