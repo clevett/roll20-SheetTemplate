@@ -24,6 +24,16 @@
 		margin: 0px;
 		padding: 0px;}
 
+	button[type="action"] {
+		background-color          : #ddd;
+		border-bottom             : 2px solid #666;
+		border-bottom-right-radius: 2px;
+		border-color              : #aaa;
+		border-radius             : 5px;
+		border-right              : 3px solid #999;
+		border-style              : outset;
+	}
+
 	div {
 		background-color: transparent;}
 
@@ -33,19 +43,21 @@
 	input[type="text"],
 	input[type="number"] {
 		background-color: transparent;
-		border          : none;}	
+		border          : none;}
 
-	input[type="checkbox"],
-	input[type="radio"],
-	input[type="checkbox"] + span,
-	input[type="radio"] + span {
-		position: relative;}	
+	input[type="text"]::-webkit-input-placeholder,
+	input[type="text"]::-moz-placeholder,
+	input[type="text"]::-ms-input-placeholder,
+	input[type="text"]::-moz-placeholder {
+		border: 1px dotted #FCD116;
+		font-variant: small-caps;
+		text-transform: uppercase;
+	}
 
-	input[type="checkbox"],
-	input[type="radio"] {
-		opacity: 0;
-	    z-index: 2;}
-
+	label {
+		margin-bottom: 0px;
+		padding-right: 0px;
+	}
 
 	span {
 		word-break: break-word;}
