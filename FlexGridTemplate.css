@@ -121,6 +121,7 @@
 	    justify-content : flex-start;
 	    max-width       : 100%;
 	    min-width       : 30em;
+	    vertical-align  : top;
 	    width           : 40%;
 	}
 
