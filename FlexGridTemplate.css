@@ -1,395 +1,215 @@
 /* GLOBAL SETTINGS
-   ============================= */
-	* {
-	    box-sizing: border-box;
-	    font-family: sans-serif;}
+    =============================  */
+* {
+  box-sizing: border-box;
+  font-family: sans-serif; }
 
-	button::before {display: none;}
-	button::hover {background-color: transparent;}
+button:before {
+  display: none; }
+button:focus, button:hover, button:active {
+  background-color: #79016f !important; }
+button:focus > h2, button:hover > h2, button:active > h2 {
+  color: whitesmoke;
+  text-shadow: 1px 1px 2px black, 0 0 25px rgba(136, 121, 190, 0.25), 0 0 5px #79016f; }
+button[type="roll"], button[type="action"] {
+  background-color: whitesmoke;
+  border-bottom: 0.01em solid #666;
+  border-bottom-right-radius: 0.01em;
+  border-color: #b3b3b3;
+  border-radius: 0.25em;
+  border-right: 0.02em solid #333333;
+  border-style: outset;
+  margin: 0.2em !important;
+  padding: 0.1em !important; }
 
-	button[type="roll"],
-	button[type="action"] {
-		background-color          : hsl(0, 0%, 96%);
-		border-bottom             : 0.01em solid #666;
-		border-bottom-right-radius: 0.01em;
-		border-color              : hsl(0, 0%, 70%);
-		border-radius             : 0.25em;
-		border-right              : 0.02em solid hsl(0, 0%, 20%);
-		border-style              : outset;
-		font-size                 : 1.2em !important;
-		margin                    : 0.2em !important;
-		padding                   : 0.1em !important;
-	}
+div {
+  background-color: transparent;
+  width: 100%; }
 
-	div {
-		background-color: transparent;
-		width: 100%;}
+fieldset {
+  background-color: transparent; }
 
-	fieldset {background: transparent;}
+h1 {
+  color: #79016f;
+  text-transform: uppercase; }
 
-	h1 {
-		font-size: 1.75em;
-		text-transform: uppercase;
-	}
+h2 {
+  font-size: 1em;
+  line-height: 1.4em; }
+  h2.sheet-alt-color {
+    color: #79016f; }
+  h2.sheet-label {
+    border-bottom: 0.15em solid black;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: center;
+    margin-left: 3%; }
 
+h3 {
+  font-size: 1.25em;
+  line-height: 36px; }
 
-	h2 {
-		font-size: 1.5em;
-	}
+input[type="text"], input[type="number"] {
+  background-color: transparent;
+  border-bottom: 0.15em solid black;
+  text-align: center;
+  border-left: 0em;
+  border-radius: 0em;
+  border-right: 0em;
+  border-top: 0em;
+  height: 2.1em; }
+input::placeholder {
+  background-color: rgba(136, 121, 190, 0.25);
+  border: 0.1em dotted #79016f; }
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
 
+label {
+  margin-bottom: 0px;
+  padding-right: 0px; }
 
-	h3 {
-		font-size: 1.25em;
-		line-height: 36px;
-	}
+span {
+  word-break: break-word; }
 
-	input[type="number"] {
-		text-align: center;
-	}
+textarea {
+  text-align: left;
+  border-bottom: 0.2em dotted #b9dadf;
+  font-size: 12px;
+  font-weight: normal;
+  height: 50px;
+  line-height: 18px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  padding: 2px;
+  resize: vertical;
+  vertical-align: top;
+  white-space: pre-line; }
 
-	input[type="text"],
-	input[type="number"] {
-		background-color: transparent;
-		border          : none;
-		border-bottom   : 0.15em solid hsl(0, 6%, 0%);
-		border-radius   : 0em;
-	}
-
-	input[type="text"]::placeholder,
-	input[type="number"]::placeholder {
-		background-color: hsla(0, 1%, 97%, 1);
-		border          : 0.1em dotted hsl(0, 0%, 20%);
-	}
-
-	input[type="text"]::-webkit-input-placeholder,
-	input[type="text"]::-moz-placeholder,
-	input[type="text"]::-ms-input-placeholder,
-	input[type="text"]::-moz-placeholder {
-		border        : 0.01 dotted #FCD116;
-		font-variant  : small-caps;
-		text-transform: uppercase;}
-
-	label {
-		margin-bottom: 0px;
-		padding-right: 0px;}
-
-	span {
-		word-break: break-word;}
-
-	textarea {
-		border-bottom : 1px dotted #FCD116;
-		font-size     : 12px;
-		font-weight   : normal;
-		height        : 50px;
-		line-height   : 18px;
-		overflow      : hidden;
-		overflow-wrap : break-word;
-		padding       : 2px;
-		resize        : vertical;
-		text-align    : left;
-		vertical-align: top;
-		white-space   : pre-line;}
-
-	.charsheet {
-		border   : 0.2em solid green; /* REMOVE THIS JUST TO SHOW BORDER */
-		min-width: 30em;
-	}
-
-
-	input.sheet-whisper-toggle + button {
-		font-family: "pictos";}
-
-/* SHARED SETTINGS
-   ============================= */
-	div.sheet-grid {
-		display        : grid;
-		grid-column-gap: 0.2em;
-		grid-row-gap   : 0.2em;
-	}
-
-	.sheet-pictos {
-		font-family: "pictos";
-	}
+.charsheet {
+  min-width: 30em; }
 
 /* FLEXBOX
    ============================= */
-	div.sheet-flex {
-	    align-items     : flex-start;
-	    display         : inline-flex;
-	    flex-direction  : row;
-	    flex-wrap       : wrap;
-	    justify-content : flex-start;
-	    max-width       : 100%;
-	    min-width       : 30em;
-	    vertical-align  : top;
-	    width           : 40%;
-	}
+div.sheet-flex {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 100%;
+  min-width: 410px;
+  vertical-align: top;
+  width: 45%; }
 
-	div.sheet-flex::first-child {
-		margin-right: 2%;
-	}
+div.sheet-flex:first-child {
+  margin-right: 0.5%; }
 
-	input.sheet-display_string[value="npc"] ~  div.sheet-npc-flex,
-	input.sheet-display_string[value="character"] ~  div.sheet-pc-flex {
-	    display         : inline-flex;
-	}
+input.sheet-display_string[value="npc"] ~ div.sheet-npc-flex,
+input.sheet-display_string[value="character"] ~ div.sheet-pc-flex {
+  display: inline-flex; }
 
-	div.sheet-pc-flex {
-		border: 0.2em dashed purple; /* REMOVE THIS JUST TO SHOW BORDER */
-	}
-
-	div.sheet-tabs div.sheet-flex {
-		border: 0.2em dashed #bf7fbf; /* REMOVE THIS JUST TO SHOW BORDER */
-	}
-
-/* DISPLAY SETTINGS
+/* GRID
    ============================= */
-/*	div.sheet-npc,
-	div.sheet-pc,
-	div.sheet-notes {
-		height: 1px;
-		width : 1px;
-	}
+div.sheet-grid {
+  display: inline-grid;
+  grid-column-gap: 0.2em;
+  grid-row-gap: 0.2em; }
 
-	input.sheet-display_string[value="character"] ~ div.sheet-pc,
-	input.sheet-display_string[value="npc"] ~ div.sheet-npc,
-	input.sheet-display_string[value="notes"] ~ div.sheet-notes,
-	input.sheet-display_string[value="options"] ~ div.sheet-options {
-		height: auto;
-		width: auto;
-	}*/
+div.sheet-grid-tab-input span {
+  grid-column: 1 / 1; }
+div.sheet-grid-tab-input label {
+  grid-column: 2 / 2; }
+div.sheet-grid-tab-input label[title="character name"],
+div.sheet-grid-tab-input span[data-i18n="character"] {
+  grid-row: 1 / 1; }
+div.sheet-grid-tab-input label[title="player name"],
+div.sheet-grid-tab-input span[data-i18n="player"] {
+  grid-row: 2 / 2; }
+div.sheet-grid-tab-input label[title="character notes"],
+div.sheet-grid-tab-input span[data-i18n="notes"] {
+  grid-row: 3 / 3; }
 
 /* HIGHLIGHT BUTTONS
    ============================= */
-	input.sheet-whisper-toggle[value*="gm"] + button[name*="whisper"],
-	input.sheet-display_string[value="character"] ~ div.sheet-tabs button[name*="character"],
-	input.sheet-display_string[value="npc"] ~ div.sheet-tabs button[name*="npc"],
-	input.sheet-display_string[value="notes"] ~ div.sheet-tabs button[name*="notes"],
-	input.sheet-display_string[value="options"] ~ div.sheet-tabs button[name*="options"] {
-		color           : #fff;
-		background-color: #7b1915;
-		box-shadow      : inset 0px 0px 3px 1px #e31715;}
+input.sheet-whisper-toggle[value*="gm"] + button[name*="whisper"],
+input.sheet-display_string[value="character"] ~ div.sheet-tabs button[name*="character"],
+input.sheet-display_string[value="npc"] ~ div.sheet-tabs button[name*="npc"],
+input.sheet-display_string[value="notes"] ~ div.sheet-tabs button[name*="notes"],
+input.sheet-display_string[value="options"] ~ div.sheet-tabs button[name*="options"] {
+  background-color: #79016f;
+  box-shadow: inset 0px 0px 3px 1px rgba(136, 121, 190, 0.25);
+  color: whitesmoke; }
 
 /* TABS & LOGO SECTION
    ============================= */
-	div.sheet-tabs {
-		margin-bottom: 2%;
-	}
+div.sheet-tabs {
+  margin-bottom: 2%; }
+  div.sheet-tabs label > input {
+    width: 100%; }
 
-	div.sheet-tabs label > input {
-		width: 100%;
-	}
+/* INPUTS FOR CHARACTER, PLAYER, NOTES..... */
+div.sheet-grid-tab-inputs {
+  grid-template-columns: 8em 73%; }
+  div.sheet-grid-tab-inputs span {
+    font-weight: bold;
+    text-transform: uppercase; }
 
-	/* INPUTS FOR CHARACTER, PLAYER, NOTES..... */
-	div.sheet-grid-tab-inputs {
-		grid-template-columns: 8em 67%;
-	}
-
-	div.sheet-grid-tab-input span {
-		font-weight   : bold;
-		grid-column   : 1;
-		text-transform: uppercase;
-	}
-
-	div.sheet-grid-tab-input label {
-		grid-column: 2;
-	}
-
-	div.sheet-grid-tab-input label[title="character name"],
-	div.sheet-grid-tab-input span[data-i18n="character"] {
-		grid-row: 1;
-	}
-
-	div.sheet-grid-tab-input label[title="player name"],
-	div.sheet-grid-tab-input span[data-i18n="player"] {
-		grid-row: 2;
-	}
-
-	div.sheet-grid-tab-input label[title="character notes"],
-	div.sheet-grid-tab-input span[data-i18n="notes"] {
-		grid-row: 3;
-	}
-
-	div.sheet-grid-tab-buttons {
-		grid-template-columns: 2.5em 5em 5em 5em;
-		margin-top           : 2%;
-	}
-
-	/* BUTTONS FOR GM WHISPER, PC, NPC.... */
-	div.sheet-grid-tab-buttons button {
-		grid-row: 1;
-	}
-
-	div.sheet-grid-tab-buttons button:nth-of-type(1n+2) {
-		font-variant: small-caps;
-	}
-
-	div.sheet-grid-tab-buttons button[name="act_whisper"] {
-		grid-column: 1;
-	}
-
-	div.sheet-grid-tab-buttons button[data-i18n="pc"] {
-		grid-column: 2;
-	}
-
-	div.sheet-grid-tab-buttons button[data-i18n="notes"] {
-		grid-column: 3;
-	}
-
-	div.sheet-grid-tab-buttons button[data-i18n="npc"] {
-		grid-column: 4;
-	}
-
+div.sheet-grid-tab-buttons {
+  grid-template-columns: 2.5em 5em 5em 5em;
+  margin-top: 2%; }
+  div.sheet-grid-tab-buttons button[name="act_whisper"] {
+    font-family: "pictos"; }
+  div.sheet-grid-tab-buttons button:nth-of-type(1n+2) {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-variant: small-caps; }
 
 /* NPC SHEET
-   ============================= */
-
-
+    ============================= */
 /* PC SHEET
    ============================= */
-   div.sheet-grid-header {
-   		grid-template-columns: 2em 1fr;
-   }
+div.sheet-grid-header {
+  grid-template-columns: 2em 1fr; }
+  div.sheet-grid-header button {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1; }
+  div.sheet-grid-header h1 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 1; }
 
-   div.sheet-grid-header button {
-		grid-column: 1;
-		grid-row   : 1;
-   }
+div.sheet-pc-flex {
+  border: 0.15em solid #79016f;
+  border-radius: 0.8em; }
 
-   div.sheet-grid-header h1 {
-		grid-column: 2 / 3;
-		grid-row   : 1;
-   }
+/* ATTRIBUTES
+----------------------------- */
+div.sheet-grid-pc-attributes {
+  grid-template-columns: 10em 1fr;
+  width: 48%; }
+  div.sheet-grid-pc-attributes span {
+    grid-column: 1 / 1; }
+  div.sheet-grid-pc-attributes label[title="edge points checkboxes"] {
+    grid-column: 2 / 2; }
+  div.sheet-grid-pc-attributes button {
+    grid-column: 1 / 1; }
+    div.sheet-grid-pc-attributes button[type="roll"] {
+      border-bottom-left-radius: 0em;
+      border-bottom-right-radius: 0em;
+      border-bottom: 0.15em solid black;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-transform: capitalize; }
+  div.sheet-grid-pc-attributes input[type="text"] {
+    width: 3.5em; }
 
-   div.sheet-grid-pc-attributes {
-   		grid-template-columns: 10em 1fr;
-   }
+      /* ATTRIBUTES
+   ----------------------------- 
 
 
 /* FOOTER
    ============================= */
-	div.sheet-footer {
-		border     : none;
-		font-size  : 0.55em;
-		line-height: 15px;
-		margin-top : 2%;
-		text-align : left;
-		width      : 100%;
-	}
 
-
-/* REPEATING SECTION
-   ============================= */
-	.repcontainer .repitem {
-
-	};
-
-	/* This will make the Add & Modify words transparent so that only our symbols below show up */
-	 button.btn.repcontrol_add,
-	 button.btn.repcontrol_edit  {
-	 	color: transparent;
-	 }
-
-	 /* This will put icons next to the buttons. A `+` for Add and a lock for edit */
-	.repcontrol .repcontrol_edit:after,
-	.repcontrol .repcontrol_add:after  {
-	 	color           : #111518;
-	 	font-family     : pictos;
-	    font-size       : 2.5em;}
-
-	.repcontrol .repcontrol_edit:after {
-		content: '(';
-	}
-
-	.repcontrol .repcontrol_add:after {
-		content: '&';
-	}
-
-	.editmode ~ .repcontrol .repcontrol_edit:after {
-		content: ')';
-	}
-
-	/* These are the buttons that appear after the repcontrol_edit is clicked*/
-	.itemcontrol {
-		z-index: 10;
-	}
-
-	.itemcontrol .repcontrol_del,
-	.itemcontrol .repcontrol_move {
-	    font-size: 18px;
-	    margin-top: 0px;
-	    padding: 0px;
-	    width: 15px;}
-
-	.itemcontrol .repcontrol_del {
-		background-color: darkred;
-		font-family: pictos;}
-
-/* ROLL TEMPLATE
-   ============================= */
-	.sheet-rolltemplate-rolls {
-
-	}
-
-	.sheet-rolltemplate-rolls .sheet-template-body {
-		border    : 1px solid #000;
-		text-align: center;
-	}
-
-	.sheet-rolltemplate-rolls .sheet-template-header {
-		background-color: white;
-		border          : 1px solid #000;
-		border-bottom   : 2px solid #000;
-		color           : black;
-		font-size       : 20px;
-		font-variant    : small-caps;
-		letter-spacing  : 2px;
-		padding         : 4px 0px 3px 0px;
-		text-align      : center;
-		text-transform  : capitalize;
-	}
-
-	.sheet-rolltemplate-rolls .sheet-template-row {
-		background-color: #555;
-	}
-
-	/* Use this to alternate the background colors for each row */
-	.sheet-rolltemplate-rolls .sheet-template-row:nth-child(2n+0) {
-		background-color: #1c1c1c;
-	}
-
-	/* Remove some fo the built in styles around rolls */
-	.sheet-rolltemplate-rolls .inlinerollresult {
-		background-color: transparent;
-		border          : none;
-		color           : black;
-		display         :inline-block;
-		font-size       : 25px;
-		padding         : 5px;
-	}
-
-	.sheet-rolltemplate-rolls .inlinerollresult.fullfail,
-	.sheet-rolltemplate-rolls .inlinerollresult.fullcrit,
-	.sheet-rolltemplate-rolls.inlinerollresult.importantroll {
-		border: none;
-	}
-
-	/* Change the colors of Full Fails & Full Crits from their built in defaults */
-	.sheet-rolltemplate-rolls .inlinerollresult.fullfail {
-		color: white;
-	}
-
-	.sheet-rolltemplate-rolls .inlinerollresult.fullcrit {
-		color: white;
-	}
-
-
-/* FIREFOX
-   ============================= */
-	input[type=number]::-webkit-outer-spin-button,
-	input[type=number]::-webkit-inner-spin-button {
-	    -webkit-appearance: none;
-	    margin: 0;}
-
-	input[type=number] {
-	    -moz-appearance:textfield;}
+/*# sourceMappingURL=FlexGridTemplate.css.map */

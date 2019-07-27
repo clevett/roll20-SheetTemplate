@@ -14,10 +14,10 @@
 	$dark-font   : #000;
 
 // IMPORTS
-//   =============================
+//  =============================
 
 // MIXINS
-//   =============================
+//  =============================
    
 	@mixin grid-column($start, $end){
 		grid-column: #{$start} / #{$end};
@@ -27,6 +27,15 @@
    		grid-row: #{$start} / #{$end};
 	}
 
+// EXTENDS
+//   =============================
+	.back-trans {
+		background-color: transparent;
+	}
+
+	.uppercase {
+		text-transform: uppercase;
+	}
 
 /* GLOBAL SETTINGS
     =============================  */
@@ -36,7 +45,10 @@
 	}
 
 	button::before {display: none;}
-	button::hover {background-color: transparent;}
+	button::hover {
+		@extend %back-trans
+		background-position: 0;
+	}
 
 	button[type="roll"],
 	button[type="action"] {
@@ -53,7 +65,7 @@
 	}
 
 	div {
-		background: transparent;
+		@extend %back-trans;
 		width: 100%;
 	}
 
@@ -63,7 +75,7 @@
 
 	h1 {
 		color: $purple;
-		text-transform: uppercase;
+		@extend %uppercase
 	}
 
 	h2 {
@@ -83,7 +95,7 @@
 
 	input[type="text"],
 	input[type="number"] {
-		background-color: transparent;
+		@extend %back-trans;
 		border          : none;
 		border-bottom   : 0.15em solid hsl(0, 6%, 0%);
 		border-radius   : 0em;

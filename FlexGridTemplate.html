@@ -54,10 +54,13 @@
 			<h1 data-i18n="attributes" data-i18-title="attributes" title="attributes">attributes</h1>
 		</div>
 		<div class="grid grid-pc-attributes">
-			<button data-i18n="strength" type="roll" value="@{gm_toggle} &{template:rolls}{{header=Title}}{{dice=[[1d20]]}}{{desc=Some Text}}">
-				Strength
+			<!-- STRENGHT -->
+			<button name="roll_strength" type="roll" value="@{gm_toggle} &{template:rolls}{{header=^{strength}}}{{base=^{attributes}}}{{dice=[[(@{strength}+(@{attribute_roll})+@{wound_toggle}+@{modifier_toggle}+@{edge_toggle})d6>5@{explode_toggle}]]}}{{mod=[[@{modifier_toggle}]]}}{{wound=[[@{wound_toggle}]]}}{{edge=[[@{edge_toggle}]]}}">
+				<h2 data-i18n="strength">strength</h2>
 			</button>
-			<input data-i18n-placeholder="10" name="attr_strength" placeholder="10" title="@{strength}" type="text" value="" />
+			<label data-i18n-title="s11t" title="strength input">
+				<input data-i18n-placeholder="10" name="attr_strength" placeholder="10" title="@{strength}" type="number" value="" />
+			</label>
 		</div>
 	</div>
 	<div class="flex pc-flex">
@@ -79,10 +82,10 @@
 
 <!-- FOOTER
    ============================= -->
-<div class="footer">
+<footer>
 	<span>Disclaimer</span>
 	<span>Version </span><span name="attr_version"></span>
-</div>
+</footer>
 
 <!-- HIDDEN ATTRIBUTES
    ============================= -->
