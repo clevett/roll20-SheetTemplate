@@ -19,12 +19,8 @@
         background-color: $color;
     }
 
-    @mixin grid-column($start, $end){
-        grid-column: #{$start} / #{$end};
-    }
-
-   @mixin grid-row($start, $end){
-        grid-row: #{$start} / #{$end};
+    @mixin grid-area($cstart, $cend, $rstart, $rend) {
+        grid-area: #{$rstart} / #{$cstart} / #{$rend} / #{$cend};
     }
 
     @mixin text-trans($transform){
@@ -44,7 +40,6 @@
         font-weight   : bold;
         text-transform: capitalize;
     }
-
 
 /* GLOBAL SETTINGS
     =============================  */
@@ -202,28 +197,14 @@
         grid-row-gap   : 0.2em;
     }
 
-    div.sheet-grid-tab-input {
-        span {
-            @include grid-column(1, 1);
-        }
-
-        label {
-            @include grid-column(2, 2);
-        }
-
-        label[title="character name"],
-        span[data-i18n="character"] {
-            @include grid-row(1, 1);
-        }
-
-        label[title="player name"],
-        span[data-i18n="player"] {
-            @include grid-row(2, 2);
-        }
-
-        label[title="character notes"],
-        span[data-i18n="notes"] {
-            @include grid-row(3, 3);
+    div.sheet-grid-tab-inputs {
+        @for $i from 1 through 3 {
+            label:nth-of-type(#{$i})  {
+                @include grid-area(2, 2, $i, $i);
+            }
+            span:nth-of-type(#{$i})  {
+                @include grid-area(1, 1, $i, $i);
+            }
         }
     }
 
@@ -283,13 +264,11 @@
         grid-template-columns: 2em 1fr;
 
        button {
-            @include grid-column(1, 1);
-            @include grid-row(1, 1);
+           @include grid-area(1, 1, 1, 1);
        }
 
        h1 {
-            @include grid-column(2, 3);
-            @include grid-row(1, 1);
+           @include grid-area(2, 3, 1, 1);
        }
    }
 
@@ -305,16 +284,7 @@
         grid-template-columns: 10em 1fr;
         width: 48%;
 
-        span {
-            @include grid-column(1, 1);
-        }
-
-        label[title="edge points checkboxes"] {
-            @include grid-column(2, 2);
-        }
-
         button {
-            @include grid-column(1, 1);
             &[type="roll"] {
                 border-bottom : {
                     left-radius : 0em;
