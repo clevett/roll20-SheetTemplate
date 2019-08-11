@@ -123,27 +123,39 @@ const setAttributes = (update, silent) => {
 	(silent === true) ? setAttrs(update, {silent:true}) : setAttrs(update); 
 };
 
-// === SETTINGS TOGGLES
-	const sheets = ["character", "npc", "notes"];
+// === ATTRIBUTE ARRAYS
+	const arrays = {
+		attributes: ["agility", "body", "charisma", "edge", "intuition", "logic", "strength", "willpower" ], //EXAMPLE
+		repeating_settings: [],
+		sheets: ["character", "npc", "notes"], //EXAMPLE
+		toggles: ["attributes"]
+	};
 
+// === SETTINGS TOGGLES
     //Switch between sheet types.
-    sheets.forEach(attr => {
+    arrays["sheets"].forEach(attr => {
         on(`clicked:toggle_${attr}`, (eventinfo) => {
-            let update = {
-				character_settings: eventinfo.triggerName.split("_")[1]
-			};
-			setAttributes(update, true);
+        	setAttributes({sheet_type: `${attr}`}, true);
+        });
+    });
+
+// === TOGGLE INPUT SETTINGS
+    arrays["toggles"].forEach(attr => {
+        on(`clicked:toggle_${attr}`, () => {
+        	getAttrs(["toggles"], (v) => {
+                let string = (v["toggles"].includes(`${attr}`)) ? v["toggles"].replace(`${attr},`, "") : `${v["toggles"]}${attr},`;
+                setAttributes({toggles: string}, true);
+        	});
         });
     });
 
 // === GM WHISPER TOGGLES
 	on("clicked:whisper", (eventinfo) => {
 		getAttrs(["gm_toggle"], (v) => {
-			setAttrs({
-				gm_toggle : (v.gm_toggle.includes("gm")) ?  " " : "/w gm"
-			}); 
+			setAttributes({gm_toggle: (v.gm_toggle.includes("gm")) ?  " " : "/w gm"}, true);
 		});
 	});
+
 
 // === SHEET VERSIONING
 	on("sheet:opened", () => {
