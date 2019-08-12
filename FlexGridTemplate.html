@@ -143,11 +143,17 @@ const setAttributes = (update, silent) => {
     arrays["toggles"].forEach(attr => {
         on(`clicked:toggle_${attr}`, () => {
         	getAttrs(["toggles"], (v) => {
-                let string = (v["toggles"].includes(`${attr}`)) ? v["toggles"].replace(`${attr},`, "") : `${v["toggles"]}${attr},`;
+ 				let string = toggleBuilder(attr, v["toggles"]);
                 setAttributes({toggles: string}, true);
         	});
         });
     });
+
+// === UPDATE TOGGLE STRING
+	const toggleBuilder = (attr, oldString) => {
+        let newString = (oldString.includes(`${attr}`)) ? oldString.replace(`${attr},`, "") : `${oldString}${attr},`;
+        return newString
+	};
 
 // === GM WHISPER TOGGLES
 	on("clicked:whisper", (eventinfo) => {
