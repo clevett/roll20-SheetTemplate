@@ -7,6 +7,7 @@
 button:before {
   display: none; }
 button:focus, button:hover, button:active {
+  background: none;
   background-color: #79016f !important; }
 button:focus > h2, button:hover > h2, button:active > h2 {
   color: whitesmoke;
@@ -106,9 +107,19 @@ div.sheet-flex {
 div.sheet-flex:first-child {
   margin-right: 0.5%; }
 
-input.sheet-display_string[value="npc"] ~ div.sheet-npc-flex,
-input.sheet-display_string[value="character"] ~ div.sheet-pc-flex {
+div.sheet-npc-flex,
+div.sheet-pc-flex {
   display: inline-flex; }
+
+/* HIDE DIFFERENT SHEET TYPES BY DEFAULT
+   ============================= */
+div.sheet-npc,
+div.sheet-pc {
+  display: none; }
+
+input.sheet-type[value="npc"] ~ div.sheet-npc,
+input.sheet-type[value="character"] ~ div.sheet-pc {
+  display: block; }
 
 /* GRID
    ============================= */
@@ -133,10 +144,10 @@ div.sheet-grid-tab-inputs span:nth-of-type(3) {
 /* HIGHLIGHT BUTTONS
    ============================= */
 input.sheet-whisper-toggle[value*="gm"] + button[name*="whisper"],
-input.sheet-display_string[value="character"] ~ div.sheet-tabs button[name*="character"],
-input.sheet-display_string[value="npc"] ~ div.sheet-tabs button[name*="npc"],
-input.sheet-display_string[value="notes"] ~ div.sheet-tabs button[name*="notes"],
-input.sheet-display_string[value="options"] ~ div.sheet-tabs button[name*="options"] {
+input.sheet-type[value="character"] ~ div.sheet-tabs button[name*="character"],
+input.sheet-type[value="npc"] ~ div.sheet-tabs button[name*="npc"],
+input.sheet-type[value="notes"] ~ div.sheet-tabs button[name*="notes"],
+input.sheet-type[value="options"] ~ div.sheet-tabs button[name*="options"] {
   background-color: #79016f;
   box-shadow: inset 0px 0px 3px 1px rgba(136, 121, 190, 0.25);
   color: whitesmoke; }
@@ -165,6 +176,11 @@ div.sheet-grid-tab-buttons {
     font-weight: bold;
     text-transform: capitalize;
     font-variant: small-caps; }
+
+/* GENERIC CLASSES
+    ============================= */
+.sheet-pictos {
+  font-family: "pictos"; }
 
 /* NPC SHEET
     ============================= */
@@ -195,10 +211,6 @@ div.sheet-grid-pc-attributes {
     text-transform: capitalize; }
   div.sheet-grid-pc-attributes input[type="text"] {
     width: 3.5em; }
-
-      /* ATTRIBUTES
-   ----------------------------- 
-
 
 /* FOOTER
    ============================= */

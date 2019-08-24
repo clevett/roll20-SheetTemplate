@@ -55,6 +55,7 @@
         &:focus,
         &:hover,
         &:active {
+            background: none;
             background-color: $accent1 !important;
         }
 
@@ -184,9 +185,22 @@
         margin-right: 0.5%;
     }
 
-    input.sheet-display_string[value="npc"] ~  div.sheet-npc-flex,
-    input.sheet-display_string[value="character"] ~  div.sheet-pc-flex {
+    div.sheet-npc-flex,
+    div.sheet-pc-flex {
         display: inline-flex;
+    }   
+
+
+/* HIDE DIFFERENT SHEET TYPES BY DEFAULT
+   ============================= */ 
+    div.sheet-npc,
+    div.sheet-pc {
+        display: none;
+    }   
+
+    input.sheet-type[value="npc"] ~  div.sheet-npc,
+    input.sheet-type[value="character"] ~  div.sheet-pc {
+        display: block;
     }   
 
 /* GRID
@@ -211,10 +225,10 @@
 /* HIGHLIGHT BUTTONS
    ============================= */
     input.sheet-whisper-toggle[value*="gm"] + button[name*="whisper"],
-    input.sheet-display_string[value="character"] ~ div.sheet-tabs button[name*="character"],
-    input.sheet-display_string[value="npc"] ~ div.sheet-tabs button[name*="npc"],
-    input.sheet-display_string[value="notes"] ~ div.sheet-tabs button[name*="notes"],
-    input.sheet-display_string[value="options"] ~ div.sheet-tabs button[name*="options"] {
+    input.sheet-type[value="character"] ~ div.sheet-tabs button[name*="character"],
+    input.sheet-type[value="npc"] ~ div.sheet-tabs button[name*="npc"],
+    input.sheet-type[value="notes"] ~ div.sheet-tabs button[name*="notes"],
+    input.sheet-type[value="options"] ~ div.sheet-tabs button[name*="options"] {
         @include back-col($accent1);
         box-shadow: inset 0px 0px 3px 1px $accent2;
         color     : $white;
@@ -253,6 +267,12 @@
                 font-variant: small-caps;
             }
         }
+    }
+
+/* GENERIC CLASSES
+    ============================= */
+    .sheet-pictos {
+        font-family: $pictos;
     }
 
 /* NPC SHEET
@@ -299,10 +319,6 @@
             width: 3.5em;
         }
    }
-
-
-      /* ATTRIBUTES
-   ----------------------------- 
 
 
 /* FOOTER
