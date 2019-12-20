@@ -1,0 +1,236 @@
+// COLORS
+//  ============================= *
+    $accent1  : hsl(305, 98%, 24%);
+    $accent2  : hsla(253, 35%, 61%, 0.25);
+    $accent3  : #b9dadf;
+    $black    : hsl(0, 6%, 0%);
+    $dark-font: #000;
+    $gray     : #4c4c4c;
+    $transparentGray: hsla(0, 0%, 30%, 0.0784313725490196);
+    $white    : hsl(0, 0%, 96%);
+
+
+/* GLOBAL SETTINGS
+    =============================  */
+    * {
+        box-sizing: border-box;
+        font-family: sans-serif;
+    }
+
+    button {
+        &:before {
+            display: none;
+        }
+        &:focus,
+        &:hover,
+        &:active {
+            background: none;
+            background-color: $accent1 !important;
+        }
+
+        &:focus > h2,
+        &:hover > h2,
+        &:active > h2 {
+            color: $white;
+            text-shadow: 1px 1px 2px $black, 0 0 25px $accent2, 0 0 5px $accent1
+        }
+        &[type="roll"],
+        &[type="action"] {
+            background-color: $white;
+            border: {
+                bottom             : 0.01em solid #666;
+                bottom-right-radius: 0.01em;
+                color              : hsl(0, 0%, 70%);
+                radius             : 0.25em;
+                right              : 0.02em solid hsl(0, 0%, 20%);
+                style              : outset;
+            }
+            margin: 0.2em !important;
+            padding: 0.1em !important;
+        }
+    }
+
+    div {
+        background-color: transparent;
+        width: 100%;
+    }
+
+    fieldset {
+        background-color: transparent;
+    }
+
+    h1 {
+        color: $gray;
+    }
+
+    h2 {
+        font-size: 1em;
+        line-height: 1.4em;
+        &.sheet-alt-color {
+            color: $accent1;
+        }
+        &.sheet-label {
+            border-bottom: 0.15em solid $black;
+            text-align: center;
+            margin-left: 3%;
+        }
+    }
+
+    h3 {
+        font-size: 1.25em;
+        line-height: 36px;
+    }
+
+    input {
+        &[type="text"],
+        &[type="number"] {
+            background-color: transparent;
+            border-bottom: 0.15em solid $black;
+            text-align: center;
+
+            border: {
+                left  : 0em;
+                radius: 0em;
+                right : 0em;
+                top   : 0em;
+            };
+            height       : 2.1em;
+            width: 100%;
+        }
+        &::placeholder {
+            background-color: $accent2;
+            border: 0.1em dotted $accent1;
+        }
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+    }
+
+    label {
+        margin-bottom: 0px;
+        padding-right: 0px;
+    }
+
+    select {
+        width: 100%;
+    }
+
+    span {
+        word-break: break-word;
+    }
+
+    textarea {
+        text-align: left;
+        border-bottom : 0.2em dotted $accent3;
+        font-size     : 12px;
+        font-weight   : normal;
+        height        : 50px;
+        line-height   : 18px;
+        overflow      : hidden;
+        overflow-wrap : break-word;
+        padding       : 2px;
+        resize        : vertical;
+        vertical-align: top;
+        white-space   : pre-line;
+    }
+
+    .charsheet {
+        min-width: 30em;
+    }
+
+/* HIDE DIFFERENT SHEET TYPES BY DEFAULT
+   ============================= */ 
+    div.sheet-npc,
+    div.sheet-pc {
+        display: none;
+    }   
+
+    input.sheet-type[value="npc"] ~  div.sheet-npc,
+    input.sheet-type[value="character"] ~  div.sheet-pc {
+        display: block;
+    }   
+
+/* GRID
+   ============================= */ 
+    div.sheet-grid {
+        display        : inline-grid;
+        grid-column-gap: 1%;
+        grid-row-gap   : 0.5%;
+    }
+
+
+/* GENERIC CLASSES
+    ============================= */
+    div.sheet-background {
+        background-color: $transparentGray;
+    }
+
+    .sheet-border {
+        border: 0.15em solid $gray;
+    }
+
+    .sheet-bottom-border {
+        border-bottom: 0.2em solid $black;
+    }
+
+    .sheet-pictos {
+        font-family: "pictos";
+    }
+    
+/* The switch - the box around the slider */
+.sheet-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.sheet-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.sheet-slider {
+  -webkit-transition: .4s;
+  background-color: #ccc;
+  border-radius: 34px;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.sheet-slider:before {
+  -webkit-transition: .4s;
+  background-color: white;
+  border-radius: 50%;
+  bottom: 4px;
+  content: "";
+  height: 16px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 16px;
+}
+
+input:checked + .sheet-slider {
+  background-color: black;
+}
+
+input:focus + .sheet-slider {
+  box-shadow: 0 0 1px black;
+}
+
+input:checked + .sheet-slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
