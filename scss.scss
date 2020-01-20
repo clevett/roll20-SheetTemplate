@@ -1,9 +1,9 @@
 // COLORS
 //  ============================= *
-    $accent1  : hsl(305, 98%, 24%);
-    $accent2  : hsla(253, 35%, 61%, 0.25);
-    $accent3  : #b9dadf;
-    $black    : hsl(0, 6%, 0%);
+    $primary: #226aae;
+    $secondary  : hsl(0, 6%, 0%);
+    $light  : #fefcea;
+    $dark    : hsl(0, 6%, 0%);
     $dark-font: #000;
     $gray     : #4c4c4c;
     $transparentGray: hsla(0, 0%, 30%, 0.0784313725490196);
@@ -25,14 +25,14 @@
         &:hover,
         &:active {
             background: none;
-            background-color: $accent1 !important;
+            background-color: $primary !important;
         }
 
         &:focus > h2,
         &:hover > h2,
         &:active > h2 {
             color: $white;
-            text-shadow: 1px 1px 2px $black, 0 0 25px $accent2, 0 0 5px $accent1
+            text-shadow: 1px 1px 2px $dark, 0 0 25px $secondary, 0 0 5px $primary
         }
         &[type="roll"],
         &[type="action"] {
@@ -61,16 +61,17 @@
 
     h1 {
         color: $gray;
+        text-transform: capitalize;
     }
 
     h2 {
         font-size: 1em;
         line-height: 1.4em;
         &.sheet-alt-color {
-            color: $accent1;
+            color: $primary;
         }
         &.sheet-label {
-            border-bottom: 0.15em solid $black;
+            border-bottom: 0.15em solid $dark;
             text-align: center;
             margin-left: 3%;
         }
@@ -85,7 +86,7 @@
         &[type="text"],
         &[type="number"] {
             background-color: transparent;
-            border-bottom: 0.15em solid $black;
+            border-bottom: 0.15em solid $dark;
             text-align: center;
 
             border: {
@@ -98,8 +99,8 @@
             width: 100%;
         }
         &::placeholder {
-            background-color: $accent2;
-            border: 0.1em dotted $accent1;
+            background-color: $light;
+            border: 0.1em dotted $primary;
         }
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
@@ -123,7 +124,7 @@
 
     textarea {
         text-align: left;
-        border-bottom : 0.2em dotted $accent3;
+        border-bottom : 0.2em dotted $light;
         font-size     : 12px;
         font-weight   : normal;
         height        : 50px;
@@ -172,11 +173,15 @@
     }
 
     .sheet-bottom-border {
-        border-bottom: 0.2em solid $black;
+        border-bottom: 0.2em solid $dark;
     }
 
     .sheet-pictos {
         font-family: "pictos";
+    }
+
+    .sheet-text-center {
+        text-align: center;
     }
     
 /* The switch - the box around the slider */
