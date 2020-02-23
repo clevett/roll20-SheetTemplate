@@ -1,5 +1,7 @@
 /* GLOBAL SETTINGS
     =============================  */
+/* GLOBAL SETTINGS
+    =============================  */
 * {
   box-sizing: border-box;
   font-family: sans-serif; }
@@ -121,6 +123,8 @@ div.sheet-grid {
 
 /* GENERIC CLASSES
     ============================= */
+/* GENERIC CLASSES
+    ============================= */
 div.sheet-background {
   background-color: rgba(77, 77, 77, 0.07843); }
 
@@ -205,6 +209,8 @@ div.sheet-header, .sheet-rolltemplate-rolls div.sheet-template-container div.she
   width: 0;
   height: 0; }
 
+/*  SWITCH
+    ============================= */
 /*  SWITCH
     ============================= */
 .sheet-switch {
