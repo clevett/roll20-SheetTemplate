@@ -1,5 +1,9 @@
 input(name='attr_version' type='hidden' value='1')
 
+//- INCLUDES
+  =============================
+include src/pug/mixins.pug
+
 //- TABS
   =============================
 input.type(name='attr_sheet_type', type='hidden', value='character')
@@ -14,16 +18,12 @@ input.display_string(name='attr_character_settings', type='hidden', value='')
   .flex.info-flex
     .grid.grid-tab-inputs
       // INFO INPUTS
-      // data-i18n is for translating to multiple languages
-      span(data-i18n='character') character
-      label(data-i18n-title='', title='character name')
-        input(data-i18n-placeholder='character-name', name='attr_character_name', placeholder='character name', title='@{character_name}', type='text', value='')
-      span(data-i18n='player') player
-      label(data-i18n-title='player-name', title='player name')
-        input(data-i18n-placeholder='', name='attr_player_name', placeholder='player name', title='@{player_name}', type='text', value='')
-      span(data-i18n='notes') notes
-      label(data-i18n-title='', title='character notes')
-        input(data-i18n-placeholder='character-notes', name='attr_character_notes', placeholder='character notes', title='@{character_notes}', type='text', value='')
+      h1(data-i18n='character') character
+      +textInput('character_name')
+      h1(data-i18n='player') player
+      +textInput('player_name'
+      h1(data-i18n='notes') notes
+      +textInput('character_notes')
     .grid.grid-tab-buttons
       // Buttons to toggle on GM whisper
       input.whisper-toggle(name='attr_gm_toggle', type='hidden', value=' ')
@@ -87,7 +87,7 @@ input(name='attr_version', type='hidden', value='1')
     .sheet-template-body
       | {{#dice}}
       .sheet-template-row {{dice}}
-      | {{/dice}}
+      | {/dice}}
       // - Display a description. This is great for text included with a roll -
       | {{#desc}}
       .sheet-template-row
