@@ -21,7 +21,7 @@ input.display_string(name='attr_character_settings', type='hidden', value='')
       h1(data-i18n='character') character
       +textInput('character_name')
       h1(data-i18n='player') player
-      +textInput('player_name'
+      +textInput('player_name')
       h1(data-i18n='notes') notes
       +textInput('character_notes')
     .grid.grid-tab-buttons
@@ -95,4 +95,5 @@ input(name='attr_version', type='hidden', value='1')
       | {{/desc}}
 
 //- SCRIPTS
-include src/pug/scripts.js
+script(type="text/worker")
+  include src/js/scripts.js
