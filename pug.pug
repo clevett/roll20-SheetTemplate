@@ -2,7 +2,7 @@ input(name='attr_version' type='hidden' value='1')
 
 //- VARIABLES
   =============================
-- const characteristics = ['strength', 'dexterity', 'intelligence', 'wisdom', 'charisma'];
+- const abilities = ['strength', 'dexterity', 'intelligence', 'wisdom', 'charisma'];
 - const skillList = ['acrobatics','athletics','awareness', 'charm', 'command', 'commerce','intimidate', 'logic'];
 
 //- INCLUDES
@@ -35,12 +35,12 @@ input.display_string(name='attr_character_settings' type='hidden' value='')
     .row.text-center
       h1(data-i18n='characteristics')
     .row.grid.5column
-      each val in characteristics
+      each val in abilities
         .col.grid
           .row.text-center
             h2.small-caps(data-i18n=val)
     .row.grid.5column
-      each val in characteristics
+      each val in abilities
         .col
           +numberInput(val)
 
@@ -49,9 +49,10 @@ input.display_string(name='attr_character_settings' type='hidden' value='')
       .row
         h1.text-center(data-i18n='skills')
       each val in skillList
-        .row.2autocolumn
-          h2(data-i18n=name)
+        .row.grid.3columnbutton
+          h2(data-i18n=val)
           +numberInput(val)
+          button.d20(name='' type='roll' value!='') b
     .col.inline-block
       .row
         h1.text-center(data-i18n='traits')
