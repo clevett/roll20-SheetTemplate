@@ -220,6 +220,11 @@
         text-transform: uppercase;
     }
 
+    .sheet-text-vertical {
+        transform: rotate(180deg);
+        writing-mode: vertical-lr;
+    }
+
     .sheet-text-capitalize {
         text-transform: capitalize;
     }
