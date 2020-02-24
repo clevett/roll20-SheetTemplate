@@ -140,6 +140,11 @@ div.sheet-background {
 .sheet-d20 {
   font-family: "dicefontd20"; }
 
+.sheet-eclipse {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
 .sheet-font-weight-bold {
   font-weight: bold; }
 
@@ -193,8 +198,13 @@ span.sheet-display {
   border-bottom: 2px dotted black;
   padding-top: 3%; }
 
-div.sheet-repeating-container button {
-  font-variant: none; }
+input.sheet-toggles {
+  position: relative;
+  opacity: 0;
+  z-index: 2; }
+  input.sheet-toggles:checked + span {
+    color: #79016f;
+    margin-left: 5%; }
 
 div.sheet-header, .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-header {
   margin-top: 2%;
@@ -224,7 +234,28 @@ div.sheet-pc {
   div.sheet-pc div.sheet-row {
     display: inline-grid; }
   div.sheet-pc div.sheet-skill-traits div.sheet-inline-block {
-    width: 48%; }
+    width: 49%; }
+  div.sheet-pc div.sheet-skill-traits div.sheet-repeating-container div.sheet-rowx {
+    grid-template-columns: 1fr 2em 2em; }
+  div.sheet-pc div.sheet-skill-traits input[name='attr_collapse'],
+  div.sheet-pc div.sheet-skill-traits input[name='attr_collapse'] + span {
+    grid-area: 1 / 2 / 1 / 2; }
+  div.sheet-pc div.sheet-skill-traits input[name='attr_settings'],
+  div.sheet-pc div.sheet-skill-traits input[name='attr_settings'] + span {
+    grid-area: 1 / 3 / 1 / 3; }
+  div.sheet-pc div.sheet-skill-traits div.sheet-collapse,
+  div.sheet-pc div.sheet-skill-traits div.sheet-settings {
+    grid-column: 1 / 4; }
+
+/*  SHOW & HIDE SECTIONS
+    ============================= */
+div.sheet-collapse,
+.sheet-settings {
+  display: none; }
+
+input[name='attr_collapse']:checked ~ div.sheet-collapse,
+input[name='attr_settings']:checked ~ div.sheet-settings {
+  display: block; }
 
 /*  SWITCH
     ============================= */

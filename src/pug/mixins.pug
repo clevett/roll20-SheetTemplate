@@ -14,9 +14,13 @@ mixin checkboxInput(name)
 		input(name=`attr_${attrName}` title=`@{${attrName}}` type='checkbox' value=name)
 		span.pictos 3
 
+mixin checkboxSymbol (name, symbol)
+	- const attrName = name.replace(/ /g, '_');
+	input.toggles(name=`attr_${name}` title=`@{${name}}` type='checkbox' value=name)
+	span.toggles.pictos #{symbol}
+
 mixin textarea(name)
 	textarea(name=`attr_${name}` placeholder=name)
-
 
 mixin rollButton(name)
 	- const attrName = name.replace(/ /g, '-');

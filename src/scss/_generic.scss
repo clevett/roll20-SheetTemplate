@@ -19,6 +19,12 @@
     .sheet-d20 {
         font-family: "dicefontd20";
     }
+    
+    .sheet-eclipse {
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        white-space: nowrap;  
+    }
 
     .sheet-font-weight-bold {
         font-weight: bold;
