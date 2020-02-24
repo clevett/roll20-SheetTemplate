@@ -20,28 +20,33 @@
         font-family: "dicefontd20";
     }
 
-    .sheet-text-center {
-        text-align: center;
-    }
-    
-    .sheet-text-right {
-        text-align: right;
-    }
-
     .sheet-font-weight-bold {
         font-weight: bold;
+    }
+
+    .sheet-text-capitalize {
+        text-transform: capitalize;
+    }
+
+    .sheet-text-center {
+        text-align: center;
     }
 
     .sheet-text-primary {
         color: $primary;
     }
 
-    .sheet-text-uppercase {
-        text-transform: uppercase;
+    .sheet-text-right {
+        text-align: right;
     }
 
-    .sheet-text-capitalize {
-        text-transform: capitalize;
+    .sheet-text-vertical {
+        transform: rotate(180deg);
+        writing-mode: vertical-lr;
+    }
+
+    .sheet-text-uppercase {
+        text-transform: uppercase;
     }
 
     div.sheet-2column {
