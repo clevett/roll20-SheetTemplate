@@ -6,33 +6,33 @@ include src/pug/mixins.pug
 
 //- TABS
   =============================
-input.type(name='attr_sheet_type', type='hidden', value='character')
-input.display_string(name='attr_character_settings', type='hidden', value='')
+input.type(name='attr_sheet_type' type='hidden' value='character')
+input.display_string(name='attr_character_settings' type='hidden' value='')
 
 //- TABS & LOGO
   =============================
 .tabs
   .flex
     // PUT LOGO HERE. UPDATE ALT TEXT
-    img(alt='Emerald Productions logo', src='https://raw.githubusercontent.com/clevett/SheetTemplate/master/images/EProd_Title_Gloss.png')
+    img(alt='Emerald Productions logo' src='https://raw.githubusercontent.com/clevett/SheetTemplate/master/src/imgs/EProd_Title_Gloss.png')
   .flex.info-flex
     .grid.grid-tab-inputs
       // INFO INPUTS
       h1(data-i18n='character') character
       +textInput('character_name')
       h1(data-i18n='player') player
-      +textInput('player_name'
+      +textInput('player_name')
       h1(data-i18n='notes') notes
       +textInput('character_notes')
     .grid.grid-tab-buttons
       // Buttons to toggle on GM whisper
-      input.whisper-toggle(name='attr_gm_toggle', type='hidden', value=' ')
-      button(name='act_whisper', data-i18n-title='gm-whisper', title='gm whisper', type='action') q
+      input.whisper-toggle(name='attr_gm_toggle' type='hidden' value=' ')
+      button(name='act_whisper' data-i18n-title='gm-whisper' title='gm whisper' type='action') q
       // CHARACTER SHEETS
-      button(data-i18n='pc', data-i18n-title='', name='act_toggle_character', title='player character button', type='action') pc
-      button(data-i18n='notes', data-i18n-title='', name='act_toggle_notes', title='notes button', type='action') notes
-      button(data-i18n='npc', data-i18n-title='', name='act_toggle_npc', title='non player character', type='action') npc
-
+      button(data-i18n='pc' data-i18n-title='' name='act_toggle_character' title='player character button' type='action') pc
+      button(data-i18n='notes' data-i18n-title='' name='act_toggle_notes' title='notes button' type='action') notes
+      button(data-i18n='npc' data-i18n-title='' name='act_toggle_npc' title='non player character' type='action') npc
+      
 //-NPC SHEET
   =============================
 .npc
@@ -95,4 +95,5 @@ input(name='attr_version', type='hidden', value='1')
       | {{/desc}}
 
 //- SCRIPTS
-include src/pug/scripts.js
+script(type="text/worker")
+  include src/js/scripts.js
