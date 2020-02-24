@@ -1,0 +1,172 @@
+
+<input name="attr_version" type="hidden" value="1"/>
+<input class="type" name="attr_sheet_type" type="hidden" value="character"/>
+<input class="display_string" name="attr_character_settings" type="hidden" value=""/>
+<div class="npc">
+  <div class="box npc-flex">
+    <p>NPC STUFF</p>
+  </div>
+  <div class="box npc-flex">
+    <p>MORE NPC STUFF </p>
+  </div>
+</div>
+<div class="pc">
+  <div class="container grid info">
+    <div class="row grid 4autocolumn">
+      <h1 data-i18n="character name"></h1>
+      <label data-i18n-title="enter character name" title="enter character name">
+        <input data-i18n-placeholder="character name" name="attr_character_name" placeholder="character name" title="@{character_name}" type="text" value=""/>
+      </label>
+      <h1 data-i18n="player name"></h1>
+      <label data-i18n-title="enter player name" title="enter player name">
+        <input data-i18n-placeholder="player name" name="attr_player_name" placeholder="player name" title="@{player_name}" type="text" value=""/>
+      </label>
+    </div>
+  </div>
+  <div class="container grid characteristics">
+    <div class="row text-center">
+      <h1 data-i18n="characteristics"></h1>
+    </div>
+    <div class="row grid 5column">
+      <div class="col grid">
+        <div class="row text-center">
+          <h2 class="small-caps" data-i18n="strength"></h2>
+        </div>
+      </div>
+      <div class="col grid">
+        <div class="row text-center">
+          <h2 class="small-caps" data-i18n="dexterity"></h2>
+        </div>
+      </div>
+      <div class="col grid">
+        <div class="row text-center">
+          <h2 class="small-caps" data-i18n="intelligence"></h2>
+        </div>
+      </div>
+      <div class="col grid">
+        <div class="row text-center">
+          <h2 class="small-caps" data-i18n="wisdom"></h2>
+        </div>
+      </div>
+      <div class="col grid">
+        <div class="row text-center">
+          <h2 class="small-caps" data-i18n="charisma"></h2>
+        </div>
+      </div>
+    </div>
+    <div class="row grid 5column">
+      <div class="col">
+        <label data-i18n-title="enter strength" title="enter strength">
+          <input name="attr_strength" title="@{strength}" type="number" value=""/>
+        </label>
+      </div>
+      <div class="col">
+        <label data-i18n-title="enter dexterity" title="enter dexterity">
+          <input name="attr_dexterity" title="@{dexterity}" type="number" value=""/>
+        </label>
+      </div>
+      <div class="col">
+        <label data-i18n-title="enter intelligence" title="enter intelligence">
+          <input name="attr_intelligence" title="@{intelligence}" type="number" value=""/>
+        </label>
+      </div>
+      <div class="col">
+        <label data-i18n-title="enter wisdom" title="enter wisdom">
+          <input name="attr_wisdom" title="@{wisdom}" type="number" value=""/>
+        </label>
+      </div>
+      <div class="col">
+        <label data-i18n-title="enter charisma" title="enter charisma">
+          <input name="attr_charisma" title="@{charisma}" type="number" value=""/>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="container skill-traits">
+    <div class="col inline-block">
+      <div class="row">
+        <h1 class="text-center" data-i18n="skills"></h1>
+      </div>
+      <div class="row 2autocolumn">
+        <h2></h2>
+        <label data-i18n-title="enter acrobatics" title="enter acrobatics">
+          <input name="attr_acrobatics" title="@{acrobatics}" type="number" value=""/>
+        </label>
+      </div>
+      <div class="row 2autocolumn">
+        <h2></h2>
+        <label data-i18n-title="enter athletics" title="enter athletics">
+          <input name="attr_athletics" title="@{athletics}" type="number" value=""/>
+        </label>
+      </div>
+      <div class="row 2autocolumn">
+        <h2></h2>
+        <label data-i18n-title="enter awareness" title="enter awareness">
+          <input name="attr_awareness" title="@{awareness}" type="number" value=""/>
+        </label>
+      </div>
+      <div class="row 2autocolumn">
+        <h2></h2>
+        <label data-i18n-title="enter charm" title="enter charm">
+          <input name="attr_charm" title="@{charm}" type="number" value=""/>
+        </label>
+      </div>
+      <div class="row 2autocolumn">
+        <h2></h2>
+        <label data-i18n-title="enter command" title="enter command">
+          <input name="attr_command" title="@{command}" type="number" value=""/>
+        </label>
+      </div>
+      <div class="row 2autocolumn">
+        <h2></h2>
+        <label data-i18n-title="enter commerce" title="enter commerce">
+          <input name="attr_commerce" title="@{commerce}" type="number" value=""/>
+        </label>
+      </div>
+      <div class="row 2autocolumn">
+        <h2></h2>
+        <label data-i18n-title="enter intimidate" title="enter intimidate">
+          <input name="attr_intimidate" title="@{intimidate}" type="number" value=""/>
+        </label>
+      </div>
+      <div class="row 2autocolumn">
+        <h2></h2>
+        <label data-i18n-title="enter logic" title="enter logic">
+          <input name="attr_logic" title="@{logic}" type="number" value=""/>
+        </label>
+      </div>
+    </div>
+    <div class="col inline-block">
+      <div class="row">
+        <h1 class="text-center" data-i18n="traits"></h1>
+      </div>
+      <div class="row">
+        <fieldset class="repeating_traits">
+          <div class="row">
+            <label data-i18n-title="enter name" title="enter name">
+              <input data-i18n-placeholder="name" name="attr_name" placeholder="name" title="@{name}" type="text" value=""/>
+            </label>
+            <textarea name="attr_description" placeholder="description"></textarea>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="notes"></div>
+<div class="options"></div>
+<footer><span>Version </span><span name="attr_version"></span></footer>
+<input name="attr_version" type="hidden" value="1"/>
+<div class="rolltemplates">
+  <rolltemplate class="sheet-rolltemplate-rolls">
+    <!-- - Display a header on the template --->
+    <div class="sheet-template-header">{{#header}}{{header}}{{/header}}</div>
+    <!-- - Display the dice roll in the template --->
+    <div class="sheet-template-body">{{#dice}}
+      <div class="sheet-template-row">{{dice}}</div>{/dice}}
+      <!-- - Display a description. This is great for text included with a roll --->{{#desc}}
+      <div class="sheet-template-row"><span class="sheet-template-desc"></span></div>{{/desc}}
+    </div>
+  </rolltemplate>
+</div>
+<script type="text/worker"></script>

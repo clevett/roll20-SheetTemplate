@@ -24,6 +24,10 @@
         font-weight: bold;
     }
 
+    .sheet-inline-block {
+        display: inline-block;
+    }
+
     .sheet-text-capitalize {
         text-transform: capitalize;
     }
@@ -61,10 +65,18 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
+    div.sheet-5column {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
     div.sheet-6column {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 
     div.sheet-2autocolumn {
         grid-template-columns: auto 1fr;
+    }
+
+    div.sheet-4autocolumn {
+        grid-template-columns: auto 1fr auto 1fr;
     }

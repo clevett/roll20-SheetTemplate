@@ -1,5 +1,10 @@
 input(name='attr_version' type='hidden' value='1')
 
+//- VARIABLES
+  =============================
+- const characteristics = ['strength', 'dexterity', 'intelligence', 'wisdom', 'charisma'];
+- const skillList = ['acrobatics','athletics','awareness', 'charm', 'command', 'commerce','intimidate', 'logic'];
+
 //- INCLUDES
   =============================
 include src/pug/mixins.pug
@@ -8,30 +13,6 @@ include src/pug/mixins.pug
   =============================
 input.type(name='attr_sheet_type' type='hidden' value='character')
 input.display_string(name='attr_character_settings' type='hidden' value='')
-
-//- TABS & LOGO
-  =============================
-.tabs
-  .flex
-    // PUT LOGO HERE. UPDATE ALT TEXT
-    img(alt='Emerald Productions logo' src='https://raw.githubusercontent.com/clevett/SheetTemplate/master/src/imgs/EProd_Title_Gloss.png')
-  .flex.info-flex
-    .grid.grid-tab-inputs
-      // INFO INPUTS
-      h1(data-i18n='character') character
-      +textInput('character_name')
-      h1(data-i18n='player') player
-      +textInput('player_name')
-      h1(data-i18n='notes') notes
-      +textInput('character_notes')
-    .grid.grid-tab-buttons
-      // Buttons to toggle on GM whisper
-      input.whisper-toggle(name='attr_gm_toggle' type='hidden' value=' ')
-      button(name='act_whisper' data-i18n-title='gm-whisper' title='gm whisper' type='action') q
-      // CHARACTER SHEETS
-      button(data-i18n='pc' data-i18n-title='' name='act_toggle_character' title='player character button' type='action') pc
-      button(data-i18n='notes' data-i18n-title='' name='act_toggle_notes' title='notes button' type='action') notes
-      button(data-i18n='npc' data-i18n-title='' name='act_toggle_npc' title='non player character' type='action') npc
       
 //-NPC SHEET
   =============================
@@ -44,20 +25,42 @@ input.display_string(name='attr_character_settings' type='hidden' value='')
 //-PC SHEET
   =============================
 .pc
-  .flex.pc-flex
-    .grid.grid-header
-      button.pictos(data-i18n-title='', name='act_toggle_attributes', title='player character attributes', type='action') y
-      h1(data-i18n='attributes', data-i18-title='attributes', title='attributes') attributes
-    .grid.grid-pc-attributes
-      // STRENGHT
-      button(name='roll_strength', type='roll', value='@{gm_toggle} &{template:rolls}{{header=^{strength}}}{{base=^{attributes}}}{{dice=[[(@{strength}+(@{attribute_roll})+@{wound_toggle}+@{modifier_toggle}+@{edge_toggle})d6>5@{explode_toggle}]]}}{{mod=[[@{modifier_toggle}]]}}{{wound=[[@{wound_toggle}]]}}{{edge=[[@{edge_toggle}]]}}')
-        h2(data-i18n='strength') strength
-      label(data-i18n-title='strenght-input', title='strength input')
-        input(data-i18n-placeholder='', name='attr_strength', placeholder='10', title='@{strength}', type='number', value='')
-  .flex.pc-flex
-    h1(data-i18n='h1', data-i18-title='h1', title='header 1') Header 1
-    h2(data-i18n='h2', data-i18-title='h2', title='header 2') Header 2
-    h3(data-i18n='h3', data-i18-title='h3', title='header 3') Header 3
+  .container.grid.info
+    .row.grid.4autocolumn
+      each val in ['character name', 'player name']
+        h1(data-i18n=val)
+        +textInput(val)
+
+  .container.grid.characteristics
+    .row.text-center
+      h1(data-i18n='characteristics')
+    .row.grid.5column
+      each val in characteristics
+        .col.grid
+          .row.text-center
+            h2.small-caps(data-i18n=val)
+    .row.grid.5column
+      each val in characteristics
+        .col
+          +numberInput(val)
+
+  .container.skill-traits
+    .col.inline-block
+      .row
+        h1.text-center(data-i18n='skills')
+      each val in skillList
+        .row.2autocolumn
+          h2(data-i18n=name)
+          +numberInput(val)
+    .col.inline-block
+      .row
+        h1.text-center(data-i18n='traits')
+      .row
+        fieldset(class=`repeating_traits`)
+          .row
+            +textInput(`name`)
+            +textarea('description')
+
 //- NOTES SHEET
   =============================
 .notes

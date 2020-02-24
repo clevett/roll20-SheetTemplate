@@ -14,6 +14,10 @@ mixin checkboxInput(name)
 		input(name=`attr_${attrName}` title=`@{${attrName}}` type='checkbox' value=name)
 		span.pictos 3
 
+mixin textarea(name)
+	textarea(name=`attr_${name}` placeholder=name)
+
+
 mixin rollButton(name)
 	- const attrName = name.replace(/ /g, '-');
-	button.text-capitalize(data-i18n=name name=`roll_${attrName}` type='roll' value='&{template:rolls} {{header=^{${name}}}} {{dice=[[1d20[Roll]]]}}')
+	button.text-capitalize(data-i18n=name name=`roll_${attrName}` type='roll' value=`&{template:rolls} {{header=^{${name}}}} {{dice=[[1d20[Roll]]]}}`)
