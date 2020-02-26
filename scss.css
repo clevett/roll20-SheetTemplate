@@ -277,6 +277,9 @@ div.sheet-repeating-container textarea {
   margin-top: 2%; }
 div.sheet-repeating-container .repcontrol {
   margin-top: 5%; }
+div.sheet-repeating-container .repcontrol_del {
+  font-family: "pictos";
+  position: relative; }
 div.sheet-repeating-container div.sheet-descriptor {
   grid-template-columns: 1fr 1.5em 1.5em; }
   div.sheet-repeating-container div.sheet-descriptor div.sheet-collapse {
