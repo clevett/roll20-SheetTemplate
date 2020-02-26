@@ -28,7 +28,7 @@ input.display_string(name='attr_character_settings' type='hidden' value='')
   .container.grid.navigation
     img(alt='Emerald Grid' src='https://raw.githubusercontent.com/clevett/SheetTemplate/master/src/imgs/EProd_Title_Gloss.png')
     each val in ['core', 'arms', 'advancement']
-      label.toggles(data-i18n-title=`sheet type: ${val}`)
+      label.pseudo-button(data-i18n-title=`sheet type: ${val}`)
         if val === 'core'
           input(name=`attr_sheet_type` title=`@{sheet_type}` type='radio' value=val selected)
         else

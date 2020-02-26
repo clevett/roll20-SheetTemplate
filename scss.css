@@ -188,30 +188,14 @@ span.sheet-display {
   border-bottom: 2px dotted black;
   padding-top: 3%; }
 
-label.sheet-toggles {
-  display: grid; }
-  label.sheet-toggles input {
-    position: relative;
-    opacity: 0;
-    width: 100%;
-    z-index: 2; }
-    label.sheet-toggles input, label.sheet-toggles input + span {
-      grid-area: 1 / 1 / 1 / 1; }
-    label.sheet-toggles input:checked + span {
-      background-color: #b9dadf;
-      color: black;
-      margin-left: 5%; }
-  label.sheet-toggles span {
-    background-color: #79016f;
-    border-radius: 10%;
-    border: 2px solid #79016f;
-    color: whitesmoke;
-    cursor: pointer;
-    display: inline-block;
-    max-height: 25px;
-    padding: 1% 3%;
-    text-transform: capitalize;
-    width: 80%; }
+input.sheet-toggles {
+  position: relative;
+  opacity: 0;
+  width: 100%;
+  z-index: 2; }
+  input.sheet-toggles:checked + span {
+    color: #79016f;
+    margin-left: 5%; }
 
 div.sheet-header, .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-header {
   margin-top: 2%;
@@ -244,6 +228,30 @@ div.sheet-pc {
     grid-template-columns: 1fr minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 100px); }
     div.sheet-pc div.sheet-navigation img {
       max-height: 8em; }
+    div.sheet-pc div.sheet-navigation label.sheet-pseudo-button {
+      display: grid; }
+      div.sheet-pc div.sheet-navigation label.sheet-pseudo-button input {
+        position: relative;
+        opacity: 0;
+        width: 100%;
+        z-index: 2; }
+        div.sheet-pc div.sheet-navigation label.sheet-pseudo-button input, div.sheet-pc div.sheet-navigation label.sheet-pseudo-button input + span {
+          grid-area: 1 / 1 / 1 / 1; }
+        div.sheet-pc div.sheet-navigation label.sheet-pseudo-button input:checked + span {
+          background-color: #b9dadf;
+          color: black;
+          margin-left: 5%; }
+      div.sheet-pc div.sheet-navigation label.sheet-pseudo-button span {
+        background-color: #79016f;
+        border-radius: 10%;
+        border: 2px solid #79016f;
+        color: whitesmoke;
+        cursor: pointer;
+        display: inline-block;
+        max-height: 25px;
+        padding: 1% 3%;
+        text-transform: capitalize;
+        width: 80%; }
   div.sheet-pc div.sheet-skill-traits div.sheet-inline-block {
     width: 49%; }
   div.sheet-pc div.sheet-skill-traits div.sheet-repeating-container div.sheet-rowx {
