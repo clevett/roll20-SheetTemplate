@@ -16,8 +16,8 @@ mixin checkboxInput(name)
 
 mixin checkboxSymbol (name, symbol)
 	- const attrName = name.replace(/ /g, '_');
-	input.toggles(name=`attr_${name}` title=`@{${name}}` type='checkbox' value=name)
-	span.toggles.pictos #{symbol}
+	input.toggles.text-center(name=`attr_${attrName}` title=`@{${attrName}}` type='checkbox' value=name)
+	span.toggles.text-center.pictos #{symbol}
 
 mixin textarea(name)
 	textarea(name=`attr_${name}` placeholder=name)
@@ -25,3 +25,17 @@ mixin textarea(name)
 mixin rollButton(name)
 	- const attrName = name.replace(/ /g, '-');
 	button.text-capitalize(data-i18n=name name=`roll_${attrName}` type='roll' value=`&{template:rolls} {{header=^{${name}}}} {{dice=[[1d20[Roll]]]}}`)
+
+mixin repeatingText(name)
+	- const attrName = name.replace(/ /g, '-');
+	fieldset(class=`repeating_${attrName}`)
+		.rowx.grid.descriptor
+			button.text-left.eclipse.font-weight-bold
+				span(name='attr_name')
+			+checkboxSymbol('collapse', 'i')
+			+checkboxSymbol('settings', 'x')
+			.rowx.collapse
+				span.collapse(name='attr_description')
+			.rowx.settings
+				+textInput(`name`)
+				+textarea('description')
