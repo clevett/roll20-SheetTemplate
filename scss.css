@@ -130,6 +130,9 @@ div.sheet-background {
 .sheet-d20 {
   font-family: "dicefontd20"; }
 
+.sheet-description {
+  white-space: pre-line; }
+
 .sheet-eclipse {
   overflow: hidden;
   text-overflow: ellipsis;
