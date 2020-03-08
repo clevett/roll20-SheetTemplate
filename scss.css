@@ -200,7 +200,7 @@ input.sheet-toggles {
     color: #79016f;
     margin-left: 5%; }
 
-div.sheet-header, .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-header {
+div.sheet-header {
   margin-top: 2%;
   border-top: 2px solid #79016f;
   border-bottom: 2px solid #79016f;
@@ -415,26 +415,31 @@ div.sheet-footer {
     font-size: 2em;
     padding: unset; }
   .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-header {
-    color: #79016f;
-    font-weight: bold;
-    font-size: 1.5em;
+    background-color: #79016f;
     border-bottom: 2px solid black;
-    padding: 3% 2%;
+    color: whitesmoke;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: -2px;
+    padding: 5% 2%;
     text-transform: capitalize;
-    margin-top: 0px; }
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000; }
   .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-body {
-    background-color: whitesmoke; }
+    background-color: black;
+    color: whitesmoke; }
     .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-body div.sheet-template-row:nth-child(2n+0) {
       background-color: #b9dadf; }
     .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-body div.sheet-template-row span.sheet-inlinerollresult {
-      color: #79016f;
+      color: whitesmoke;
       font-size: 2em;
       font-weight: bold;
       cursor: help;
       padding: 0 3px 0 3px;
       font-weight: bold; }
     .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-body div.sheet-template-row span.sheet-percent, .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-body div.sheet-template-row span.sheet-template-desc {
-      color: #79016f;
+      color: whitesmoke;
       font-size: 1em; }
     .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-body div.sheet-template-damage {
       background-color: #fff;

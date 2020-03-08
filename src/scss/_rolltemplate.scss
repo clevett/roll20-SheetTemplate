@@ -27,26 +27,29 @@
 
 
         div.sheet-template-header {
-            @extend div.sheet-header; 
-
-            color: $primary;
-            font-weight: bold;
-            font-size: 1.5em; 
+            background-color: $primary;
             border-bottom: 2px solid $dark;
-            padding: 3% 2%;
+            color: $white;
+            font-size: 1.5em; 
+            font-weight: bold;
+            margin-top: -2px;
+            padding: 5% 2%;
             text-transform: capitalize;
-            margin-top:0px;
+           -moz-box-shadow:    inset 0 0 10px #000000;
+           -webkit-box-shadow: inset 0 0 10px #000000;
+           box-shadow:         inset 0 0 10px #000000;
         }
 
         div.sheet-template-body {
-            background-color: $white;
+            background-color: $dark;
+            color: $white;
 
             div.sheet-template-row {
                 &:nth-child(2n+0) { background-color: $light; }
 
                 span {
                     &.sheet-inlinerollresult  {
-                        color: $primary;
+                        color: $white;
                         font-size: 2em;
                         font-weight: bold;
                         cursor: help;
@@ -56,7 +59,7 @@
 
                     &.sheet-percent,
                     &.sheet-template-desc {
-                        color: $primary;
+                        color: $white;
                         font-size: 1em;
                     }
                 }
