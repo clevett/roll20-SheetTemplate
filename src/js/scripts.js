@@ -37,6 +37,7 @@ const getTranslations = translationKeys => {
 
 const parseInteger = string => parseInt(string) || 0
 
+//Use for turning the result of getAttrs into numbers
 const parseIntegers = numbers => {
   for (let [key, value] of Object.entries(numbers)) {
       numbers[key] = parseInt(value) || 0;
