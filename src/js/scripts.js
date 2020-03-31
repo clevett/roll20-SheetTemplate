@@ -40,14 +40,14 @@ const parseInteger = string => parseInt(string) || 0
 //Use for convernting the result of getAttrs from strings into integers
 const parseIntegers = numbers => {
   for (let [key, value] of Object.entries(numbers)) {
-      numbers[key] = parseInt(value) || 0;
+      numbers[key] = parseInt(value) || 0
   }
   return numbers  
-},
+}
 
-const setAttributes = (update, silent) => silent && typeof update === 'object' ? setAttrs(update, {silent:true}) : typeof update === 'object' ? setAttrs(update) : console.error(`${update} is not an object`),
+const setAttributes = (update, silent) => silent && typeof update === 'object' ? setAttrs(update, {silent:true}) : typeof update === 'object' ? setAttrs(update) : console.error(`${update} is not an object`)
 
 //returns strength from @{strenght}
-const sliceAttr = attribute => attribute.slice(2, -1), 
+const sliceAttr = attribute => attribute.slice(2, -1)
 
-const sumIntegers = numbers => numbers.reduce((a,b) => a + b, 0),
+const sumIntegers = numbers => numbers.reduce((a,b) => a + b, 0)
