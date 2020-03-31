@@ -35,7 +35,8 @@ const getTranslations = translationKeys => {
   return translations
 }
 
-const parseInteger = string => parseInt(string) || 0,
+const parseInteger = string => parseInt(string) || 0
+
 const parseIntegers = numbers => {
   for (let [key, value] of Object.entries(numbers)) {
       numbers[key] = parseInt(value) || 0;
