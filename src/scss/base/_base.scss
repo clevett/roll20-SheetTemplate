@@ -82,6 +82,10 @@ input {
 			background-color: $light;
 			border: 0.1em dotted $primary;
 		}
+
+		&:hover {
+			background-color: $secondary;
+		}
 	}
 	&[type='number'] {
 		text-align: center;

@@ -59,6 +59,8 @@ input[type="text"], input[type="number"] {
   input[type="text"]::placeholder, input[type="number"]::placeholder {
     background-color: #b9dadf;
     border: 0.1em dotted #79016f; }
+  input[type="text"]:hover, input[type="number"]:hover {
+    background-color: rgba(136, 121, 190, 0.25); }
 
 input[type='number'] {
   text-align: center;
