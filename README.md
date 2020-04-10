@@ -3,7 +3,7 @@ Roll20 Character Sheet Template
 
 ## Necessary files
 
-For Roll20 the files you need are .css, .html, and sheet.json. All the others are optional. They are intended to be used by front-end developers with NPM and compiled languages.
+For Roll20 the files you need are .css, .html, preview.png, and sheet.json. All the others are optional. They are intended to be used by front-end developers with NPM and compiled languages.
 
 ## NPM
 
