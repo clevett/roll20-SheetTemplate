@@ -18,10 +18,14 @@
   text-align: center;
 }
 
-.sheet-text-primary {
-  color: $primary;
+.sheet-text-left {
+  text-align: left !important;
 }
 
 .sheet-text-right {
   text-align: right;
+}
+
+.sheet-text-primary {
+  color: $primary;
 }

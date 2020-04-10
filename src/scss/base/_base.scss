@@ -9,17 +9,23 @@ button {
 	text-overflow: ellipsis;
 	font-family: serif;
 	font-variant: small-caps;
+	transition: all .2s;
+	box-shadow: $box-shadow-outset;
 
 	&:before {
 		display: none;
 	}
+
 	&:focus,
 	&:hover,
 	&:active {
 		background: none;
 		background-color: $primary !important;
 		color: #fff;
+		transform: $button-scale-small;
+		box-shadow: none;
 	}
+
 	&[type="roll"],
 	&[type="action"] {
 		background-color: $white;

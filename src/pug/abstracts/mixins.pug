@@ -30,7 +30,7 @@ mixin repeatingText(name)
 	- const attrName = name.replace(/ /g, '-');
 	fieldset(class=`repeating_${attrName}`)
 		.rowx.grid.descriptor
-			button.text-left.eclipse.font-weight-bold
+			button.text-left.eclipse.font-weight-bold(name='roll_button' type='roll')
 				span(name='attr_name')
 			+checkboxSymbol('collapse', 'i')
 			+checkboxSymbol('settings', 'p')

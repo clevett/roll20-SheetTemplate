@@ -1,0 +1,44 @@
+.pc
+  .container.grid.navigation
+    img(alt='Emerald Grid' src='https://raw.githubusercontent.com/clevett/SheetTemplate/master/src/imgs/EProd_Title_Gloss.png')
+    each val in ['core', 'arms', 'advancement']
+      label.pseudo-button(data-i18n-title=`sheet type: ${val}`)
+        if val === 'core'
+          input(name=`attr_sheet_type` title=`@{sheet_type}` type='radio' value=val selected)
+        else
+          input(name=`attr_sheet_type` title=`@{sheet_type}` type='radio' value=val)
+        span.eclipse #{val}
+
+  .container.grid.info
+    .rowx.grid.4autocolumn
+      each val in ['character name', 'player name']
+        h1(data-i18n=val)
+        +textInput(val)
+
+  .container.grid.characteristics
+    .rowx.text-center
+      h1(data-i18n='characteristics')
+    .rowx.grid.5column
+      each val in abilities
+        .col.grid
+          .rowx.text-center
+            h2.small-caps(data-i18n=val)
+    .rowx.grid.5column
+      each val in abilities
+        .col
+          +numberInput(val)
+
+  .skill-traits
+    .col.inline-block
+      .rowx
+        h1.text-center(data-i18n='skills')
+      each val in skillList
+        .rowx.grid.3columnbutton
+          h2(data-i18n=val)
+          +numberInput(val)
+          button.d20(name='' type='roll' value!='') b
+    .col.inline-block
+      .rowx
+        h1.text-center(data-i18n='traits')
+      .rowx.repeating-container
+        +repeatingText('traits')

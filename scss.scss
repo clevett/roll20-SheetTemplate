@@ -1,160 +1,45 @@
-// COLORS
+// COLORS & OTHER VARIABLES
 //  ============================= *
-    $primary  : hsl(305, 98%, 24%);
-    $secondary  : hsla(253, 35%, 61%, 0.25);
-    $light  : #b9dadf;
-    $dark    : hsl(0, 6%, 0%);
-    $dark-font: #000;
-    $gray     : #4c4c4c;
-    $transparentGray: hsla(0, 0%, 30%, 0.0784313725490196);
-    $white    : hsl(0, 0%, 96%);
-
+	@import 'src/scss/abstracts/variables';
 
 /* GLOBAL SETTINGS
-    =============================  */
-    @import 'src/scss/base/base';
+  =============================  */
+  @import 'src/scss/base/base';
+	@import 'src/scss/base/utilities';
+	@import 'src/scss/base/typography';
 
 /* GRID
-   ============================= */ 
-    div.sheet-grid {
-        display: inline-grid;
-        grid-column-gap: 1%;
-        grid-row-gap: 0.5%;
-    }
+  ============================= */ 
+	@import 'src/scss/layout/grid';
 
-    %gridRowCol {
-        display: inline-grid;
-        overflow: hidden;
-        grid-auto-rows: min-content;
-        grid-column-gap: 1%;
-    }
+span.sheet-display {
+	border-bottom: 2px dotted $dark;
+	padding-top: 3%;
+}
 
-/* GENERIC CLASSES
-    ============================= */
-    @import 'src/scss/base/_utilities';
+input.sheet-toggles {
+	position: relative;
+	opacity: 0;
+	width: 100%;
+	z-index: 2;
 
-    span.sheet-display {
-        border-bottom: 2px dotted $dark;
-        padding-top: 3%;
-    }
+	&:checked + span {
+		color: $primary;
+		margin-left: 5%;
+	}
+}
 
-    input.sheet-toggles {
-        position: relative;
-        opacity: 0;
-        width: 100%;
-        z-index: 2;
-
-        &:checked + span {
-            color: $primary;
-            margin-left: 5%;
-        }
-    }
-    
-    div.sheet-header {
-        margin-top: 2%;
-        border-top: 2px solid $primary;
-        border-bottom: 2px solid $primary;
-        text-align: center;
-        background: $light; /* Old browsers */
-        background: -moz-linear-gradient(top,  $light 0%, $secondary 50%, $light 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top,  $light 0%,$secondary 50%,$light 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom,  $light 0%,$secondary 50%,$light 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$light', endColorstr='$light',GradientType=0 ); /* IE6-9 */
-    }
+/* HEADER
+	============================= */
+	@import 'src/scss/layout/header';
 
 /* PC
     ============================= */
-div.sheet-pc {
-    border: 0.8em solid $gray;
-    background-color: $transparentGray;
-    padding: 2% 1%;
-
-   -moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
-
-   div.sheet-row {
-    display: inline-grid;
-   }
-
-    div.sheet-navigation {
-        grid-template-columns: 1fr minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 100px);
-        
-        img {
-            max-height: 8em;
-        }
-
-        label.sheet-pseudo-button {
-            display: grid;
-
-            input {
-                min-height: 25px;
-                max-height: 25px;
-                position: relative;
-                opacity: 0;
-                width: 100%;
-                z-index: 2;
-
-                &, & + span {
-                    grid-area: 1 / 1 / 1 / 1;
-                }
-
-                &:checked + span {
-                    background-color: $light;
-                    color: $dark;
-                    margin-left: 5%;
-                }
-            }
-
-            span {
-                background-color: $primary;
-                border-radius: 10%;
-                border: 2px solid $primary;
-                color: $white;
-                cursor: pointer;
-                display: inline-block;
-                min-height: 25px;
-                max-height: 25px;
-                padding: 1% 3%;
-                text-transform: capitalize;
-                width: 80%;
-            }
-        }
-    }
-
-   div.sheet-skill-traits {
-        div.sheet-inline-block {
-            width: 49%;
-        }
-
-        div.sheet-repeating-container {
-            div.sheet-rowx {
-                grid-template-columns: 1fr 2em 2em;
-            }
-        }
-
-        input[name='attr_collapse'],
-        input[name='attr_collapse'] + span {
-            grid-area: 1 / 2 / 1 / 2;
-        }
-
-        input[name='attr_settings'],
-        input[name='attr_settings'] + span {
-            grid-area: 1 / 3 / 1 / 3;
-        }
-
-        div.sheet-collapse,
-        div.sheet-settings {
-            grid-column: 1 / 4;
-        }
-   }
-}
-
+	@import 'src/scss/pages/pc';
 
 /*  REPEATING SECTIONS
-    ============================= */
-	@import 'src/scss/layout/repeating_container';
-
+  ============================= */
+	@import 'src/scss/components/repeating_container';
 
 /*  SHOW & HIDE SECTIONS
   ============================= */

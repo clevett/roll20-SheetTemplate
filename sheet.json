@@ -1,6 +1,6 @@
 {
-	"html": "name.html",
-	"css": "name.css",
+	"html": "pug.html",
+	"css": "css.css",
 	"authors": "Cassie Levett",
 	"roll20userid": "557736",
 	"preview": "preview.png",
