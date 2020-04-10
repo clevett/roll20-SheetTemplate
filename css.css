@@ -4,7 +4,10 @@
 =============================  */
 * {
   box-sizing: border-box;
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%; }
 
 button {
   text-overflow: ellipsis;
@@ -22,14 +25,15 @@ button {
     box-shadow: none; }
   button[type="roll"], button[type="action"] {
     background-color: whitesmoke;
-    border-bottom: 0.01em solid #666;
-    border-bottom-right-radius: 0.01em;
+    border-bottom: 1px solid #666;
+    border-bottom-right-radius: 1px;
     border-color: #b3b3b3;
-    border-radius: 0.25em;
-    border-right: 0.02em solid #333333;
+    border-radius: 0.25rem;
+    border-right: 0.02rem solid #333333;
     border-style: outset;
-    margin: 0.2em !important;
-    padding: 0.1em !important; }
+    font-size: 2rem !important;
+    margin: 0.25rem !important;
+    padding: 0.2rem 0.5rem !important; }
 
 div {
   background-color: transparent;
@@ -38,33 +42,19 @@ div {
 fieldset {
   background-color: transparent; }
 
-h1 {
-  color: #79016f;
-  text-transform: capitalize;
-  font-family: serif; }
-
-h2 {
-  font-size: 1em;
-  line-height: 1.4em;
-  text-transform: capitalize; }
-  h2.sheet-label {
-    border-bottom: 0.15em solid black;
-    text-align: center;
-    margin-left: 3%; }
-
-h3 {
-  font-size: 1.25em;
-  line-height: 36px;
-  text-transform: capitalize; }
+h2.sheet-label {
+  border-bottom: 0.15em solid black;
+  text-align: center;
+  margin-left: 3%; }
 
 input[type="text"], input[type="number"] {
   background-color: transparent;
-  border-bottom: 0.15em solid black;
-  border-left: 0em;
-  border-radius: 0em;
-  border-right: 0em;
-  border-top: 0em;
-  height: 2.1em;
+  border-bottom: 0.2rem solid black;
+  border-left: 0rem;
+  border-radius: 0rem;
+  border-right: 0rem;
+  border-top: 0rem;
+  height: 2.1rem;
   width: 100%; }
   input[type="text"]::placeholder, input[type="number"]::placeholder {
     background-color: #b9dadf;
@@ -91,6 +81,7 @@ select {
   width: 100%; }
 
 span {
+  font-size: 1.5rem;
   word-break: break-word; }
 
 textarea {
@@ -159,7 +150,26 @@ div.sheet-4autocolumn {
   grid-template-columns: auto 1fr auto 1fr; }
 
 div.sheet-3columnbutton {
-  grid-template-columns: auto 1fr 3em; }
+  grid-template-columns: auto 1fr 3rem; }
+
+h1 {
+  color: #79016f;
+  text-transform: capitalize;
+  font-family: serif;
+  font-size: 2.5rem; }
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.4rem;
+  text-transform: capitalize; }
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 36px;
+  text-transform: capitalize; }
+
+label {
+  font-size: 3rem; }
 
 .sheet-pictos {
   font-family: "pictos"; }
@@ -237,7 +247,7 @@ div.sheet-pc {
   div.sheet-pc div.sheet-navigation {
     grid-template-columns: 1fr minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 100px); }
     div.sheet-pc div.sheet-navigation img {
-      max-height: 8em; }
+      max-height: 8rem; }
     div.sheet-pc div.sheet-navigation label.sheet-pseudo-button {
       display: grid;
       transition: all .2s; }
@@ -270,6 +280,11 @@ div.sheet-pc {
         width: 80%; }
   div.sheet-pc div.sheet-info {
     padding: 3% 2%; }
+    div.sheet-pc div.sheet-info div.sheet-rowx {
+      align-items: center; }
+  div.sheet-pc div.sheet-characteristics {
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 3%; }
   div.sheet-pc div.sheet-skill-traits div.sheet-col {
     padding: 2%; }
   div.sheet-pc div.sheet-skill-traits div.sheet-col:last-child {
@@ -277,7 +292,7 @@ div.sheet-pc {
   div.sheet-pc div.sheet-skill-traits div.sheet-inline-block {
     width: 49%; }
   div.sheet-pc div.sheet-skill-traits div.sheet-repeating-container div.sheet-rowx {
-    grid-template-columns: 1fr repeat(2, 2em); }
+    grid-template-columns: 1fr repeat(2, 2rem); }
   div.sheet-pc div.sheet-skill-traits input[name='attr_collapse'],
   div.sheet-pc div.sheet-skill-traits input[name='attr_collapse'] + span {
     grid-area: 1 / 2 / 1 / 2; }
@@ -291,7 +306,12 @@ div.sheet-pc {
 /*  REPEATING SECTIONS
   ============================= */
 div.sheet-repeating-container button {
-  font-variant: none; }
+  font-variant: none;
+  width: fit-content;
+  font-size: 1.5rem;
+  padding: 1% 2%; }
+  div.sheet-repeating-container button[type='roll'] {
+    width: 100%; }
 
 div.sheet-repeating-container textarea {
   margin-top: 2%; }
@@ -304,9 +324,14 @@ div.sheet-repeating-container .repcontrol_del {
   position: relative; }
 
 div.sheet-repeating-container div.sheet-descriptor {
-  grid-template-columns: 1fr repeat(2, 1.5em); }
+  grid-template-columns: 1fr repeat(2, 1.5rem);
+  align-items: center;
+  justify-items: center; }
   div.sheet-repeating-container div.sheet-descriptor div.sheet-collapse {
     padding-left: 5%; }
+  div.sheet-repeating-container div.sheet-descriptor input[name='attr_collapse'] + span,
+  div.sheet-repeating-container div.sheet-descriptor input[name='attr_settings'] + span {
+    font-size: 1.5rem; }
   div.sheet-repeating-container div.sheet-descriptor input[name='attr_collapse'],
   div.sheet-repeating-container div.sheet-descriptor input[name='attr_collapse'] + span {
     grid-area: 1 / 2 / 1 / 2; }
@@ -317,7 +342,21 @@ div.sheet-repeating-container div.sheet-descriptor {
   div.sheet-repeating-container div.sheet-descriptor div.sheet-settings {
     grid-column: 1 / 4; }
   div.sheet-repeating-container div.sheet-descriptor div.sheet-settings {
-    grid-template-columns: 1fr; }
+    grid-template-columns: 1fr;
+    background-color: rgba(76, 76, 76, 0.2);
+    padding: 3% 5%;
+    margin-top: 5%;
+    position: relative; }
+    div.sheet-repeating-container div.sheet-descriptor div.sheet-settings::before {
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid rgba(76, 76, 76, 0.2); }
 
 /*  SHOW & HIDE SECTIONS
   ============================= */
@@ -396,7 +435,7 @@ label.sheet-styled-checkbox span {
   top: -20%;
   color: transparent;
   text-align: center;
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 90%; }
 
 label.sheet-styled-checkbox input {
@@ -409,11 +448,24 @@ label.sheet-styled-checkbox input {
 
 /*  FOOTER
   ============================= */
+.sheet-footer {
+  display: block;
+  text-align: center; }
+  .sheet-footer span[name="attr_version"]::after {
+    content: '.';
+    margin-right: 0.2rem; }
+  .sheet-footer span {
+    font-size: 1rem; }
+  .sheet-footer img {
+    margin-left: 2%;
+    height: 2.5rem;
+    width: 2.5rem; }
+
 /*  ROLL TEMPLATE STYLE
   ============================= */
 .sheet-rolltemplate-rolls div.sheet-template-container {
   border: 2px solid black;
-  border-radius: 0.3em;
+  border-radius: 0.3rem;
   box-shadow: inset 0px 0px 3px 1px #79016f;
   text-align: center;
   font-family: 'fantasy';
@@ -428,13 +480,13 @@ label.sheet-styled-checkbox input {
   .sheet-rolltemplate-rolls div.sheet-template-container .inlinerollresult {
     background-color: transparent;
     border: none;
-    font-size: 2em;
+    font-size: 2rem;
     padding: unset; }
   .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-header {
     background-color: #79016f;
     border-bottom: 2px solid black;
     color: whitesmoke;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-top: -2px;
     padding: 5% 2%;
@@ -449,14 +501,14 @@ label.sheet-styled-checkbox input {
       background-color: #b9dadf; }
     .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-body div.sheet-template-row span.sheet-inlinerollresult {
       color: whitesmoke;
-      font-size: 2em;
+      font-size: 2rem;
       font-weight: bold;
       cursor: help;
       padding: 0 3px 0 3px;
       font-weight: bold; }
     .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-body div.sheet-template-row span.sheet-percent, .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-body div.sheet-template-row span.sheet-template-desc {
       color: whitesmoke;
-      font-size: 1em; }
+      font-size: 1rem; }
     .sheet-rolltemplate-rolls div.sheet-template-container div.sheet-template-body div.sheet-template-damage {
       background-color: #fff;
       padding: 3% 2%; }

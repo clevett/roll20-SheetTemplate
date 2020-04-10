@@ -15,7 +15,7 @@ div.sheet-pc {
     grid-template-columns: 1fr minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 100px);
         
 		img {
-			max-height: 8em;
+			max-height: 8rem;
 		}
 
     label.sheet-pseudo-button {
@@ -63,6 +63,15 @@ div.sheet-pc {
 
 	div.sheet-info {
 		padding: 3% 2%;
+
+		div.sheet-rowx {
+			align-items: center;
+		}
+	}
+
+	div.sheet-characteristics {
+		grid-template-rows: repeat(3, 1fr);
+		grid-row-gap: 3%;
 	}
 
   div.sheet-skill-traits {
@@ -80,7 +89,7 @@ div.sheet-pc {
 
 		div.sheet-repeating-container {
 			div.sheet-rowx {
-				grid-template-columns: 1fr repeat(2, 2em);
+				grid-template-columns: 1fr repeat(2, 2rem);
 			}
 		}
 

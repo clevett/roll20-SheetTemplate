@@ -1,7 +1,7 @@
 .sheet-rolltemplate-rolls {
 	div.sheet-template-container {
 		border: 2px solid $dark;
-		border-radius: 0.3em;
+		border-radius: 0.3rem;
 		box-shadow: inset 0px 0px 3px 1px $primary;
 		text-align: center;
 		font-family: 'fantasy';
@@ -21,7 +21,7 @@
 		.inlinerollresult {
 			background-color: transparent;
 			border: none;
-			font-size: 2em; 
+			font-size: 2rem; 
 			padding: unset;
 		}
 
@@ -30,7 +30,7 @@
 			background-color: $primary;
 			border-bottom: 2px solid $dark;
 			color: $white;
-			font-size: 1.5em; 
+			font-size: 1.5rem; 
 			font-weight: bold;
 			margin-top: -2px;
 			padding: 5% 2%;
@@ -50,7 +50,7 @@
 				span {
 					&.sheet-inlinerollresult  {
 						color: $white;
-						font-size: 2em;
+						font-size: 2rem;
 						font-weight: bold;
 						cursor: help;
 						padding: 0 3px 0 3px;
@@ -60,7 +60,7 @@
 					&.sheet-percent,
 					&.sheet-template-desc {
 						color: $white;
-						font-size: 1em;
+						font-size: 1rem;
 					}
 				}
 			}

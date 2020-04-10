@@ -3,6 +3,9 @@
 * {
 	box-sizing: border-box;
 	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 62.5%; //1rem = 10px
 }
 
 button {
@@ -30,15 +33,16 @@ button {
 	&[type="action"] {
 		background-color: $white;
 		border: {
-				bottom             : 0.01em solid #666;
-				bottom-right-radius: 0.01em;
+				bottom             : 1px solid #666;
+				bottom-right-radius: 1px;
 				color              : hsl(0, 0%, 70%);
-				radius             : 0.25em;
-				right              : 0.02em solid hsl(0, 0%, 20%);
+				radius             : 0.25rem;
+				right              : 0.02rem solid hsl(0, 0%, 20%);
 				style              : outset;
 		}
-		margin: 0.2em !important;
-		padding: 0.1em !important;
+		font-size: 2rem !important;
+		margin: 0.25rem !important;
+		padding: 0.2rem 0.5rem !important;
 	}
 }
 
@@ -51,17 +55,7 @@ fieldset {
 	background-color: transparent;
 }
 
-h1 {
-	color: $primary;
-	text-transform: capitalize;
-	font-family: serif;
-}
-
 h2 {
-	font-size: 1em;
-	line-height: 1.4em;
-	text-transform: capitalize;
-
 	&.sheet-label {
 		border-bottom: 0.15em solid $dark;
 		text-align: center;
@@ -69,25 +63,19 @@ h2 {
 	}
 }
 
-h3 {
-	font-size: 1.25em;
-	line-height: 36px;
-	text-transform: capitalize;
-}
-
 input {
 	&[type="text"],
 	&[type="number"] {
 		background-color: transparent;
-		border-bottom: 0.15em solid $dark;
+		border-bottom: 0.2rem solid $dark;
 
 		border: {
-			left  : 0em;
-			radius: 0em;
-			right : 0em;
-			top   : 0em;
+			left  : 0rem;
+			radius: 0rem;
+			right : 0rem;
+			top   : 0rem;
 		};
-		height: 2.1em;
+		height: 2.1rem;
 		width: 100%;
 
 		&::placeholder {
@@ -122,6 +110,7 @@ select {
 }
 
 span {
+	font-size: 1.5rem;
 	word-break: break-word;
 }
 
