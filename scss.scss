@@ -12,7 +12,7 @@
 
 /* GLOBAL SETTINGS
     =============================  */
-    @import 'src/scss/_globals';
+    @import 'src/scss/base/base';
 
 /* GRID
    ============================= */ 
@@ -31,7 +31,7 @@
 
 /* GENERIC CLASSES
     ============================= */
-    @import 'src/scss/_generic';
+    @import 'src/scss/base/_utilities';
 
     span.sheet-display {
         border-bottom: 2px dotted $dark;
@@ -153,69 +153,25 @@ div.sheet-pc {
 
 /*  REPEATING SECTIONS
     ============================= */
-    div.sheet-repeating-container {
-        button { 
-            font-variant: none; 
-        }
-
-        textarea {
-            margin-top: 2%;
-        }
-
-        .repcontrol {
-            margin-top: 5%;
-        }
-        
-        .repcontrol_del {
-            font-family: "pictos";
-            position: relative;
-        }
-
-        div.sheet-descriptor {
-            grid-template-columns: 1fr 1.5em 1.5em;
-
-            div.sheet-collapse {
-                padding-left: 5%;
-            }
-
-            input[name='attr_collapse'],
-            input[name='attr_collapse'] + span {
-                grid-area: 1 / 2 / 1 / 2;
-            }
-
-            input[name='attr_settings'],
-            input[name='attr_settings'] + span {
-                grid-area: 1 / 3 / 1 / 3;
-            }
-
-            div.sheet-collapse,
-            div.sheet-settings {
-                grid-column: 1 / 4;
-            }
-
-            div.sheet-settings {
-                grid-template-columns: 1fr;
-            }
-        }
-    }
+	@import 'src/scss/layout/repeating_container';
 
 
 /*  SHOW & HIDE SECTIONS
-    ============================= */
-    @import 'src/scss/_hide';
+  ============================= */
+  @import 'src/scss/layout/hide';
 
 /*  SWITCH
-    ============================= */
-    @import 'src/scss/_switch';
+  ============================= */
+  @import 'src/scss/components/switch';
 
 /* STYLED CHECKBOXES
-    ============================= */
-    @import 'src/scss/_checkbox';
+  ============================= */
+  @import 'src/scss/components/checkbox';
 
 /*  FOOTER
-    ============================= */
-    @import 'src/scss/_footer';
+  ============================= */
+  @import 'src/scss/layout/footer';
 
 /*  ROLL TEMPLATE STYLE
-    ============================= */
-    @import 'src/scss/_rolltemplate';
+  ============================= */
+  @import 'src/scss/components/rolltemplate';
