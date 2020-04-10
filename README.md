@@ -15,7 +15,7 @@ Start the compiles for SCSS & PUG with `npm start`.
 
 ## Compile Files
 
-If you wish to rename pug.pup and scss.scss be sure to update the package.json names.
+If you wish to rename pug.pug and scss.scss be sure to update the package.json names.
 
 ## Unit Tests
 QUnit is setup to do unit tests. Tests folder can be removed if you're not wriing tests.
