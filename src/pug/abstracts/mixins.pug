@@ -14,7 +14,7 @@ mixin checkboxInput(name)
 		input(name=`attr_${attrName}` title=`@{${attrName}}` type='checkbox' value=name)
 		span.pictos 3
 
-mixin checkboxSymbol (name, symbol)
+mixin checkboxSymbol(name, symbol)
 	- const attrName = name.replace(/ /g, '_');
 	input.toggles.text-center(name=`attr_${attrName}` title=`@{${attrName}}` type='checkbox' value=name)
 	span.toggles.text-center.pictos #{symbol}

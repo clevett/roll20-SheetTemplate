@@ -67,7 +67,6 @@ input {
 	&[type="text"],
 	&[type="number"] {
 		background-color: transparent;
-		border-bottom: 0.2rem solid $dark;
 
 		border: {
 			left  : 0rem;

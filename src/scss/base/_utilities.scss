@@ -25,6 +25,11 @@
 		font-weight: bold;
 	}
 
+	.sheet-grid {
+		display: inline-grid;
+		grid-gap: 0.5%;
+	}
+
 	.sheet-inline-block {
 		display: inline-block;
 	}

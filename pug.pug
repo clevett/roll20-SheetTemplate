@@ -1,4 +1,4 @@
-input(name='attr_version' type='hidden' value='2')
+input(name='attr_version' type='hidden' value='1')
 
 //- VARIABLES
   =============================
@@ -13,21 +13,10 @@ include src/pug/abstracts/mixins.pug
 input.type(name='attr_sheet_type' type='hidden' value='character')
 input.display_string(name='attr_character_settings' type='hidden' value='')
       
-//-NPC SHEET
-  =============================
-include src/pug/pages/npc.pug
 
 //-PC SHEET
   =============================
 include src/pug/pages/pc.pug
-
-//- NOTES SHEET
-  =============================
-include src/pug/pages/notes.pug
-
-//-OPTIONS SHEET
-  =============================
-include src/pug/pages/options.pug
 
 //-FOOTER
   =============================

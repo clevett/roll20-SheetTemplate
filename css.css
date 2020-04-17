@@ -49,7 +49,6 @@ h2.sheet-label {
 
 input[type="text"], input[type="number"] {
   background-color: transparent;
-  border-bottom: 0.2rem solid black;
   border-left: 0rem;
   border-radius: 0rem;
   border-right: 0rem;
@@ -123,6 +122,10 @@ div.sheet-background {
 .sheet-font-weight-bold {
   font-weight: bold; }
 
+.sheet-grid {
+  display: inline-grid;
+  grid-gap: 0.5%; }
+
 .sheet-inline-block {
   display: inline-block; }
 
@@ -162,12 +165,12 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
-  line-height: 1.4rem;
+  line-height: 2rem;
   text-transform: capitalize; }
 
 h3 {
   font-size: 1.25rem;
-  line-height: 36px;
+  line-height: 2rem;
   text-transform: capitalize; }
 
 label {
@@ -241,69 +244,24 @@ div.sheet-pc {
   border: 0.8em solid #4c4c4c;
   background-color: rgba(77, 77, 77, 0.0784314);
   padding: 2% 1%;
+  grid-template-columns: 3fr 2fr 0.5fr;
+  grid-row-gap: 1%;
   -moz-box-shadow: inset 0 0 10px #000000;
   -webkit-box-shadow: inset 0 0 10px #000000;
   box-shadow: inset 0 0 10px #000000; }
+  div.sheet-pc h1 {
+    grid-area: 1 / 1 / 1 / 4; }
+  div.sheet-pc label {
+    border: 1px solid black; }
   div.sheet-pc div.sheet-row {
     display: inline-grid; }
-  div.sheet-pc div.sheet-navigation {
-    grid-template-columns: 1fr minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 100px); }
-    div.sheet-pc div.sheet-navigation img {
-      max-height: 8rem; }
-    div.sheet-pc div.sheet-navigation label.sheet-pseudo-button {
-      display: grid;
-      transition: all .2s; }
-      div.sheet-pc div.sheet-navigation label.sheet-pseudo-button:hover {
-        transform: scale(1.1); }
-      div.sheet-pc div.sheet-navigation label.sheet-pseudo-button input {
-        min-height: 25px;
-        max-height: 25px;
-        position: relative;
-        opacity: 0;
-        width: 100%;
-        z-index: 2; }
-        div.sheet-pc div.sheet-navigation label.sheet-pseudo-button input, div.sheet-pc div.sheet-navigation label.sheet-pseudo-button input + span {
-          grid-area: 1 / 1 / 1 / 1; }
-        div.sheet-pc div.sheet-navigation label.sheet-pseudo-button input:checked + span {
-          background-color: #b9dadf;
-          color: black;
-          margin-left: 5%; }
-      div.sheet-pc div.sheet-navigation label.sheet-pseudo-button span {
-        background-color: #79016f;
-        border-radius: 10%;
-        border: 2px solid #79016f;
-        color: whitesmoke;
-        cursor: pointer;
-        display: inline-block;
-        min-height: 25px;
-        max-height: 25px;
-        padding: 1% 3%;
-        text-transform: capitalize;
-        width: 80%; }
-  div.sheet-pc div.sheet-info {
-    padding: 3% 2%; }
-    div.sheet-pc div.sheet-info div.sheet-rowx {
-      align-items: center; }
-  div.sheet-pc div.sheet-characteristics {
-    grid-template-rows: repeat(3, 1fr);
-    grid-row-gap: 3%; }
-  div.sheet-pc div.sheet-skill-traits div.sheet-col {
-    padding: 2%; }
-  div.sheet-pc div.sheet-skill-traits div.sheet-col:last-child {
-    margin-left: 2%; }
-  div.sheet-pc div.sheet-skill-traits div.sheet-inline-block {
-    width: 49%; }
-  div.sheet-pc div.sheet-skill-traits div.sheet-repeating-container div.sheet-rowx {
-    grid-template-columns: 1fr repeat(2, 2rem); }
-  div.sheet-pc div.sheet-skill-traits input[name='attr_collapse'],
-  div.sheet-pc div.sheet-skill-traits input[name='attr_collapse'] + span {
-    grid-area: 1 / 2 / 1 / 2; }
-  div.sheet-pc div.sheet-skill-traits input[name='attr_settings'],
-  div.sheet-pc div.sheet-skill-traits input[name='attr_settings'] + span {
-    grid-area: 1 / 3 / 1 / 3; }
-  div.sheet-pc div.sheet-skill-traits div.sheet-collapse,
-  div.sheet-pc div.sheet-skill-traits div.sheet-settings {
-    grid-column: 1 / 4; }
+  div.sheet-pc div.sheet-hoard {
+    grid-template-columns: repeat(10, 1fr);
+    border-bottom: 2px solid black; }
+  div.sheet-pc div.sheet-equipment {
+    border-bottom: 2px solid black; }
+  div.sheet-pc div.sheet-column:not(:last-child) {
+    border-right: 1px solid black; }
 
 /*  REPEATING SECTIONS
   ============================= */
