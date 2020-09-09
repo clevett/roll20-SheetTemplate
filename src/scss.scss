@@ -1,16 +1,16 @@
 // COLORS & OTHER VARIABLES
 //  ============================= *
-	@import 'src/scss/abstracts/variables';
+	@import 'scss/abstracts/variables';
 
 /* GLOBAL SETTINGS
   =============================  */
-  @import 'src/scss/base/base';
-	@import 'src/scss/base/utilities';
-	@import 'src/scss/base/typography';
+  @import 'scss/base/base';
+	@import 'scss/base/utilities';
+	@import 'scss/base/typography';
 
 /* GRID
   ============================= */ 
-	@import 'src/scss/layout/grid';
+	@import 'scss/layout/grid';
 
 span.sheet-display {
 	border-bottom: 2px dotted $dark;
@@ -31,32 +31,32 @@ input.sheet-toggles {
 
 /* HEADER
 	============================= */
-	@import 'src/scss/layout/header';
+	@import 'scss/layout/header';
 
 /* PC
     ============================= */
-	@import 'src/scss/pages/pc';
+	@import 'scss/pages/pc';
 
 /*  REPEATING SECTIONS
   ============================= */
-	@import 'src/scss/components/repeating_container';
+	@import 'scss/components/repeating_container';
 
 /*  SHOW & HIDE SECTIONS
   ============================= */
-  @import 'src/scss/layout/hide';
+  @import 'scss/layout/hide';
 
 /*  SWITCH
   ============================= */
-  @import 'src/scss/components/switch';
+  @import 'scss/components/switch';
 
 /* STYLED CHECKBOXES
   ============================= */
-  @import 'src/scss/components/checkbox';
+  @import 'scss/components/checkbox';
 
 /*  FOOTER
   ============================= */
-  @import 'src/scss/layout/footer';
+  @import 'scss/layout/footer';
 
 /*  ROLL TEMPLATE STYLE
   ============================= */
-  @import 'src/scss/components/rolltemplate';
+  @import 'scss/components/rolltemplate';
