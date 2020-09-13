@@ -32,6 +32,10 @@ div.sheet-repeating-container {
 			padding-left: 5%;
 		}
 
+		button[type='roll'] {
+			min-height: 2rem;
+		}
+
 		input[name='attr_collapse'] + span,
 		input[name='attr_settings'] + span {
 			font-size: 1.5rem;
