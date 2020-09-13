@@ -1,3 +1,8 @@
+- const buttonName = name => name.replace(/ /g, '-');
+- const attrName = name => name.replace(/ /g, '_');
+- const removeSpace = name => name.replace(/ /g, '');
+- const toLowerCase = name => name.toLowerCase();
+
 mixin textInput(name)
 	- const attrName = name.replace(/ /g, '_');
 	label(data-i18n-title=`enter ${name}` title=`enter ${name}`)
