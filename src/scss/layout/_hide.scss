@@ -19,13 +19,20 @@ input[name='attr_sheet_type']:not([value='advancement']) ~ div.sheet-pc div.shee
 input[name='attr_sheet_type'][value='advancement'] ~ div.sheet-pc div.sheet-characteristics {
    @extend %display-none;
 }
-
 div.sheet-collapse,
 .sheet-settings { 
-	@extend %display-none; 
+    opacity: 0;
+    height: 0;
+    transition: all .5s;
 }
 
 input[name='attr_collapse']:checked ~ div.sheet-collapse,
 input[name='attr_settings']:checked ~ div.sheet-settings {
-    @extend %display-block;
+    opacity: 1;
+    height: 100%;
+    transition: all .5s;
+}
+
+input[name='attr_settings']:not(:checked) ~ div.sheet-settings {
+    @extend %display-none;
 }
