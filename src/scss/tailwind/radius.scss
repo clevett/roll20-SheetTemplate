@@ -1,0 +1,39 @@
+$radius-2xl: 1rem;
+$radius-3xl: 1.5rem;
+$radius-4xl: 2rem;
+$radius-lg: 0.5rem;
+$radius-md: 0.375rem;
+$radius-sm: 0.25rem;
+$radius-xl: 0.75rem;
+$radius-xs: 0.125rem;
+
+.rounded-xs {
+  border-radius: $radius-xs; /* 0.125rem (2px) */
+}
+.rounded-sm {
+  border-radius: $radius-sm; /* 0.25rem (4px) */
+}
+.rounded-md {
+  border-radius: $radius-md; /* 0.375rem (6px) */
+}
+.rounded-lg {
+  border-radius: $radius-lg; /* 0.5rem (8px) */
+}
+.rounded-xl {
+  border-radius: $radius-xl; /* 0.75rem (12px) */
+}
+.rounded-2xl {
+  border-radius: $radius-2xl; /* 1rem (16px) */
+}
+.rounded-3xl {
+  border-radius: $radius-3xl; /* 1.5rem (24px) */
+}
+.rounded-4xl {
+  border-radius: $radius-4xl; /* 2rem (32px) */
+}
+.rounded-none {
+  border-radius: 0;
+}
+.rounded-full {
+  border-radius: calc(infinity * 1px);
+}

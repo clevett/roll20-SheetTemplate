@@ -1,0 +1,47 @@
+//Leave overrides at the very
+@import "scss/overrides";
+
+// COLORS & OTHER VARIABLES
+//  ============================= *
+@import "scss/tailwind/animations";
+@import "scss/tailwind/colors";
+@import "scss/tailwind/grid";
+@import "scss/tailwind/radius";
+@import "scss/tailwind/shadow";
+@import "scss/tailwind/spacing";
+@import "scss/tailwind/typography";
+@import "scss/tailwind/width";
+
+$primary: $color-sky-700;
+$secondary: $color-sky-500;
+
+// /* GLOBAL SETTINGS
+//   =============================  */
+@import "scss/grid";
+@import "scss/placeholder_selectors";
+@import "scss/typography";
+
+/* CHARACTER SHEET
+	============================= */
+@import "scss/charsheet";
+
+/* HEADER
+	============================= */
+@import "scss/header";
+
+/* PC
+    ============================= */
+
+/*  SHOW & HIDE SECTIONS
+  ============================= */
+
+/*  COMPONENTS
+  ============================= */
+@import "scss/components/switch";
+@import "scss/components/checkbox";
+@import "scss/components/repeating_container";
+@import "scss/components/rolltemplate";
+
+/*  FOOTER
+  ============================= */
+@import "scss/footer";

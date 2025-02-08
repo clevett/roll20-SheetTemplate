@@ -1,0 +1,26 @@
+div.header {
+  margin-top: 2%;
+  border-top: 2px solid $primary;
+  border-bottom: 2px solid $primary;
+  text-align: center;
+  background: $color-neutral-50; /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    $color-neutral-50 0%,
+    $secondary 50%,
+    $color-neutral-50 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    $color-neutral-50 0%,
+    $secondary 50%,
+    $color-neutral-50 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    $color-neutral-50 0%,
+    $secondary 50%,
+    $color-neutral-50 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-neutral-50', endColorstr='$color-neutral-50',GradientType=0 ); /* IE6-9 */
+}
