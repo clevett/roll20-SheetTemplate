@@ -1,13 +1,11 @@
-//Leave overrides at the very
-@import "scss/overrides";
-
-// COLORS & OTHER VARIABLES
+// Tailwind, https://tailwindcss.com/docs/
 //  ============================= *
-@import "scss/tailwind/animations";
-@import "scss/tailwind/colors";
+@import "scss/tailwind/colors"; //Keep colors at top
+@import "scss/tailwind/border";
 @import "scss/tailwind/flex";
 @import "scss/tailwind/grid";
-@import "scss/tailwind/radius";
+@import "scss/tailwind/height";
+@import "scss/tailwind/position";
 @import "scss/tailwind/shadow";
 @import "scss/tailwind/spacing";
 @import "scss/tailwind/typography";
@@ -15,29 +13,27 @@
 
 $primary: $color-sky-700;
 $secondary: $color-sky-500;
+$box-shadow: 2px 2px 3px 1px $color-neutral-800;
 
 // /* GLOBAL SETTINGS
 //   =============================  */
-@import "scss/grid";
-@import "scss/placeholder_selectors";
-@import "scss/typography";
+@import "scss/shared_classes";
 
-/* CHARACTER SHEET
+/* ROLL20 STYLE OVERRIDES
 	============================= */
 @import "scss/charsheet";
+@import "scss/overrides";
 
-/* HEADER
-	============================= */
-@import "scss/header";
-
-/* PC
+/* VIEWS
     ============================= */
-
-/*  SHOW & HIDE SECTIONS
-  ============================= */
+@import "views/pc";
+// @import "scss/npc";
 
 /*  COMPONENTS
   ============================= */
+@import "components/repeating_section";
+@import "components/tabs";
+//TODO: Review
 @import "scss/components/switch";
 @import "scss/components/checkbox";
 @import "scss/components/repeating_container";
@@ -45,4 +41,24 @@ $secondary: $color-sky-500;
 
 /*  FOOTER
   ============================= */
-@import "scss/footer";
+.footer {
+  display: block;
+  text-align: center;
+
+  span[name="attr_version"] {
+    &::after {
+      content: ".";
+      margin-right: 0.2rem;
+    }
+  }
+
+  span {
+    font-size: 1rem;
+  }
+
+  img {
+    margin-left: 2%;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}

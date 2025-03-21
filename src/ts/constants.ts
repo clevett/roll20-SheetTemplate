@@ -6,12 +6,7 @@
 //     "charisma",
 // ]
 
-// const skills = [
-//   "awareness",,
-//   "first aid",
-//   "intrigue",
-// ];
-
 // const characteristics = {
-//   movement: ["strength", "dexterity"],
+//  movement: ["strength", "dexterity"],
+//  reflexes: ["dexterity"],
 // };

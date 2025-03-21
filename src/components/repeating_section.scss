@@ -1,0 +1,100 @@
+.subheaders,
+.repeating-grid {
+  grid-template-columns: 1fr repeat(2, $spacing-6);
+}
+
+.repeating-grid {
+  input[type="checkbox"],
+  input[type="radio"] {
+    &.toggle {
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 10;
+    }
+
+    &.toggle,
+    &.toggle + span {
+      align-self: center;
+      justify-self: center;
+    }
+
+    &.toggle:checked + span {
+      color: $color-orange-600;
+      transition: color 0.5s ease-in-out;
+    }
+
+    &.toggle:not(:checked) + span {
+      color: inherit;
+      transition: color 0.5s ease-in-out;
+    }
+
+    &.toggle-edit + span {
+      font-size: $text-base;
+    }
+
+    &.toggle-collapse + span {
+      font-size: $text-2xl;
+      font-weight: bold;
+    }
+
+    &.toggle-collapse:checked + span {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &.toggle-collapse:not(:checked) + span {
+      transform: rotate(0deg);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  input[type="checkbox"].toggle-edit:not(checked) ~ .edit,
+  input[type="checkbox"].toggle-collapse:not(checked) ~ .collapsible {
+    display: none;
+  }
+
+  input[type="checkbox"].toggle-edit:checked ~ .edit,
+  input[type="checkbox"].toggle-collapse:checked ~ .collapsible {
+    display: inherit;
+  }
+
+  input[type="checkbox"].toggle-edit,
+  input[type="checkbox"].toggle-edit + span.pictos {
+    grid-area: 1/2/1/3;
+  }
+
+  input[type="checkbox"].toggle-collapse,
+  input[type="checkbox"].toggle-collapse + span.pictos {
+    grid-area: 1/3/1/4;
+  }
+
+  .displayed {
+    align-items: center;
+    grid-area: 1/1/2/2;
+  }
+
+  .collapsible {
+    grid-column: 1/-1;
+
+    padding-left: $spacing-4;
+
+    span {
+      word-wrap: break-word;
+    }
+  }
+
+  .edit {
+    grid-column: 1/-1;
+  }
+
+  .description {
+    grid-column: 1/-1;
+  }
+
+  // Override this in the section specific areas
+  .custom-grid {
+    grid-auto-columns: minmax($spacing-10, 1fr);
+  }
+}

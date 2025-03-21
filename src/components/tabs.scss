@@ -1,0 +1,51 @@
+//- Add tabs names here
+$tabs: "core", "journal";
+
+@each $tab in $tabs {
+  input[name="attr_tab"][value="#{$tab}"] ~ div.#{$tab} {
+    display: grid;
+  }
+
+  input[name="attr_tab"]:not([value="#{$tab}"]) ~ div.#{$tab} {
+    display: none;
+  }
+}
+
+.tab {
+  color: $color-neutral-50;
+  text-align: center;
+  text-transform: capitalize;
+
+  input[type="radio"],
+  span {
+    grid-area: 1/1/2/2;
+  }
+
+  input[type="radio"] {
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    max-height: 25px;
+    max-width: 50px;
+  }
+
+  input[type="radio"] + span {
+    background-color: $primary;
+    border-radius: $spacing;
+    border: 1px solid $primary;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    width: fit-content;
+    padding: $spacing-2;
+  }
+
+  input[type="radio"]:checked + span {
+    background-color: $secondary;
+    border-color: $secondary;
+    color: $color-neutral-950;
+    font-weight: bold;
+  }
+}

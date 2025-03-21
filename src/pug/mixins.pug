@@ -1,8 +1,3 @@
-- const buttonName = name => name.replace(/ /g, '-');
-- const attrName = name => name.replace(/ /g, '_');
-- const removeSpace = name => name.replace(/ /g, '');
-- const toLowerCase = name => name.toLowerCase();
-
 mixin textInput(name)
 	label(data-i18n-title=`enter ${name}` title=`enter ${name}`)
 		input(data-i18n-placeholder=name name=`attr_${attrName(name)}` placeholder=name title=`@{${attrName(name)}}` type='text' value='')
@@ -24,14 +19,14 @@ mixin textarea(name)
 	textarea(name=`attr_${attrName(name)}` placeholder=name)
 
 mixin rollButton(name)
-	button.text-capitalize(data-i18n=name name=`roll_${buttonName(name)}` type='roll' value!=`&{template:rolls} {{header=^{${name}}}} {{dice=[[1d20[Roll]]]}}`)
+	button.text-capitalize(data-i18n=name name=`roll_${dashedName(name)}` type='roll' value!=`&{template:rolls} {{header=^{${name}}}} {{dice=[[1d20[Roll]]]}}`)
 
 mixin repeatingRollButton(name)
-	button.text-left.ellipsis.font-weight-bold(name=`roll_${buttonName(name)}` type='roll' value!=`&{template:rolls} {{header=@{name}}} {{dice=@{description}}}`)
+	button.text-left.ellipsis.font-weight-bold(name=`roll_${dashedName(name)}` type='roll' value!=`&{template:rolls} {{header=@{name}}} {{dice=@{description}}}`)
 		span(name='attr_name')
 
 mixin repeatingText(name)
-	fieldset(class=`repeating_${buttonName(name)}`)
+	fieldset(class=`repeating_${dashedName(name)}`)
 		.rowx.grid.descriptor
 			+repeatingRollButton(name)
 			+checkboxSymbol('collapse', 'i')

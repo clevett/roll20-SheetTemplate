@@ -1,55 +1,55 @@
-$container-3xs: 16rem;
-$container-2xs: 18rem;
-$container-xs: 20rem;
-$container-sm: 24rem;
-$container-md: 28rem;
-$container-lg: 32rem;
-$container-xl: 36rem;
-$container-2xl: 42rem;
-$container-3xl: 48rem;
-$container-4xl: 56rem;
-$container-5xl: 64rem;
-$container-6xl: 72rem;
-$container-7xl: 80rem;
+$container-3xs: 256px;
+$container-2xs: 288px;
+$container-xs: 320px;
+$container-sm: 384px;
+$container-md: 448px;
+$container-lg: 512px;
+$container-xl: 576px;
+$container-2xl: 672px;
+$container-3xl: 768px;
+$container-4xl: 896px;
+$container-5xl: 1024px;
+$container-6xl: 1152px;
+$container-7xl: 1280px;
 
 .min-w-3xs {
-  min-width: $container-3xs; /* 16rem (256px) */
+  min-width: $container-3xs;
 }
 .min-w-2xs {
-  min-width: $container-2xs; /* 18rem (288px) */
+  min-width: $container-2xs;
 }
 .min-w-xs {
-  min-width: $container-xs; /* 20rem (320px) */
+  min-width: $container-xs;
 }
 .min-w-sm {
-  min-width: $container-sm; /* 24rem (384px) */
+  min-width: $container-sm;
 }
 .min-w-md {
-  min-width: $container-md; /* 28rem (448px) */
+  min-width: $container-md;
 }
 .min-w-lg {
-  min-width: $container-lg; /* 32rem (512px) */
+  min-width: $container-lg;
 }
 .min-w-xl {
-  min-width: $container-xl; /* 36rem (576px) */
+  min-width: $container-xl;
 }
 .min-w-2xl {
-  min-width: $container-2xl; /* 42rem (672px) */
+  min-width: $container-2xl;
 }
 .min-w-3xl {
-  min-width: $container-3xl; /* 48rem (768px) */
+  min-width: $container-3xl;
 }
 .min-w-4xl {
-  min-width: $container-4xl; /* 56rem (896px) */
+  min-width: $container-4xl;
 }
 .min-w-5xl {
-  min-width: $container-5xl; /* 64rem (1024px) */
+  min-width: $container-5xl;
 }
 .min-w-6xl {
-  min-width: $container-6xl; /* 72rem (1152px) */
+  min-width: $container-6xl;
 }
 .min-w-7xl {
-  min-width: $container-7xl; /* 80rem (1280px) */
+  min-width: $container-7xl;
 }
 .min-w-auto {
   min-width: auto;

@@ -1,5 +1,10 @@
 {
-  "character sheet": "character sheet",
-  "name": "name",
-  "player": "player"
+  "character name": "character name",
+  "player": "player",
+  "skills": "skills",
+  "background": "background",
+  "attribute": "attribute",
+  "category": "category",
+  "core": "core",
+  "journal": "journal"
 }

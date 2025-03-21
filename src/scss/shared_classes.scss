@@ -1,0 +1,55 @@
+%ellipsis,
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Borders */
+.double-border-2 {
+  border: $spacing double $color-neutral-950;
+}
+
+.border-bottom {
+  border-bottom: 2px solid $color-neutral-950;
+}
+
+.border-right {
+  border-right: 2px solid $color-neutral-950;
+}
+
+/* Grid */
+.col-auto-fr {
+  grid-template-columns: auto 1fr;
+}
+
+.col-fr-auto {
+  grid-template-columns: 1fr auto;
+}
+
+/* Shapes */
+.circle {
+  background-color: $color-neutral-100;
+  border-radius: 50%;
+  border: $spacing double $color-neutral-950;
+  height: $spacing-20;
+  padding: $spacing-2;
+  width: $spacing-20;
+}
+
+/* Typography */
+.pictos {
+  font-family: "pictos";
+}
+
+.d20 {
+  font-family: "dicefontd20";
+}
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+.text-primary {
+  color: $primary;
+}

@@ -1,0 +1,23 @@
+.pc.grid.gap-4
+  .grid.gap-2
+    h1.text-center(data-i18n='character sheet')
+    .grid.grid-cols-2.gap-4.grid-flow-col
+      each val in ["character name", "player"]
+        .grid.col-auto-fr.gap-2.grid-flow-col.items-center
+          h3(data-i18n=val)
+          +textInput(val)
+
+  //- Create different tabs for different sections of the character sheet
+  //- Add tab names to tabs.scss
+  +tabs(["core", "journal"])
+
+  .core
+    .grid.gap-2
+      +repeatingSection('skills', {display: ['name', 'level', 'attribute'], collapse: ['category']})
+
+  .journal
+    .grid.gap-2
+      h2.text-center(data-i18n='background')
+      +textarea('background')
+
+
