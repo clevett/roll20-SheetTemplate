@@ -1,5 +1,4 @@
 // Type definitions for Roll20 built-in functions and variables
-// Project: Roll20 Stars Without Number Revised
 // Definitions by: Karl Erik Hofseth https://github.com/Karlinator
 
 declare type EventInfo = {
@@ -44,3 +43,16 @@ declare function on(
   event: string,
   callback: (eventInfo: EventInfo) => void
 ): void;
+
+//- Drag & Drop
+declare type CompendiumAttributes = {
+  name: string;
+  data: {
+    Category: string;
+    blobs: { [key: string]: unknown };
+    expansion: number;
+    //- This custom data added by the compendium owner
+    [key: string]: AttributeContent;
+  };
+  content: string;
+};

@@ -6,5 +6,6 @@
   "attribute": "attribute",
   "category": "category",
   "core": "core",
-  "journal": "journal"
+  "journal": "journal",
+  "accepting drop": "ACCEPTING DROP FROM COMPENDIUM"
 }
