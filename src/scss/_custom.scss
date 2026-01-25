@@ -1,21 +1,9 @@
-%ellipsis,
+@use "tailwind" as *;
+
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-/* Borders */
-.double-border-2 {
-  border: $spacing double $color-neutral-950;
-}
-
-.border-bottom {
-  border-bottom: 2px solid $color-neutral-950;
-}
-
-.border-right {
-  border-right: 2px solid $color-neutral-950;
 }
 
 /* Grid */
@@ -48,8 +36,4 @@
 
 .small-caps {
   font-variant: small-caps;
-}
-
-.text-primary {
-  color: $primary;
 }

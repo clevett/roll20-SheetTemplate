@@ -1,11 +1,15 @@
-//Roll20 class. It helps overwrite the Roll20 default styles for the character sheet.
+@use "tailwind" as *;
+@use "./custom" as *;
+@use "branding" as *;
+@use "./components/buttons" as *;
+
 .charsheet {
   @extend .min-w-lg;
   background-color: $color-neutral-100;
 
   button {
     font-family: serif;
-    @extend %ellipsis;
+    @extend .ellipsis;
 
     &:before {
       display: none;
@@ -13,25 +17,17 @@
     &:focus,
     &:hover,
     &:active {
-      background: none;
-      background-color: $primary !important;
-      color: $color-neutral-50;
+      background-color: $color-lime-800;
+      color: $color-neutral-100;
+      scale: 1.05;
+      border-radius: $spacing;
+      border: 1px solid $color-lime-800;
     }
+
     &[type="roll"],
     &[type="action"] {
-      max-width: $spacing-38;
-      min-height: $spacing-6;
-      background-color: $color-neutral-50;
-      border: {
-        bottom: 2px solid $color-neutral-900;
-        bottom-right-radius: 0.01em;
-        radius: 0.25em;
-        right: 0.02em solid $color-neutral-800;
-        style: outset;
-      }
-      margin: 0px !important;
-      padding: 2px 4px !important;
-      box-shadow: $box-shadow;
+      @extend %buttons;
+      @extend %button;
     }
   }
 
@@ -39,40 +35,29 @@
     background-color: transparent;
   }
 
-  h1,
-  h2 {
-    @extend %ellipsis;
-    @extend .capitalize;
-    @extend .uppercase;
-  }
+  @extend .font-base;
 
+  h1,
+  h2,
   h3,
   h4 {
-    @extend %ellipsis;
-    @extend .capitalize;
-    @extend .small-caps;
+    @extend .ellipsis;
   }
 
   h1 {
-    font-size: $text-lg;
-    font-weight: $font-weight-bold;
-    line-height: $text-base--line-height;
+    @extend .font-h1;
   }
 
   h2 {
-    font-size: $text-base;
-    font-weight: $font-weight-semibold;
-    line-height: $text-sm--line-height;
+    @extend .font-h2;
   }
 
   h3 {
-    font-size: $text-sm;
-    font-weight: $font-weight-medium;
-    line-height: $text-xs--line-height;
+    @extend .font-h3;
   }
 
   h4 {
-    font-size: $text-xs;
+    @extend .font-h4;
   }
 
   input {
@@ -86,8 +71,16 @@
 
     &[type="text"],
     &[type="number"] {
+      @extend .font-base;
       background-color: transparent;
       border-bottom: 2px solid $color-neutral-900;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $color-amber-100;
+        border: 1px dotted $color-amber-500;
+      }
 
       border: {
         left: 0em;
@@ -95,6 +88,7 @@
         right: 0em;
         top: 0em;
       }
+
       height: 2.1em;
       width: 100%;
 
@@ -106,7 +100,6 @@
     &[type="number"] {
       -moz-appearance: textfield;
       text-align: center;
-      width: 100%;
     }
 
     &::-webkit-outer-spin-button,
@@ -117,8 +110,18 @@
   }
 
   select {
+    font-weight: bold;
     margin-bottom: 0px;
     text-transform: capitalize;
+    width: 100%;
+  }
+
+  p {
+    @extend .font-base;
+  }
+
+  option {
+    font-weight: bold;
   }
 
   textarea {
@@ -127,12 +130,11 @@
     margin-bottom: 0px;
     min-height: $spacing-12;
     overflow-wrap: break-word;
-    overflow: hidden;
-    padding: 2px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: $spacing-2;
     resize: vertical;
     text-align: left;
     vertical-align: top;
-    overflow-x: hidden;
-    overflow-y: auto;
   }
 }

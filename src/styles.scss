@@ -1,43 +1,4 @@
-// Tailwind, https://tailwindcss.com/docs/
-//  ============================= *
-@import "scss/tailwind/colors"; //Keep colors at top
-@import "scss/tailwind/border";
-@import "scss/tailwind/flex";
-@import "scss/tailwind/grid";
-@import "scss/tailwind/height";
-@import "scss/tailwind/position";
-@import "scss/tailwind/shadow";
-@import "scss/tailwind/spacing";
-@import "scss/tailwind/typography";
-@import "scss/tailwind/width";
-
-$primary: $color-sky-700;
-$secondary: $color-sky-500;
-$box-shadow: 2px 2px 3px 1px $color-neutral-800;
-
-// /* GLOBAL SETTINGS
-//   =============================  */
-@import "scss/shared_classes";
-
-/* ROLL20 STYLE OVERRIDES
-	============================= */
-@import "scss/charsheet";
-@import "scss/overrides";
-
-/* VIEWS
-    ============================= */
-@import "views/pc";
-// @import "scss/npc";
-
-/*  COMPONENTS
-  ============================= */
-@import "components/repeating_section";
-@import "components/tabs";
-//TODO: Review
-@import "scss/components/switch";
-@import "scss/components/checkbox";
-@import "scss/components/repeating_container";
-@import "scss/components/rolltemplate";
+@use "scss";
 
 /*  FOOTER
   ============================= */
@@ -62,3 +23,8 @@ $box-shadow: 2px 2px 3px 1px $color-neutral-800;
     width: 2.5rem;
   }
 }
+
+// Google Fonts
+@import url("https://fonts.googleapis.com/css?family=Tinos&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Gideon+Roman&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");

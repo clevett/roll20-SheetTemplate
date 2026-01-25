@@ -1,3 +1,5 @@
+@use "tailwind" as *;
+
 .subheaders,
 .repeating-grid {
   grid-template-columns: 1fr repeat(2, $spacing-6);
@@ -96,5 +98,16 @@
   // Override this in the section specific areas
   .custom-grid {
     grid-auto-columns: minmax($spacing-10, 1fr);
+  }
+}
+
+.repitem {
+  .toggle + span {
+    visibility: hidden;
+  }
+
+  &:hover .toggle + span {
+    visibility: visible;
+    transition: visibility 0.5s ease-in-out;
   }
 }

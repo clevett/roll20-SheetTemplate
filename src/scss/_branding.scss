@@ -1,0 +1,41 @@
+@use "tailwind" as *;
+
+//Customer Variables for branding
+$brand-primary: rgb(23, 67, 69);
+$brand-secondary: rgb(254, 235, 179);
+
+$paper-background: "";
+
+.font-base {
+  font-family: "Tinos";
+  font-size: $text-sm;
+  font-weight: $font-weight-normal;
+  line-height: $text-sm--line-height;
+}
+
+.font-h1 {
+  font-family: "Gideon Roman";
+  font-size: $text-4xl;
+  font-weight: $font-weight-bold;
+  line-height: $text-4xl--line-height;
+}
+
+.font-h2 {
+  font-family: "Josefin Sans";
+  font-size: $text-2xl;
+  font-weight: $font-weight-medium;
+  line-height: $text-2xl--line-height;
+}
+
+.font-h3 {
+  font-family: "Tinos";
+  font-size: $text-lg;
+  font-weight: $font-weight-medium;
+  line-height: $text-lg--line-height;
+}
+
+.font-h4 {
+  font-family: "Josefin Sans";
+  font-size: $text-base;
+  font-weight: $font-weight-bold;
+}

@@ -1,3 +1,5 @@
+@use "tailwind" as *;
+
 //- Add tabs names here
 $tabs: "core", "journal";
 
@@ -32,9 +34,10 @@ $tabs: "core", "journal";
   }
 
   input[type="radio"] + span {
-    background-color: $primary;
+    color: $color-neutral-50;
+    background-color: $color-neutral-800;
     border-radius: $spacing;
-    border: 1px solid $primary;
+    border: 1px solid $color-neutral-800;
     cursor: pointer;
     display: inline-block;
     position: relative;
@@ -42,9 +45,13 @@ $tabs: "core", "journal";
     padding: $spacing-2;
   }
 
+  input[type="radio"]:hover + span {
+    background-color: $color-neutral-700;
+  }
+
   input[type="radio"]:checked + span {
-    background-color: $secondary;
-    border-color: $secondary;
+    background-color: $color-lime-600;
+    border-color: $color-lime-600;
     color: $color-neutral-950;
     font-weight: bold;
   }

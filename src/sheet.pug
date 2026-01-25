@@ -4,15 +4,16 @@ input(name='attr_version' type='hidden' value='3.3')
 //- Do not manually change this. Hidden attribute used by versioning script
 input(name='attr_latest_versioning_upgrade' type='hidden' value='1')
 
-//- INCLUDES
-  =============================
+//- //- INCLUDES
+//-   =============================
 include pug/constants.pug
 include pug/mixins.pug
 
-//- TEMPLATE COMPONENTS
-  =============================
-include components/repeating_section.pug
-include components/tabs.pug
+//- //- TEMPLATE COMPONENTS
+//-   =============================
+include pug/components/repeating_section.pug
+include pug/components/tabs.pug
+include pug/components/roll_templates.pug
 
 //- DRAG & DROP
   =============================
@@ -40,10 +41,7 @@ include components/tabs.pug
   span(name='attr_version')
   span Original template created by Emerald Productions, LLC
   img(src="https://raw.githubusercontent.com/clevett/roll20-SheetTemplate/master/src/imgs/EProd_Emerald_Gloss.png", alt="Emerald Productions logo of an E")
-  
-//-ROLL TEMPLATE
-  =============================
-include pug/components/rolltemplates.pug
+
 
 //- SCRIPTS
 script(type="text/worker")

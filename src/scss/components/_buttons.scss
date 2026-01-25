@@ -1,0 +1,40 @@
+@use "branding" as *;
+@use "tailwind" as *;
+
+%button {
+  background-color: $color-neutral-800;
+  border: {
+    bottom-right-radius: 0.01em;
+    bottom: 2px solid $color-neutral-900;
+    color: $color-neutral-500;
+    radius: 0.25em;
+    right: 0.02em solid $color-neutral-800;
+    style: outset;
+  }
+  box-shadow: $shadow-md;
+  color: $color-neutral-50;
+  font-size: $text-base;
+  margin: 0px;
+  min-height: $spacing-6;
+  padding: 2px 4px;
+}
+
+%buttons {
+  font-family: serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:before {
+    display: none;
+  }
+  &:focus,
+  &:hover,
+  &:active {
+    background-color: $color-neutral-600;
+    color: $color-neutral-50;
+    scale: 1.05;
+    border-radius: $spacing;
+    border: 1px solid $color-neutral-800;
+  }
+}

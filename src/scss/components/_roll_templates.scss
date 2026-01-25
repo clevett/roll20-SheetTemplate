@@ -1,0 +1,80 @@
+@use "tailwind" as *;
+@use "../branding" as *;
+@use "./buttons" as *;
+
+.sheet-template-container {
+  @extend .border-solid;
+  @extend .font-base;
+  background-color: $color-neutral-100;
+  border-radius: $radius-md;
+  border: 2px solid $color-neutral-800;
+  box-shadow: $shadow-md;
+  color: $color-neutral-950;
+  text-align: center;
+
+  .sheet-template-header {
+    background-color: $color-neutral-800;
+    h1 {
+      @extend .font-h2;
+      color: $color-amber-200;
+      margin: 0;
+    }
+
+    border-bottom: 2px solid $color-neutral-800;
+    padding: $spacing $spacing-2;
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
+  }
+
+  .sheet-template-body {
+    @extend .font-base;
+    color: $color-neutral-700;
+    padding: $spacing $spacing-2;
+    background-color: transparent;
+
+    .sheet-template-tags,
+    .sheet-template-type {
+      @extend .text-center;
+      @extend .capitalize;
+    }
+
+    .sheet-template-action {
+      @extend .text-center;
+    }
+
+    .sheet-template-desc {
+      text-align: left;
+    }
+
+    a[href^="~"] {
+      @extend %buttons;
+      @extend %button;
+    }
+  }
+
+  /* DICE ROLL STYLES
+		----------------------------- */
+  .inlinerollresult {
+    background-color: transparent;
+    border: none;
+    @extend .font-h1;
+    color: $color-neutral-800;
+    padding: unset;
+    cursor: help;
+  }
+
+  .inlinerollresult.fullfail,
+  .inlinerollresult.fullcrit,
+  .inlinerollresult.importantroll {
+    border: none;
+    @extend .font-h1;
+  }
+
+  .inlinerollresult.fullcrit {
+    color: $color-lime-500;
+  }
+
+  .inlinerollresult.fullfail {
+    color: $color-red-800;
+  }
+}
