@@ -25,11 +25,10 @@ include components/tabs.pug
   input.type(name='attr_sheet_type' type='hidden' value='character')
   input.display_string(name='attr_character_settings' type='hidden' value='')
 
-
-    //-CHARACTER SHEETS VIEWS
-      =============================
-    include views/pc.pug
-    //- include views/npc.pug
+  //-CHARACTER SHEETS VIEWS
+    =============================
+  include views/pc.pug
+  //- include views/npc.pug
 
 .compendium_warning
   span(data-i18n="accepting drop") ACCEPTING DROP FROM COMPENDIUM
