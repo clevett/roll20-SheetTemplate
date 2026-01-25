@@ -17,9 +17,9 @@
   },
   "scripts": {
     "dev": "tsc && run-p --race \"build:ts -- -w\" \"build:pug -- -w\" \"build:sass -- --watch\"",
-    "build": "tsc && run-p --race build:pug build:sass",
+    "build": "tsc && run-p build:pug build:sass",
     "build:ts": "tsc",
-    "build:pug": "pug -o build/ src/sheet.pug",
+    "build:pug": "pug -o build/ src/sheet.pug && bash ./extract_i18n.sh",
     "build:sass": "sass --no-source-map --style compressed src/styles.scss ./build/styles.css"
   },
   "repository": {
