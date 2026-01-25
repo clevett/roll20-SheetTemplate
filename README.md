@@ -2,7 +2,7 @@
 
 ## Necessary files
 
-For Roll20 the files you need are styles.css, sheet.html, preview.png, and sheet.json. All the others are optional. They are intended to be used by front-end developers with NPM and compiled languages.
+The Roll20 files that need to be submitted to the repository will be compiled into the build folder. The sheet.json and preview need to be updated for your sheet.
 
 ## NPM
 
