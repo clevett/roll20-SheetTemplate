@@ -9,8 +9,24 @@
   padding: 0px;
 }
 
+.dropzone {
+  padding: 0px;
+  border: none;
+  background: transparent;
+}
+
 .ui-dialog .charsheet input[type="number"] {
   width: 100%;
+}
+
+.ui-dialog .charsheet button[type="roll"],
+.ui-dialog .charsheet button[type="action"],
+.ui-dialog .charsheet button {
+  padding: 2px 4px;
+  margin: 0px;
+  font-size: $text-base;
+  background-image: none;
+  text-shadow: none;
 }
 
 /* Repeating Sections */
@@ -40,6 +56,7 @@
 }
 
 .repitem {
+  margin-bottom: $spacing;
 }
 
 /* Roll Templates */
