@@ -2,8 +2,9 @@
 
 set -e
 
-INPUT_HTML="./build/sheet.html"
-OUTPUT_JSON="./build/translation.json"
+BUILD_DIR="build"
+INPUT_HTML="${BUILD_DIR}/sheet.html"
+OUTPUT_JSON="${BUILD_DIR}/translation.json"
 
 if [ ! -f "$INPUT_HTML" ]; then
   echo "Error: $INPUT_HTML not found"
@@ -29,4 +30,4 @@ grep -o 'data-i18n="[^"]*"' "$INPUT_HTML" \
       echo "}"
     } > "$OUTPUT_JSON"
 
-echo "Generated $OUTPUT_JSON"
+echo "Done ✔ created $OUTPUT_JSON"

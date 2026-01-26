@@ -4,24 +4,28 @@
   "description": "Character sheet development in VS Code",
   "main": "index.js",
   "devDependencies": {
-    "@types/underscore": "^1.10.24",
+    "@types/underscore": "^1.13.0",
+    "chokidar-cli": "^3.0.0",
     "jstransformer-uglify-es": "^0.2.1",
     "npm-run-all": "^4.1.5",
     "pug": "3.0.3",
     "pug-cli": "1.0.0-alpha6",
-    "sass": "1.32.8",
-    "typescript": "^4.1.5"
+    "sass": "1.97.3",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "jq": "^1.7.2"
   },
   "scripts": {
-    "dev": "tsc && run-p \"build:ts -- -w\" \"build:pug -- -w\" \"build:sass -- --watch\" build:translations",
-    "build": "tsc && run-p build:pug build:sass",
-    "build:ts": "tsc",
+    "dev": "run-p build:pug:watch build:sass:watch watch:html",
     "build:pug": "pug -o build/ src/sheet.pug",
+    "build:pug:watch": "pug -w -o build/ src/sheet.pug",
     "build:sass": "sass --no-source-map --style compressed --load-path=src/scss src/styles.scss ./build/styles.css",
-    "build:translations": "bash ./extract_i18n.sh"
+    "build:sass:watch": "sass --no-source-map --style compressed --load-path=src/scss src/styles.scss ./build/styles.css --watch",
+    "build:translations": "bash ./scripts/extract_i18n.sh",
+    "purge:css": "bash ./scripts/purge_build_css.sh",
+    "watch:html": "chokidar \"build/sheet.html\" -c \"npm run post:html\" --debounce 300",
+    "post:html": "npm run build:translations && npm run purge:css"
   },
   "repository": {
     "type": "git",
