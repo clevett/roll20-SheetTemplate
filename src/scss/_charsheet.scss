@@ -48,30 +48,19 @@
   }
 
   h1 {
-    font-size: $text-4xl;
-    font-weight: $font-weight-bold;
-    line-height: $text-4xl--line-height;
     @extend .brand-font-h1;
   }
 
   h2 {
-    font-size: $text-2xl;
-    font-weight: $font-weight-medium;
-    line-height: $text-2xl--line-height;
     @extend .brand-font-h2;
   }
 
   h3 {
-    font-size: $text-lg;
-    font-weight: $font-weight-medium;
-    line-height: $text-lg--line-height;
     @extend .brand-font-h3;
   }
 
   h4 {
     @extend .brand-font-h4;
-    font-size: $text-base;
-    font-weight: $font-weight-bold;
   }
 
   input {

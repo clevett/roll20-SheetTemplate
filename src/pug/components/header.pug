@@ -1,0 +1,12 @@
+mixin Header(props)
+    - const { i18n, name, size }  = props
+    - const i18nKey = i18n ||name
+    if size === 'h1'
+        h1.ellipse.capitalize.text-4xl.font-weight-bold.text-4xl--line-height(data-i18n=i18nKey class!=attributes.class)
+    else if size === 'h2'
+        h2.ellipse.capitalize.text-2xl.font-weight-medium.text-2xl--line-height(data-i18n=i18nKey class!=attributes.class)
+    else if size === 'h3'
+        h3.ellipse.capitalize.text-lg.font-weight-medium.text-lg--line-height(data-i18n=i18nKey class!=attributes.class)
+    else 
+        h4.ellipse.capitalize.text-base.font-weight-bold(data-i18n=i18nKey class!=attributes.class)
+

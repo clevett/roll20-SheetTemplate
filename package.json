@@ -16,7 +16,7 @@
     "jq": "^1.7.2"
   },
   "scripts": {
-    "dev": "tsc && run-p \"build:ts -- -w\" \"build:pug -- -w\" \"build:sass -- --watch\"",
+    "dev": "tsc && run-p \"build:ts -- -w\" \"build:pug -- -w\" \"build:sass -- --watch\" build:translations",
     "build": "tsc && run-p build:pug build:sass",
     "build:ts": "tsc",
     "build:pug": "pug -o build/ src/sheet.pug",

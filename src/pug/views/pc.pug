@@ -1,14 +1,13 @@
 .pc.grid.gap-4
   .grid.gap-2
-    h1.text-center(data-i18n='character sheet')
+    +Header({size: 'h1', name: 'Header 1'}).text-center
     .grid.grid-cols-2.gap-4.grid-flow-col
       each val in ["character name", "player"]
         .grid.col-auto-fr.gap-2.grid-flow-col.items-center
-          h3(data-i18n=val)
-          +textInput(val)
+          +Header({size: 'h3', name: val})
+          +Input({name: val})
 
   //- Create different tabs for different sections of the character sheet
-  //- Add tab names to tabs.scss
   +tabs(["core", "journal"])
 
   .core
@@ -17,6 +16,6 @@
 
   .journal
     .grid.gap-2
-      h2.text-center(data-i18n='background')
+      +Header({size: 'h2', name: 'background',}).text-center
       +textarea('background')
 
