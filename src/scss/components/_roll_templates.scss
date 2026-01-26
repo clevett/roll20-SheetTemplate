@@ -2,79 +2,87 @@
 @use "../branding" as *;
 @use "./buttons" as *;
 
-.sheet-template-container {
-  @extend .border-solid;
-  @extend .font-base;
-  background-color: $color-neutral-100;
-  border-radius: $radius-md;
-  border: 2px solid $color-neutral-800;
-  box-shadow: $shadow-md;
-  color: $color-neutral-950;
-  text-align: center;
+.sheet-rolltemplate-rolls {
+  .sheet-template-container {
+    @extend .border-solid;
+    background-color: $color-neutral-100;
+    border-radius: $radius-md;
+    border: 2px solid $color-neutral-800;
+    box-shadow: $shadow-md;
+    color: $color-neutral-50;
+    font-size: $text-base;
+    font-weight: $font-weight-bold;
+    text-align: center;
+    @extend .brand-font-base;
 
-  .sheet-template-header {
-    background-color: $color-neutral-800;
-    h1 {
-      @extend .font-h2;
+    .sheet-template-header {
+      background-color: $color-neutral-800;
       color: $color-amber-200;
       margin: 0;
+      font-size: $text-2xl;
+      font-weight: $font-weight-medium;
+      line-height: $text-2xl--line-height;
+      font-variant: small-caps;
+      border-bottom: 2px solid $color-neutral-800;
+      padding: $spacing $spacing-2;
+      box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+      text-transform: capitalize;
+      @extend .brand-font-h2;
     }
 
-    border-bottom: 2px solid $color-neutral-800;
-    padding: $spacing $spacing-2;
-    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
-    text-transform: capitalize;
-  }
+    .sheet-template-body {
+      color: $color-neutral-700;
+      padding: $spacing-2 $spacing-2;
+      background-color: transparent;
+      font-size: $text-base;
+      font-weight: $font-weight-bold;
+      min-height: $spacing-13;
+      @extend .brand-font-base;
 
-  .sheet-template-body {
-    @extend .font-base;
-    color: $color-neutral-700;
-    padding: $spacing $spacing-2;
-    background-color: transparent;
+      .sheet-template-tags,
+      .sheet-template-type {
+        @extend .text-center;
+        @extend .capitalize;
+      }
 
-    .sheet-template-tags,
-    .sheet-template-type {
-      @extend .text-center;
-      @extend .capitalize;
+      .sheet-template-action {
+        @extend .text-center;
+      }
+
+      .sheet-template-desc {
+        text-align: left;
+      }
+
+      a[href^="~"] {
+        @extend %buttons;
+        @extend %button;
+      }
     }
 
-    .sheet-template-action {
-      @extend .text-center;
+    /* DICE ROLL STYLES
+      ----------------------------- */
+    .inlinerollresult {
+      background-color: transparent;
+      border: none;
+      color: $color-neutral-800;
+      padding: unset;
+      cursor: help;
+      @extend .brand-font-h1;
     }
 
-    .sheet-template-desc {
-      text-align: left;
+    .inlinerollresult.fullfail,
+    .inlinerollresult.fullcrit,
+    .inlinerollresult.importantroll {
+      border: none;
+      @extend .brand-font-h1;
     }
 
-    a[href^="~"] {
-      @extend %buttons;
-      @extend %button;
+    .inlinerollresult.fullcrit {
+      color: $color-lime-500;
     }
-  }
 
-  /* DICE ROLL STYLES
-		----------------------------- */
-  .inlinerollresult {
-    background-color: transparent;
-    border: none;
-    @extend .font-h1;
-    color: $color-neutral-800;
-    padding: unset;
-    cursor: help;
-  }
-
-  .inlinerollresult.fullfail,
-  .inlinerollresult.fullcrit,
-  .inlinerollresult.importantroll {
-    border: none;
-    @extend .font-h1;
-  }
-
-  .inlinerollresult.fullcrit {
-    color: $color-lime-500;
-  }
-
-  .inlinerollresult.fullfail {
-    color: $color-red-800;
+    .inlinerollresult.fullfail {
+      color: $color-red-800;
+    }
   }
 }

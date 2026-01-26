@@ -35,7 +35,10 @@
     background-color: transparent;
   }
 
-  @extend .font-base;
+  font-size: $text-sm;
+  font-weight: $font-weight-normal;
+  line-height: $text-sm--line-height;
+  @extend .brand-font-base;
 
   h1,
   h2,
@@ -45,19 +48,30 @@
   }
 
   h1 {
-    @extend .font-h1;
+    font-size: $text-4xl;
+    font-weight: $font-weight-bold;
+    line-height: $text-4xl--line-height;
+    @extend .brand-font-h1;
   }
 
   h2 {
-    @extend .font-h2;
+    font-size: $text-2xl;
+    font-weight: $font-weight-medium;
+    line-height: $text-2xl--line-height;
+    @extend .brand-font-h2;
   }
 
   h3 {
-    @extend .font-h3;
+    font-size: $text-lg;
+    font-weight: $font-weight-medium;
+    line-height: $text-lg--line-height;
+    @extend .brand-font-h3;
   }
 
   h4 {
-    @extend .font-h4;
+    @extend .brand-font-h4;
+    font-size: $text-base;
+    font-weight: $font-weight-bold;
   }
 
   input {
@@ -71,9 +85,9 @@
 
     &[type="text"],
     &[type="number"] {
-      @extend .font-base;
       background-color: transparent;
       border-bottom: 2px solid $color-neutral-900;
+      @extend .brand-font-base;
 
       &:hover,
       &:focus,
@@ -117,7 +131,7 @@
   }
 
   p {
-    @extend .font-base;
+    @extend .brand-font-base;
   }
 
   option {
