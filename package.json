@@ -18,14 +18,14 @@
   },
   "scripts": {
     "dev": "run-p build:pug:watch build:sass:watch watch:html",
+    "build": "npm run build:pug && npm run build:sass && npm run build:translations",
     "build:pug": "pug -o build/ src/sheet.pug",
     "build:pug:watch": "pug -w -o build/ src/sheet.pug",
     "build:sass": "sass --no-source-map --style compressed --load-path=src/scss src/styles.scss ./build/styles.css",
     "build:sass:watch": "sass --no-source-map --style compressed --load-path=src/scss src/styles.scss ./build/styles.css --watch",
     "build:translations": "bash ./scripts/extract_i18n.sh",
-    "purge:css": "bash ./scripts/purge_build_css.sh",
     "watch:html": "chokidar \"build/sheet.html\" -c \"npm run post:html\" --debounce 300",
-    "post:html": "npm run build:translations && npm run purge:css"
+    "post:html": "npm run build:translations"
   },
   "repository": {
     "type": "git",
