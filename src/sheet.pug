@@ -4,17 +4,16 @@ input(name='attr_version' type='hidden' value='3.3')
 //- Do not manually change this. Hidden attribute used by versioning script
 input(name='attr_latest_versioning_upgrade' type='hidden' value='1')
 
-
-include pug/constants.pug
-include pug/mixins.pug
-include pug/components/repeating_section.pug
-include pug/components/tabs.pug
-include pug/components/roll_templates.pug
+//- include pug/components/repeating_section.pug
+//- include pug/components/roll_templates.pug
+//- include pug/constants.pug
+//- include pug/mixins.pug
 include pug/components/header.pug
 include pug/components/input.pug
+include pug/components/tabs.pug
 
 - const dashedName = name => name.replace(/ /g, '-');
-- const attrName = name => name.replace(/ /g, '_');
+- const attrName = name => name.replace(/ /g, '_').toLowerCase();
 - const removeSpace = name => name.replace(/ /g, '');
 - const toLowerCase = name => name.toLowerCase();
 
@@ -29,25 +28,38 @@ include pug/components/input.pug
   input.type(name='attr_sheet_type' type='hidden' value='character')
 
   //- CUSTOMIZE CODE AREA
-  .grid.gap-6
-    +Header({size: 'h1', name: 'Style Guide'}).text-center
-    .grid.gap-4.grid-flow-column.grid-cols-2.content-start
-      .grid.gap-2
-        +Header({size: 'h2', name: "Headers"}).text-center
-        each size in ['h1', 'h2', 'h3', 'h4']
-          +Header({size: size, name: `${size} header`})
-      .grid.gap-2
-        +Header({size: 'h2', name: "Inputs"}).text-center
-        each type in ['text', 'number', 'checkbox', 'radio']
-          .grid.gap-2.grid-flow-col.items-center.col-auto-fr
-            +Header({size: 'h3', name: `${type}`}).w-fit
-            +Input({name: `${type}`, type: type})
+  .grid.gap-6.style_guide
+    .grid.tablist.rounded-t-md
+      - const viewTabs = ['style guide', 'character', 'npc'];
+      +Tabs({values: viewTabs, attr: 'sheet_type'})
+
+    .grid.gap-4
+      +Header({size: 'h1', name: 'style guide'}).text-center
+      .grid.gap-4.grid-flow-column.grid-cols-2.content-start
+        .grid.gap-2
+          .grid.gap-2
+            +Header({size: 'h2', name: "headers"}).text-center
+            each size in ['h1', 'h2', 'h3', 'h4']
+              +Header({size: size, name: `${size} header`})
+
+        .grid.gap-2
+          .grid.gap-2
+            +Header({size: 'h2', name: "inputs"}).text-center
+            each type in ['text', 'number', 'checkbox', 'radio']
+              .grid.gap-2.grid-flow-col.items-center.col-auto-fr
+                +Header({size: 'h3', name: `${type}`}).w-fit
+                +Input({name: `${type}`, type: type})
+
+          .grid.gap-2
+            +Header({size: 'h2', name: "tabs"}).text-center
+            //- +tabs(["tab1", "tab2", "tab3"])
+
+  .grid.gap-6.character
+    .grid.tablist.rounded-t-md
+      +Tabs({values: viewTabs, attr: 'sheet_type'})
+    include pug/character.pug
 
 
-  //-CHARACTER SHEETS VIEWS
-    =============================
-  //- include pug/views/pc.pug
-  //- include views/npc.pug
 
 .compendium_warning
   span(data-i18n="accepting drop") ACCEPTING DROP FROM COMPENDIUM
@@ -61,15 +73,15 @@ include pug/components/input.pug
 
 //- SCRIPTS
 script(type="text/worker")
-  //- Add additional utils as needed
-  include ts/utils/create_attribute_name.ts
-  include ts/utils/get_repeating_field_name.ts
-  include ts/utils/get_row_attribute_name.ts
-  include ts/utils/get_row_id.ts
-  include ts/utils/sum_integers.ts
+  //- //- Add additional utils as needed
+  //- include ts/utils/create_attribute_name.ts
+  //- include ts/utils/get_repeating_field_name.ts
+  //- include ts/utils/get_row_attribute_name.ts
+  //- include ts/utils/get_row_id.ts
+  //- include ts/utils/sum_integers.ts
 
-  //- Core functions
-  include ts/versioning.ts
+  //- //- Core functions
+  //- include ts/versioning.ts
   include ts/constants.ts
   include ts/event_handlers.ts
 

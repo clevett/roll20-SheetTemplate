@@ -18,14 +18,12 @@
         +Input({name: "checkbox", type: "checkbox"}).text-center
     
 
-  +tabs(["core", "journal"])
+  //- .core
+  //-   .grid.gap-2
+  //-     +repeatingSection('skills', {display: ['name', 'level', 'attribute'], collapse: ['category']})
 
-  .core
-    .grid.gap-2
-      +repeatingSection('skills', {display: ['name', 'level', 'attribute'], collapse: ['category']})
-
-  .journal
-    .grid.gap-2
-      +Header({size: 'h2', name: 'background',}).text-center
-      +textarea('background')
+  //- .journal
+  //-   .grid.gap-2
+  //-     +Header({size: 'h2', name: 'background',}).text-center
+  //-     +textarea('background')
 

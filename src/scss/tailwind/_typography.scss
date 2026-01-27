@@ -89,3 +89,8 @@ $font-weight-black: 900;
 .text-right {
   text-align: right;
 }
+
+.text-sm {
+  font-size: $text-sm;
+  line-height: $text-sm--line-height;
+}

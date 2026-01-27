@@ -68,14 +68,18 @@ $radius-xs: 2px;
   border-bottom-width: 2px;
 }
 
+.border-b-neutral-900 {
+  border-bottom-color: var(--color-neutral-900);
+}
+
+.border-transparent {
+  border-color: transparent;
+}
+
 .border-x-transparent {
   border-inline-color: transparent;
 }
 
 .border-t-transparent {
   border-top-color: transparent;
-}
-
-.border-b-neutral-900 {
-  border-bottom-color: var(--color-neutral-900);
 }

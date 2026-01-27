@@ -1,9 +1,18 @@
+mixin Tab(props)
+    -
+        const {name, i18n = name, size } = props || {};
+        const attr = attrName(name);
 
+        const baseClasses = 'ellipse capitalize rounded-md border border-transparent px-1.5 py-0.5 text-sm font-medium transition-all whitespace-nowrap items-center justify-center ';
+        const classes = `${baseClasses}`;
 
-mixin tabs(values)
-    input(type="hidden"  name="attr_tab" value=values[0])
-    .grid.gap-2.grid-flow-col.auto-cols-min
+    button(type="action" name=`act_${attr}` data-i18n=i18n class=classes class!=attributes.class)
+
+mixin Tabs(props)
+    -
+        const { values = [], attr } = props || {};
+
+    .flex.gap-2.flex-row
+        input(type="hidden" name=`attr_${attr}` value=values[0])
         each tab in values
-            .grid.tab
-                input(type="radio" name="attr_tab" value=tab checked=!!tab === values[0])
-                span(data-i18n=tab)
+            +Tab({name: tab, i18n: tab, value: tab})
