@@ -4,8 +4,11 @@
 @use "./components/buttons" as *;
 
 .charsheet {
-  @extend .min-w-lg;
   background-color: $color-neutral-100;
+  font-size: $text-sm;
+  font-weight: $font-weight-normal;
+  line-height: $text-sm--line-height;
+  @extend .brand-font-base;
 
   button {
     font-family: serif;
@@ -31,86 +34,47 @@
     }
   }
 
-  fieldset {
-    background-color: transparent;
-  }
+  // border-0 border-b-2 border-neutral-900 rounded-none
+  // hover:bg-amber-100 hover:border hover:border-dotted hover:border-amber-500
+  // focus:bg-amber-100 focus:border focus:border-dotted focus:border-amber-500 focus:outline-none
+  // active:bg-amber-100 active:border active:border-dotted active:border-amber-500
+  // placeholder:bg-neutral-100 placeholder:pl-[2px]
 
-  font-size: $text-sm;
-  font-weight: $font-weight-normal;
-  line-height: $text-sm--line-height;
-  @extend .brand-font-base;
+  // input {
+  //   &[type="checkbox"],
+  //   &[type="radio"] {
+  //     height: 100%;
+  //     min-height: $spacing-6;
+  //     min-width: $spacing-6;
+  //     width: 100%;
+  //   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    @extend .ellipsis;
-  }
+  //     border: {
+  //       left: 0em;
+  //       radius: 0em;
+  //       right: 0em;
+  //       top: 0em;
+  //     }
 
-  h1 {
-    @extend .brand-font-h1;
-  }
+  //     height: 2.1em;
+  //     width: 100%;
 
-  h2 {
-    @extend .brand-font-h2;
-  }
+  //     &::placeholder {
+  //       background-color: $color-neutral-100;
+  //       padding-left: 2px;
+  //     }
+  //   }
+  //   &[type="number"] {
+  //     -moz-appearance: textfield;
+  //     text-align: center;
+  //   }
 
-  h3 {
-    @extend .brand-font-h3;
-  }
-
-  h4 {
-    @extend .brand-font-h4;
-  }
-
-  input {
-    &[type="checkbox"],
-    &[type="radio"] {
-      height: 100%;
-      min-height: $spacing-6;
-      min-width: $spacing-6;
-      width: 100%;
-    }
-
-    &[type="text"],
-    &[type="number"] {
-      background-color: transparent;
-      border-bottom: 2px solid $color-neutral-900;
-      @extend .brand-font-base;
-
-      &:hover,
-      &:focus,
-      &:active {
-        background-color: $color-amber-100;
-        border: 1px dotted $color-amber-500;
-      }
-
-      border: {
-        left: 0em;
-        radius: 0em;
-        right: 0em;
-        top: 0em;
-      }
-
-      height: 2.1em;
-      width: 100%;
-
-      &::placeholder {
-        background-color: $color-neutral-100;
-        padding-left: 2px;
-      }
-    }
-    &[type="number"] {
-      -moz-appearance: textfield;
-      text-align: center;
-    }
-
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      margin: 0;
-      -webkit-appearance: none;
-    }
-  }
+  //   &::-webkit-outer-spin-button,
+  //   &::-webkit-inner-spin-button {
+  //     margin: 0;
+  //     -webkit-appearance: none;
+  //   }
+  // }
 
   select {
     font-weight: bold;

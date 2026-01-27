@@ -3,11 +3,11 @@ mixin subheaders(values)
 	.grid.grid-flow-col.gap-2.mb-2.border-bottom.subheaders
 		.grid.grid-flow-col.gap-2.custom-grid
 			each val in values
-					h3(data-i18n=val)
+				+Header({size: 'h3', name: val})
 
 mixin title(name)
 	.grid.gap-2.items-center.justify-center.title
-		h2.px-2.text-center(data-i18n=name)
+		+Header({size: 'h2', name: name}).px-2.text-center
 
 mixin repeatingChatButton(name)
 	button.text-left.ellipsis(name=`roll_${dashedName(name)}` type='roll' value!=`&{template:rolls} {{header=@{name}}} {{dice=@{description}}}`)

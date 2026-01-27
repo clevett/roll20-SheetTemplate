@@ -1,3 +1,20 @@
 mixin Input(props)
-    - const { name, i18n = name, type = 'text', placeholder = name, value = '' } = props
-    input(type=type name=name data-i18n-placeholder=placeholder value=value data-i18n=i18n class!=attributes.class) 
+  -
+    const { name, i18n = name, type = 'text', placeholder = name, value = '' } = props || {};
+
+    const baseTextualClasses = 'w-full bg-transparent border-x-transparent border-t-transparent border-b-neutral-900 border-b-2 rounded-none px-2.5 py-1 text-base';
+    const typeClasses = {
+      text: baseTextualClasses,
+      number: baseTextualClasses,
+      radio: 'w-full h-full min-w-6 min-h-6',
+      checkbox: 'w-full h-full min-w-6 min-h-6'
+    };
+    
+    const tag = type || 'text';
+    const classes = `${baseTextualClasses} ${typeClasses[tag] || ''}`;
+
+  input(type=type class=classes name=name data-i18n-placeholder=placeholder value=value data-i18n=i18n class!=attributes.class) 
+
+
+
+

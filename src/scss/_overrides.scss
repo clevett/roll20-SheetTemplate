@@ -31,6 +31,25 @@
   text-shadow: none;
 }
 
+.charsheet {
+  min-width: $container-lg;
+  max-width: 860px;
+  overflow: hidden;
+
+  input[type="text"],
+  input[type="number"] {
+    height: $spacing-8;
+
+    &:hover,
+    &:focus,
+    &:active {
+      @extend .border-none;
+      @extend .rounded-lg;
+      outline: 2px solid $color-cyan-500;
+    }
+  }
+}
+
 /* Repeating Sections */
 .repcontrol {
   margin-top: 5%;

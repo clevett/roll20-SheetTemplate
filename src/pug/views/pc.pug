@@ -1,13 +1,15 @@
-.pc.grid.gap-4
-  .grid.gap-2
+.pc.grid.gap-6
+  .grid.gap-4
     +Header({size: 'h1', name: 'Header 1'}).text-center
     .grid.grid-cols-2.gap-4.grid-flow-col
-      each val in ["character name", "player"]
+      each val in ["character name"]
         .grid.col-auto-fr.gap-2.grid-flow-col.items-center
           +Header({size: 'h3', name: val})
           +Input({name: val})
+      .grid.col-auto-fr.gap-2.grid-flow-col.items-center
+        +Header({size: 'h3', name: "level"})
+        +Input({name: "level", type: "number"}).text-center
 
-  //- Create different tabs for different sections of the character sheet
   +tabs(["core", "journal"])
 
   .core

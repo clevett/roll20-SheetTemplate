@@ -1,3 +1,9 @@
+@use "spacing" as *;
+
 .h-full {
   height: 100%;
+}
+
+.h-8 {
+  height: $spacing-8;
 }
