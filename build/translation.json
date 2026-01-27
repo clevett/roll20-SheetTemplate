@@ -1,13 +1,14 @@
 {
   "accepting drop": "accepting drop",
-  "attribute": "attribute",
-  "background": "background",
-  "category": "category",
-  "character name": "character name",
-  "core": "core",
-  "Header 1": "Header 1",
-  "journal": "journal",
-  "level": "level",
-  "name": "name",
-  "skills": "skills"
+  "checkbox": "checkbox",
+  "h1 header": "h1 header",
+  "h2 header": "h2 header",
+  "h3 header": "h3 header",
+  "h4 header": "h4 header",
+  "Headers": "Headers",
+  "Inputs": "Inputs",
+  "number": "number",
+  "radio": "radio",
+  "Style Guide": "Style Guide",
+  "text": "text"
 }

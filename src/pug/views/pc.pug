@@ -9,6 +9,14 @@
       .grid.col-auto-fr.gap-2.grid-flow-col.items-center
         +Header({size: 'h3', name: "level"})
         +Input({name: "level", type: "number"}).text-center
+      each val in ['1', 'radio']
+        .grid.col-auto-fr.gap-2.grid-flow-col.items-center
+          +Header({size: 'h3', name: val})
+          +Input({name: "radio choice", type: 'radio', value: val}).text-center
+      .grid.col-auto-fr.gap-2.grid-flow-col.items-center
+        +Header({size: 'h3', name: "checkbox"})
+        +Input({name: "checkbox", type: "checkbox"}).text-center
+    
 
   +tabs(["core", "journal"])
 

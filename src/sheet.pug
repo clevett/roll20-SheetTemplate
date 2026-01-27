@@ -4,40 +4,54 @@ input(name='attr_version' type='hidden' value='3.3')
 //- Do not manually change this. Hidden attribute used by versioning script
 input(name='attr_latest_versioning_upgrade' type='hidden' value='1')
 
-//- CONSTANTS & MIXINS
-  =============================
+
 include pug/constants.pug
 include pug/mixins.pug
-
-//- COMPONENTS
-  =============================
 include pug/components/repeating_section.pug
 include pug/components/tabs.pug
 include pug/components/roll_templates.pug
 include pug/components/header.pug
 include pug/components/input.pug
 
+- const dashedName = name => name.replace(/ /g, '-');
+- const attrName = name => name.replace(/ /g, '_');
+- const removeSpace = name => name.replace(/ /g, '');
+- const toLowerCase = name => name.toLowerCase();
+
 //- DRAG & DROP
   =============================
 .dropzone.compendium-drop-target.creatures.pregens
+  //- Hidden inputs to accept drop data from compendium
   each val in ['Name', 'data', 'Content', "Category"]
     input(name=`attr_drop_${val.toLowerCase()}` type='hidden' value='' accept=val)
 
-  //- TABS
-    =============================
+  //- Hidden input to identify sheet type. Used CSS to change the view based value
   input.type(name='attr_sheet_type' type='hidden' value='character')
-  input.display_string(name='attr_character_settings' type='hidden' value='')
+
+  //- CUSTOMIZE CODE AREA
+  .grid.gap-6
+    +Header({size: 'h1', name: 'Style Guide'}).text-center
+    .grid.gap-4.grid-flow-column.grid-cols-2.content-start
+      .grid.gap-2
+        +Header({size: 'h2', name: "Headers"}).text-center
+        each size in ['h1', 'h2', 'h3', 'h4']
+          +Header({size: size, name: `${size} header`})
+      .grid.gap-2
+        +Header({size: 'h2', name: "Inputs"}).text-center
+        each type in ['text', 'number', 'checkbox', 'radio']
+          .grid.gap-2.grid-flow-col.items-center.col-auto-fr
+            +Header({size: 'h3', name: `${type}`}).w-fit
+            +Input({name: `${type}`, type: type})
+
 
   //-CHARACTER SHEETS VIEWS
     =============================
-  include pug/views/pc.pug
+  //- include pug/views/pc.pug
   //- include views/npc.pug
 
 .compendium_warning
   span(data-i18n="accepting drop") ACCEPTING DROP FROM COMPENDIUM
 
-//-FOOTER
-  =============================
 .footer
   span Version  
   span(name='attr_version')
