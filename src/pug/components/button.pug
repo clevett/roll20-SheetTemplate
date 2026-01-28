@@ -1,18 +1,22 @@
 mixin Button(props)
     -
-        const {name, i18n = name, type = 'roll', variant } = props || {};
+        const {name, i18n = name, type = 'roll', variant = 'default' } = props || {};
 
         const namePrefix = type === 'roll' ? 'roll' : 'act'
         const attr = attrName(name);
         const buttonName = `${namePrefix}_${attr}`;
 
-        const baseClasses = 'ellipse flex items-center justify-center whitespace-nowrap transition-all py-0.5 px-1.5 ';
+
+        const baseClasses = 'ellipse flex items-center justify-center whitespace-nowrap transition-all m-0 py-0\.5 px-1\.5 color-neutral-300 active:color-neutral-50 focus:color-neutral-50 hover:color-neutral-50 text-sm font-medium rounded-lg border  ';
 
         const variantClasses = {
-            tab: 'capitalize border border-transparent h-6 w-18 gap-1 rounded-lg bg-transparent m-0 text-center flex-1 color-neutral-300',
-            default: 'capitalize rounded-md border border-transparent text-sm font-medium color-neutral-50',
+            tab: 'tab capitalize border-transparent h-6 gap-1 bg-transparent text-center flex-1  ',
+            default: 'capitalize flex-shrink-0 gap-1.5 h-8 border-neutral-500 bg-neutral-800 duration-150 opacity-100 ease-in-out active:bg-neutral-700 focus:bg-neutral-700 hover:bg-neutral-700  ',
+            icon: 'border size-8 active:bg-neutral-700 focus:bg-neutral-700 hover:bg-neutral-700 '
         };
 
         const classes = `${baseClasses} ${variantClasses[variant] || ''}`;
 
     button(type=type name=`${buttonName}` data-i18n=i18n class=classes class!=attributes.class)
+        if variant === 'icon'
+            span name

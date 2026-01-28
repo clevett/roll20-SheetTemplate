@@ -9,67 +9,53 @@ $radius-sm: 4px;
 $radius-xl: 12px;
 $radius-xs: 2px;
 
-.border {
-  border: 1px solid $color-neutral-900;
+$radius-map: (
+  "xs": $radius-xs,
+  "sm": $radius-sm,
+  "md": $radius-md,
+  "lg": $radius-lg,
+  "xl": $radius-xl,
+  "2xl": $radius-2xl,
+  "3xl": $radius-3xl,
+  "4xl": $radius-4xl,
+);
+
+@each $name, $value in $radius-map {
+  .rounded-#{$name} {
+    border-radius: $value;
+  }
 }
 
-.rounded-xs {
-  border-radius: $radius-xs;
-}
-.rounded-sm {
-  border-radius: $radius-sm;
-}
-.rounded-md {
-  border-radius: $radius-md;
-}
-.rounded-lg {
-  border-radius: $radius-lg;
-}
-.rounded-xl {
-  border-radius: $radius-xl;
-}
-.rounded-2xl {
-  border-radius: $radius-2xl;
-}
-.rounded-3xl {
-  border-radius: $radius-3xl;
-}
-.rounded-4xl {
-  border-radius: $radius-4xl;
-}
 .rounded-none {
   border-radius: 0;
 }
+
 .rounded-full {
   border-radius: calc(infinity * 1px);
 }
 
-.border-solid {
-  border-style: solid;
+.border {
+  border: 1px solid $color-neutral-900;
 }
 
-.border-dotted {
-  border-style: dotted;
+$border-styles: (solid, dotted, hidden, none);
+
+@each $style in $border-styles {
+  .border-#{$style} {
+    border-style: $style;
+  }
 }
 
-.border-hidden {
-  border-style: hidden;
-}
+$border-widths: (1, 2);
 
-.border-none {
-  border-style: none;
-}
-
-.border-b-1 {
-  border-bottom-width: 1px;
-}
-
-.border-b-2 {
-  border-bottom-width: 2px;
+@each $width in $border-widths {
+  .border-b-#{$width} {
+    border-bottom-width: #{$width}px;
+  }
 }
 
 .border-b-neutral-900 {
-  border-bottom-color: var(--color-neutral-900);
+  border-bottom-color: $color-neutral-900;
 }
 
 .border-transparent {
@@ -82,4 +68,20 @@ $radius-xs: 2px;
 
 .border-t-transparent {
   border-top-color: transparent;
+}
+
+.border-neutral-500 {
+  border-color: $color-neutral-500;
+}
+
+.active\:rounded-lg:active,
+.focus\:rounded-lg:focus,
+.hover\:rounded-lg:hover {
+  @extend .rounded-lg;
+}
+
+.active\:border-none:active,
+.focus\:border-none:focus,
+.hover\:border-none:hover {
+  @extend .border-none;
 }

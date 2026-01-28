@@ -1,0 +1,11 @@
+@use "./spacing" as *;
+
+.size-4 {
+  width: calc($spacing * 4);
+  height: calc($spacing * 4);
+}
+
+.size-8 {
+  width: calc($spacing * 8);
+  height: calc($spacing * 8);
+}

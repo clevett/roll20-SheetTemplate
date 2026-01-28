@@ -1,6 +1,8 @@
 {
   "1": "1",
   "accepting drop": "accepting drop",
+  "action button": "action button",
+  "buttons": "buttons",
   "character": "character",
   "character name": "character name",
   "checkbox": "checkbox",
@@ -15,10 +17,9 @@
   "number": "number",
   "radio": "radio",
   "radio choice": "radio choice",
+  "roll button": "roll button",
   "style guide": "style guide",
-  "tab1": "tab1",
-  "tab2": "tab2",
-  "tab3": "tab3",
   "tabs": "tabs",
-  "text": "text"
+  "text": "text",
+  "textarea": "textarea"
 }

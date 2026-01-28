@@ -217,3 +217,9 @@ $color-slate-950: oklch(0.129 0.042 264.695);
 .color-neutral-300 {
   color: $color-neutral-300;
 }
+
+.active\:color-neutral-50:active,
+.focus\:color-neutral-50:focus,
+.hover\:color-neutral-50:hover {
+  @extend .color-neutral-50;
+}

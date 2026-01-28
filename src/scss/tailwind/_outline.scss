@@ -1,0 +1,24 @@
+@use "./colors" as *;
+@use "./spacing" as *;
+
+.outline-solid {
+  outline-style: solid;
+}
+
+.active\:outline-cyan-500:active,
+.focus\:outline-cyan-500:focus,
+.hover\:outline-cyan-500:hover {
+  outline-color: $color-cyan-500;
+}
+
+.active\:outline-2:active,
+.focus\:outline-2:focus,
+.hover\:outline-2:hover {
+  outline-width: calc($spacing * 0.5);
+}
+
+.active\:outline-solid:active,
+.focus\:outline-solid:focus,
+.hover\:outline-solid:hover {
+  outline-style: solid;
+}

@@ -1,16 +1,5 @@
 @use "tailwind" as *;
 
-input[type="text"],
-input[type="number"] {
-  &:hover,
-  &:focus,
-  &:active {
-    @extend .border-none;
-    @extend .rounded-lg;
-    outline: 2px solid $color-cyan-500;
-  }
-}
-
 input[type="checkbox"],
 input[type="radio"] {
   accent-color: $color-cyan-500;

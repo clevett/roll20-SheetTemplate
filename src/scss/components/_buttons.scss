@@ -1,12 +1,3 @@
 @use "branding" as *;
 @use "tailwind" as *;
 @use "../custom" as *;
-
-button[type="roll"],
-button[type="action"] {
-  &:focus,
-  &:hover,
-  &:active {
-    color: $color-neutral-50;
-  }
-}

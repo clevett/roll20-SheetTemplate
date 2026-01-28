@@ -7,3 +7,15 @@
 .bg-transparent {
   background-color: transparent;
 }
+
+.active\:bg-neutral-600:active,
+.focus\:bg-neutral-600:focus,
+.hover\:bg-neutral-600:hover {
+  background-color: $color-neutral-600;
+}
+
+.active\:bg-neutral-700:active,
+.focus\:bg-neutral-700:focus,
+.hover\:bg-neutral-700:hover {
+  background-color: $color-neutral-700;
+}

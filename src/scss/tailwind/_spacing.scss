@@ -114,3 +114,7 @@ $spacing-steps: (0, 1, 2, 3, 4, 5, 6);
   padding-left: calc($spacing * 1.5);
   padding-right: calc($spacing * 1.5);
 }
+
+.gap-1\.5 {
+  gap: calc($spacing * 1.5);
+}

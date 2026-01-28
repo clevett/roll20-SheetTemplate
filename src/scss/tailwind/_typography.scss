@@ -34,36 +34,21 @@ $font-weight-bold: 700;
 $font-weight-extrabold: 800;
 $font-weight-black: 900;
 
-.font-thin {
-  font-weight: $font-weight-thin;
-}
+$font-weights: (
+  "thin": $font-weight-thin,
+  "extralight": $font-weight-extralight,
+  "light": $font-weight-light,
+  "normal": $font-weight-normal,
+  "medium": $font-weight-medium,
+  "semibold": $font-weight-semibold,
+  "bold": $font-weight-bold,
+  "extrabold": $font-weight-extrabold,
+);
 
-.font-extralight {
-  font-weight: $font-weight-extralight;
-}
-
-.font-light {
-  font-weight: $font-weight-light;
-}
-
-.font-normal {
-  font-weight: $font-weight-normal;
-}
-
-.font-medium {
-  font-weight: $font-weight-medium;
-}
-
-.font-semibold {
-  font-weight: $font-weight-semibold;
-}
-
-.font-bold {
-  font-weight: $font-weight-bold;
-}
-
-.font-extrabold {
-  font-weight: $font-weight-extrabold;
+@each $name, $weight in $font-weights {
+  .font-#{$name} {
+    font-weight: $weight;
+  }
 }
 
 .font-black {
