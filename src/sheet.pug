@@ -52,9 +52,9 @@ include pug/components/tabs.pug
                 +Header({size: 'h3', name: `${type}`}).w-fit
                 +Input({name: `${type}`, type: type})
 
-          .grid.gap-2
+          .grid.gap-2.items-center.justify-center
             +Header({size: 'h2', name: "tabs"}).text-center
-            //- +tabs(["tab1", "tab2", "tab3"])
+            +Tabs({values: ["tab1", "tab2", "tab3"]})
 
   .grid.gap-6.character
     .grid.tablist.rounded-t-md

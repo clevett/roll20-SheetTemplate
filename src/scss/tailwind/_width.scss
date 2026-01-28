@@ -14,6 +14,10 @@ $container-5xl: 1024px;
 $container-6xl: 1152px;
 $container-7xl: 1280px;
 
+.max-w-xs {
+  max-width: $container-xs;
+}
+
 .min-w-3xs {
   min-width: $container-3xs;
 }

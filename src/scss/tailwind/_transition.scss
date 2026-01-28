@@ -1,13 +1,24 @@
+$default-transition-duration: 150ms;
+$default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+@mixin transition($property) {
+  transition-property: $property;
+  transition-duration: $default-transition-duration;
+  transition-timing-function: $default-transition-timing-function;
+}
+
 .transition-colors {
-  transition-property: opacity;
-  transition-timing-function: var(
-    --default-transition-timing-function
-  ); /* cubic-bezier(0.4, 0, 0.2, 1) */
-  transition-duration: var(--default-transition-duration); /* 150ms */
+  @include transition(opacity);
 }
 
 .transition-all {
-  transition-property: all;
-  transition-timing-function: var(--default-transition-timing-function);
-  transition-duration: var(--default-transition-duration);
+  @include transition(all);
+}
+
+.duration-100 {
+  transition-duration: 100ms;
+}
+
+.ease-in-out {
+  transition-timing-function: $default-transition-timing-function;
 }

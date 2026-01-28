@@ -6,11 +6,11 @@ mixin Button(props)
         const attr = attrName(name);
         const buttonName = `${namePrefix}_${attr}`;
 
-        const baseClasses = 'ellipse flex items-center justify-center whitespace-nowrap color-neutral-50 transition-all py-0.5 px-1.5 ';
+        const baseClasses = 'ellipse flex items-center justify-center whitespace-nowrap transition-all py-0.5 px-1.5 ';
 
         const variantClasses = {
-            tab: 'capitalize border border-transparent h-6 w-18 gap-1 rounded-lg bg-transparent m-0 text-center flex-1',
-            default: 'capitalize rounded-md border border-transparent text-sm font-medium ',
+            tab: 'capitalize border border-transparent h-6 w-18 gap-1 rounded-lg bg-transparent m-0 text-center flex-1 color-neutral-300',
+            default: 'capitalize rounded-md border border-transparent text-sm font-medium color-neutral-50',
         };
 
         const classes = `${baseClasses} ${variantClasses[variant] || ''}`;

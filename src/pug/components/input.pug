@@ -2,8 +2,8 @@ mixin Input(props)
   -
     const { name, i18n = name, type = 'text', placeholder = name, value = '' } = props || {};
     const attr = attrName(name);
-    const baseTextualClasses = 'w-full bg-transparent border-x-transparent border-t-transparent border-b-neutral-900 border-b-2 rounded-none px-2.5 py-1 text-base transition-colors';
-    const baseChoiceClasses = 'w-full h-full min-w-6 min-h-6 border transition-colors rounded-sm flex items-center justify-center size-4';
+    const baseTextualClasses = 'w-full max-w-xs h-8 bg-transparent border-x-transparent border-t-transparent border-b-neutral-900 border-b-2 rounded-none px-2.5 py-1 text-base transition-colors';
+    const baseChoiceClasses = 'flex items-center justify-center flex-shrink-0 w-4 h-4 p-0 border rounded transition-colors opacity-100 duration-150 ease-in-out opacity-100 ';
     const typeClasses = {
       text: baseTextualClasses,
       number: baseTextualClasses,

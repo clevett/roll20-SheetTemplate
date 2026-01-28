@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Roll20 Sheet Local Preview</title>
+
+    <!-- Roll20-ish baseline -->
+    <link rel="stylesheet" href="./index-roll20-base.css" />
+
+    <!-- Your compiled sheet CSS (per your build script output) -->
+    <link id="sheet-css" rel="stylesheet" href="./build/styles.css" />
+
+    <style>
+      /* Wrapper-only UI (not Roll20) */
+      .devbar {
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 12px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        background: #fff;
+        font: 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      }
+      .devbar code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", monospace;
+      }
+      .devbar .spacer {
+        flex: 1;
+      }
+      .devbar button {
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background: #fff;
+        cursor: pointer;
+      }
+      .devbar button:hover {
+        background: #f6f6f6;
+      }
+      .status {
+        opacity: 0.8;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 12px;
+        padding: 12px;
+      }
+      @media (max-width: 1000px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+      }
+      .wrapper-panel {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        background: #fff;
+        overflow: hidden;
+      }
+      .wrapper-panel h3.wrapper-header {
+        margin: 0;
+        padding: 10px 12px;
+        font: 600 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto,
+          sans-serif;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        background: #fafafa;
+      }
+      .chatlog {
+        padding: 10px 12px;
+        height: 70vh;
+        overflow: auto;
+        font: 13px/1.4 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: #fcfcfc;
+      }
+      .chatmsg {
+        padding: 8px 10px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 10px;
+        background: #fff;
+        margin-bottom: 10px;
+      }
+      .chatmeta {
+        font-size: 12px;
+        opacity: 0.7;
+        margin-bottom: 6px;
+      }
+      .hint {
+        font-size: 12px;
+        opacity: 0.75;
+        padding: 8px 12px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        background: #fafafa;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="devbar">
+      <strong>Local Roll20 Preview</strong>
+      <span class="status" id="status">Loading…</span>
+      <span class="spacer"></span>
+      <button id="reload">Reload now</button>
+      <button id="toggle-chat">Toggle Chat</button>
+      <span class="status"
+        >Watching: <code>build/sheet.html</code>,
+        <code>build/styles.css</code></span
+      >
+    </div>
+
+    <div class="layout">
+      <!-- This simulates the Roll20 “sheet area” host -->
+      <div class="wrapper-panel">
+        <h3 class="wrapper-header">Sheet</h3>
+
+        <!-- Roll20 usually renders inside a container like .ui-dialog .charsheet -->
+        <div class="ui-dialog">
+          <div class="tab-content">
+            <form class="sheetform" autocomplete="off">
+              <div
+                class="charactersheet tab-pane charsheet lang-undefined"
+                id="sheet-root"
+              >
+                <!-- build/sheet.html will be injected here -->
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="hint">
+          Tip: serve this folder (don’t use file://) so fetch() works. Example:
+          <code>python -m http.server 5500</code> then open
+          <code>http://localhost:5500</code>.
+        </div>
+      </div>
+
+      <!-- Optional “chat” panel for testing roll templates (basic stub) -->
+      <div class="wrapper-panel" id="chat-panel">
+        <h3 class="wrapper-header">Chat (stub)</h3>
+        <div class="chatlog" id="chatlog"></div>
+        <div class="hint">
+          This is a lightweight stub: it won’t run sheet workers, but it can
+          help you see roll template CSS output.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const I18N_URL = "./build/translation.json";
+      let i18nDict = null;
+
+      const SHEET_URL = "./build/sheet.html";
+      const CSS_URL = "./build/styles.css";
+      const POLL_MS = 600;
+
+      const sheetRoot = document.getElementById("sheet-root");
+      const statusEl = document.getElementById("status");
+      const chatlog = document.getElementById("chatlog");
+      const chatPanel = document.getElementById("chat-panel");
+      const sheetCssLink = document.getElementById("sheet-css");
+
+      let lastSig = "";
+
+      function now() {
+        return new Date().toLocaleTimeString();
+      }
+
+      function setStatus(msg) {
+        statusEl.textContent = msg;
+      }
+
+      function cacheBust(url) {
+        const u = new URL(url, location.href);
+        u.searchParams.set("_", Date.now());
+        return u.toString();
+      }
+
+      async function loadSheet() {
+        const res = await fetch(cacheBust(SHEET_URL), { cache: "no-store" });
+        if (!res.ok)
+          throw new Error(`Failed to load sheet.html (${res.status})`);
+        const html = await res.text();
+        sheetRoot.innerHTML = html;
+
+        const dict = await loadI18n();
+        applyI18n(sheetRoot, dict);
+
+        // Minimal Roll20-ish behavior stubs:
+        // 1) Convert <button type="roll"> clicks into a chat message so you can see rolltemplate styling.
+        sheetRoot
+          .querySelectorAll(
+            'button[type="roll"], button[type="action"], a[href^="~"]'
+          )
+          .forEach((el) => {
+            el.addEventListener("click", (e) => {
+              e.preventDefault();
+
+              const label = (
+                el.getAttribute("name") ||
+                el.textContent ||
+                "roll"
+              ).trim();
+              // Very basic “roll template” stub: you can tailor this later to match your templates.
+              pushChatMessage(
+                "You",
+                `
+              <div class="sheet-rolltemplate-rolls">
+                <div class="sheet-template-container">
+                  <div class="sheet-template-header">${escapeHtml(label)}</div>
+                  <div class="sheet-template-body">
+                    <div class="sheet-template-desc">Clicked: <strong>${escapeHtml(
+                      label
+                    )}</strong></div>
+                    <div class="inlinerollresult importantroll">17</div>
+                  </div>
+                </div>
+              </div>
+            `
+              );
+            });
+          });
+      }
+
+      function reloadCss() {
+        // swap href to force-refresh CSS without full page reload
+        sheetCssLink.href = cacheBust(CSS_URL);
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function pushChatMessage(who, html) {
+        const wrap = document.createElement("div");
+        wrap.className = "chatmsg";
+        wrap.innerHTML = `
+          <div class="chatmeta">${escapeHtml(who)} • ${now()}</div>
+          <div class="chatbody">${html}</div>
+        `;
+        chatlog.prepend(wrap);
+      }
+
+      async function signature() {
+        const [a, b, c] = await Promise.all([
+          fetch(SHEET_URL, { method: "HEAD", cache: "no-store" }).catch(
+            () => null
+          ),
+          fetch(CSS_URL, { method: "HEAD", cache: "no-store" }).catch(
+            () => null
+          ),
+          fetch(I18N_URL, { method: "HEAD", cache: "no-store" }).catch(
+            () => null
+          ),
+        ]);
+
+        function sigFrom(res) {
+          if (!res) return "x";
+          return (
+            [
+              res.headers.get("etag"),
+              res.headers.get("last-modified"),
+              res.headers.get("content-length"),
+            ]
+              .filter(Boolean)
+              .join("|") || "ok"
+          );
+        }
+
+        return sigFrom(a) + "~~" + sigFrom(b) + "~~" + sigFrom(c);
+      }
+
+      async function tick() {
+        try {
+          const sig = await signature();
+          if (sig && sig !== lastSig) {
+            lastSig = sig;
+            i18nDict = null;
+            setStatus(`Updated ${now()}`);
+            reloadCss();
+            await loadSheet();
+          } else {
+            setStatus(`Watching… ${now()}`);
+          }
+        } catch (err) {
+          setStatus(`Error: ${err.message}`);
+        }
+      }
+
+      document.getElementById("reload").addEventListener("click", async () => {
+        lastSig = "";
+        await tick();
+      });
+
+      document.getElementById("toggle-chat").addEventListener("click", () => {
+        chatPanel.style.display =
+          chatPanel.style.display === "none" ? "" : "none";
+      });
+
+      // First load
+      tick();
+      // Poll for changes
+      setInterval(tick, POLL_MS);
+
+      async function loadI18n() {
+        if (i18nDict) return i18nDict;
+        const res = await fetch(cacheBust(I18N_URL), { cache: "no-store" });
+        if (!res.ok)
+          throw new Error(`Failed to load translation.json (${res.status})`);
+        i18nDict = await res.json();
+        return i18nDict;
+      }
+
+      function t(key, dict) {
+        // Roll20 uses key-as-fallback behavior
+        return dict && Object.prototype.hasOwnProperty.call(dict, key)
+          ? dict[key]
+          : key;
+      }
+
+      function applyI18n(root, dict) {
+        // Fill elements that need text replacement
+        root.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (!key) return;
+
+          // If the element already has text, Roll20 overwrites it; we will too.
+          el.textContent = t(key, dict);
+        });
+
+        // Fill placeholders
+        root.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-placeholder");
+          if (!key) return;
+          el.setAttribute("placeholder", t(key, dict));
+        });
+
+        // Fill titles
+        root.querySelectorAll("[data-i18n-title]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-title");
+          if (!key) return;
+          el.setAttribute("title", t(key, dict));
+        });
+
+        // Optional common Roll20 patterns (safe no-ops if unused)
+        root.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-alt");
+          if (!key) return;
+          el.setAttribute("alt", t(key, dict));
+        });
+
+        root.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-aria-label");
+          if (!key) return;
+          el.setAttribute("aria-label", t(key, dict));
+        });
+      }
+    </script>
+  </body>
+</html>
