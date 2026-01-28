@@ -1,0 +1,9 @@
+@use "colors" as *;
+
+.bg-neutral-800 {
+  background-color: $color-neutral-800;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}

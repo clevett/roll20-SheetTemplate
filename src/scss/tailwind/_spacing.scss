@@ -10,6 +10,7 @@ $spacing-12: calc(#{$spacing} * 12); // 48px
 $spacing-13: calc(#{$spacing} * 13); // 52px
 $spacing-14: calc(#{$spacing} * 14); // 56px
 $spacing-16: calc(#{$spacing} * 16); // 64px
+$spacing-18: calc(#{$spacing} * 18); // 72px
 $spacing-20: calc(#{$spacing} * 20); // 80px
 $spacing-24: calc(#{$spacing} * 24); // 96px
 $spacing-32: calc(#{$spacing} * 32); // 128px
@@ -87,6 +88,11 @@ $spacing-130: calc(#{$spacing} * 130); // 520px
   padding-right: $spacing;
 }
 
+.px-0\.5 {
+  padding-top: calc($spacing * 0.5);
+  padding-bottom: calc($spacing * 0.5);
+}
+
 .px-1\.5 {
   padding-left: calc($spacing * 1.5);
   padding-right: calc($spacing * 1.5);
@@ -108,6 +114,11 @@ $spacing-130: calc(#{$spacing} * 130); // 520px
 .py-0\.5 {
   padding-top: calc($spacing * 0.5);
   padding-bottom: calc($spacing * 0.5);
+}
+
+.py-1\.5 {
+  padding-left: calc($spacing * 1.5);
+  padding-right: calc($spacing * 1.5);
 }
 
 .py-1 {

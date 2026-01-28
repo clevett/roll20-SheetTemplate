@@ -1,18 +1,8 @@
-mixin Tab(props)
-    -
-        const {name, i18n = name, size } = props || {};
-        const attr = attrName(name);
-
-        const baseClasses = 'ellipse capitalize rounded-md border border-transparent px-1.5 py-0.5 text-sm font-medium transition-all whitespace-nowrap items-center justify-center ';
-        const classes = `${baseClasses}`;
-
-    button(type="action" name=`act_${attr}` data-i18n=i18n class=classes class!=attributes.class)
-
 mixin Tabs(props)
     -
         const { values = [], attr } = props || {};
 
-    .flex.gap-2.flex-row
+    .flex.gap-2.flex-row.bg-neutral-800.p-1.rounded-md.w-fit.items-center.justify-center.h-8.m-0
         input(type="hidden" name=`attr_${attr}` value=values[0])
         each tab in values
-            +Tab({name: tab, i18n: tab, value: tab})
+            +Button({name: tab, i18n: tab, variant: "tab", type: "action"})

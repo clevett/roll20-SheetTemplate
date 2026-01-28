@@ -1,3 +1,5 @@
+@use "spacing" as *;
+
 $container-3xs: 256px;
 $container-2xs: 288px;
 $container-xs: 320px;
@@ -62,6 +64,10 @@ $container-7xl: 1280px;
 }
 .w-full {
   width: 100%;
+}
+
+.w-18 {
+  width: $spacing-18;
 }
 
 .size-4 {

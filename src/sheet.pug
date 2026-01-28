@@ -8,9 +8,11 @@ input(name='attr_latest_versioning_upgrade' type='hidden' value='1')
 //- include pug/components/roll_templates.pug
 //- include pug/constants.pug
 //- include pug/mixins.pug
+include pug/components/button.pug
 include pug/components/header.pug
 include pug/components/input.pug
 include pug/components/tabs.pug
+
 
 - const dashedName = name => name.replace(/ /g, '-');
 - const attrName = name => name.replace(/ /g, '_').toLowerCase();
@@ -30,7 +32,7 @@ include pug/components/tabs.pug
   //- CUSTOMIZE CODE AREA
   .grid.gap-6.style_guide
     .grid.tablist.rounded-t-md
-      - const viewTabs = ['style guide', 'character', 'npc'];
+      - const viewTabs = ['style guide', 'character'];
       +Tabs({values: viewTabs, attr: 'sheet_type'})
 
     .grid.gap-4
@@ -84,4 +86,5 @@ script(type="text/worker")
   //- include ts/versioning.ts
   include ts/constants.ts
   include ts/event_handlers.ts
+  include ts/components/view_tabs.ts
 

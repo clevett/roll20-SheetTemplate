@@ -9,7 +9,11 @@ $viewTabs: "style_guide", "character", "npc";
   }
 
   input[name="attr_sheet_type"][value="#{$tab}"] ~ button[name="act_#{$tab}"] {
-    background-color: $brand-primary;
+    @extend .border;
+    @extend .shadow-sm;
+    color: $color-white;
+    border-color: $color-neutral-500;
+    background-color: $color-neutral-600;
   }
 
   input[name="attr_sheet_type"]:not([value="#{$tab}"]) ~ div.#{$tab} {

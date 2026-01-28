@@ -1,5 +1,6 @@
 @use "branding" as *;
 @use "tailwind" as *;
+@use "../custom" as *;
 
 %button {
   background-color: $color-neutral-800;
@@ -25,9 +26,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  &:before {
-    display: none;
-  }
   &:focus,
   &:hover,
   &:active {
@@ -38,3 +36,11 @@
     border: 1px solid $color-neutral-800;
   }
 }
+
+// button {
+//   &[type="roll"],
+//   &[type="action"] {
+//     @extend %buttons;
+//     @extend %button;
+//   }
+// }

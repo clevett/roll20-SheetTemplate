@@ -1,14 +1,15 @@
 //Tailwind, https://tailwindcss.com/docs/
 
-@forward "colors";
+@forward "background";
 @forward "border";
+@forward "colors";
 @forward "flex";
 @forward "grid";
 @forward "height";
 @forward "position";
 @forward "shadow";
 @forward "spacing";
-@forward "typography";
-@forward "width";
 @forward "transition";
+@forward "typography";
 @forward "white-space";
+@forward "width";
