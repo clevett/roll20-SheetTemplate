@@ -21,19 +21,14 @@ $spacing-80: calc(#{$spacing} * 80); // 320px
 $spacing-100: calc(#{$spacing} * 100); // 400px
 $spacing-130: calc(#{$spacing} * 130); // 520px
 
-// Base spacing unit
-$spacing-unit: 4px;
-
-// Spacing helper
+// Spacing helper (portable + safe)
 @function space($n) {
-  @return if($n == 0, 0, calc(#{$spacing-unit} * #{$n}));
+  @if $n == 0 {
+    @return 0;
+  }
+
+  @return $spacing * $n;
 }
-
-// Base spacing unit
-$spacing-unit: 4px;
-
-// Allowed spacing steps
-$spacing-steps: (0, 1, 2, 3, 4, 5, 6);
 
 @mixin generate-space($steps) {
   @each $step in $steps {
@@ -93,6 +88,7 @@ $spacing-steps: (0, 1, 2, 3, 4, 5, 6);
   }
 }
 
+$spacing-steps: (0, 1, 2, 3, 4, 5, 6);
 @include generate-space($spacing-steps);
 
 .px-0\.5 {
@@ -103,6 +99,11 @@ $spacing-steps: (0, 1, 2, 3, 4, 5, 6);
 .px-1\.5 {
   padding-left: calc($spacing * 1.5);
   padding-right: calc($spacing * 1.5);
+}
+
+.px-2\.5 {
+  padding-left: calc($spacing * 2.5);
+  padding-right: calc($spacing * 2.5);
 }
 
 .py-0\.5 {

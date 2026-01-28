@@ -1,3 +1,6 @@
+@use "./spacing" as *;
+@use "sass:map";
+
 $text-xs: 12px;
 $text-xs--line-height: calc(1 / 0.75);
 $text-sm: 14px;
@@ -63,19 +66,64 @@ $font-weights: (
   text-transform: uppercase;
 }
 
-.text-center {
-  text-align: center;
+$text-alignments: (
+  "center": center,
+  "right": right,
+  "left": left,
+);
+
+@each $name, $alignment in $text-alignments {
+  .text-#{$name} {
+    text-align: $alignment;
+  }
 }
 
-.text-left {
-  text-align: left !important;
+$type-scale: (
+  sm: (
+    size: $text-sm,
+    leading: $text-sm--line-height,
+  ),
+  base: (
+    size: $text-base,
+    leading: $text-base--line-height,
+  ),
+  lg: (
+    size: $text-lg,
+    leading: $text-lg--line-height,
+  ),
+  xl: (
+    size: $text-xl,
+    leading: $text-xl--line-height,
+  ),
+  2xl: (
+    size: $text-2xl,
+    leading: $text-2xl--line-height,
+  ),
+  3xl: (
+    size: $text-3xl,
+    leading: $text-3xl--line-height,
+  ),
+  4xl: (
+    size: $text-4xl,
+    leading: $text-4xl--line-height,
+  ),
+);
+
+@each $name, $vals in $type-scale {
+  .text-#{$name} {
+    font-size: map.get($vals, size);
+    line-height: map.get($vals, leading);
+  }
 }
 
-.text-right {
-  text-align: right;
+.text-balance {
+  text-wrap: balance;
 }
 
-.text-sm {
-  font-size: $text-sm;
-  line-height: $text-sm--line-height;
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.scroll-m-20 {
+  scroll-margin: calc($spacing * 20);
 }

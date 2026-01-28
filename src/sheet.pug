@@ -12,6 +12,7 @@ include pug/components/button.pug
 include pug/components/header.pug
 include pug/components/input.pug
 include pug/components/tabs.pug
+include pug/components/textarea.pug
 
 
 - const dashedName = name => name.replace(/ /g, '-');
@@ -34,11 +35,9 @@ include pug/components/tabs.pug
     .grid.gap-4
       +Header({size: 'h1', name: 'style guide'}).text-center
       .grid.gap-4.grid-flow-column.grid-cols-2.content-start
-        .grid.gap-2
-          .grid.gap-2.auto-rows-min 
-            +Header({size: 'h2', name: "headers"}).text-center
-            each size in ['h1', 'h2', 'h3', 'h4']
-              +Header({size: size, name: `${size} header`})
+        .grid.gap-2.auto-rows-min.text-center
+          each size in ['h1', 'h2', 'h3', 'h4']
+            +Header({size: size, name: `${size} header`})
 
         .grid.gap-2
           .grid.gap-2.auto-rows-min 
@@ -54,10 +53,6 @@ include pug/components/tabs.pug
                   +Header({size: 'h3', name: `${type}`}).w-fit
                   +Input({name: `${type}`, type: type})
 
-          .grid.gap-2
-            .grid.gap-2
-              +Header({size: 'h2', name: "textarea"}).text-center
-
       .grid.gap-2.grid-flow-column.grid-cols-2.content-start
         .grid.gap-2.auto-rows-min 
           +Header({size: 'h2', name: "buttons"}).text-center
@@ -68,6 +63,12 @@ include pug/components/tabs.pug
           +Header({size: 'h2', name: "tabs"}).text-center
           - const viewTabs = ['style guide', 'character'];
           +Tabs({values: viewTabs, attr: 'sheet_type'})
+
+      .grid.gap-2.content-start
+        .grid.gap-2
+          +Header({size: 'h2', name: "textarea"}).text-center
+          +Textarea({name: 'example textarea', placeholder: 'This is an example textarea.'})
+
 
   .grid.gap-6.character
     .grid.tablist.rounded-t-md
