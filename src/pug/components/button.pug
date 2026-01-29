@@ -19,9 +19,9 @@ mixin Button(props)
         const classes = `${baseClasses} ${variantClasses[variant]  || ''}`;
 
     if variant === 'icon' 
-        button.icon(type=type name=`${buttonName}` class=classes class!=attributes.class)
+        button.icon(class=classes class!=attributes.class name=`${buttonName}` type=type)
             if block
                 block
     else
-        button(type=type name=`${buttonName}` data-i18n=`${datai18n}` class=classes class!=attributes.class)
+        button(class=classes class!=attributes.class data-i18n=`${datai18n}` name=`${buttonName}` type=type   )
 

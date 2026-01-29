@@ -17,7 +17,7 @@ mixin Input(props)
     const tag = type || 'text';
     const classes = `${typeClasses[tag] || ''}`;
 
-  input(type=type class=classes name=`attr_${attr}` data-i18n-placeholder=placeholder value=value data-i18n=i18n class!=attributes.class) 
+  input(class=classes class!=attributes.class data-i18n=i18n data-i18n-placeholder=placeholder name=`attr_${attr}` type=type value=value) 
 
 
 

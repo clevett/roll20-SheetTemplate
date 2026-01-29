@@ -9,6 +9,6 @@ mixin Switch(props)
 
         const classes = `${baseClasses} `;
 
-    .switch(class=classes data-i18n-title=title class!=attributes.class)
+    .switch(class=classes class!=attributes.class data-i18n-title=title )
         input.dot(class=inputClasses name=`attr_${attr}_slider` type='checkbox' value=value)
         span.slider(class=sliderClasses)

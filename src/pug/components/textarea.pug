@@ -7,7 +7,7 @@ mixin Textarea(props)
 
     const classes = `${baseClasses}`;
 
-  textarea(class=classes name=`attr_${attr}` data-i18n-placeholder=placeholder value=value data-i18n=i18n class!=attributes.class) 
+  textarea(class=classes class!=attributes.class data-i18n=i18n data-i18n-placeholder=placeholder name=`attr_${attr}` value=value ) 
 
 
 

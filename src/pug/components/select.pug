@@ -7,7 +7,7 @@ mixin Select(props)
 
     const classes = `${baseClasses} `;
 
-  select(class=classes name=`attr_${attr}` class!=attributes.class)
+  select(class=classes class!=attributes.class name=`attr_${attr}` )
     each val in options
         - const {value, label } = val
-        option(value=`@{${value}}` data-i18n=label)
+        option(data-i18n=label value=`@{${value}}`)
