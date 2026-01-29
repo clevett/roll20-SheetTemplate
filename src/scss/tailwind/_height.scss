@@ -4,6 +4,10 @@
   height: 100%;
 }
 
+.h-4 {
+  height: $spacing-4;
+}
+
 .h-6 {
   height: $spacing-6;
 }
@@ -14,4 +18,8 @@
 
 .min-h-16 {
   min-height: $spacing-16;
+}
+
+.h-4\.5 {
+  height: calc($spacing * 4.5);
 }

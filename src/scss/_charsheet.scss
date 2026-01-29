@@ -1,7 +1,6 @@
 @use "tailwind" as *;
 @use "./custom" as *;
 @use "branding" as *;
-@use "./components/buttons" as *;
 
 .charsheet {
   background-color: $color-neutral-100;

@@ -1,0 +1,11 @@
+@use "./spacing" as *;
+
+@each $step in (0, 1, 2, 4, 6) {
+  .gap-#{$step} {
+    gap: space($step);
+  }
+}
+
+.gap-1\.5 {
+  gap: calc($spacing * 1.5);
+}

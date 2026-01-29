@@ -1,0 +1,13 @@
+mixin Select(props)
+  -
+    const {name, i18n = name, options = [] } = props || {};
+    const attr = attrName(name);
+
+    const baseClasses = 'cursor-pointer flex items-center justify-between gap-1.5 rounded-lg border border-neutral-500 bg-transparent pr-2 pl-2.5 text-sm whitespace-nowrap transition-colors  ';
+
+    const classes = `${baseClasses} `;
+
+  select(class=classes name=`attr_${attr}` class!=attributes.class)
+    each val in options
+        - const {value, label } = val
+        option(value=`@{${value}}` data-i18n=label)

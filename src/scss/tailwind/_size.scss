@@ -1,11 +1,21 @@
 @use "./spacing" as *;
 
+.size-2 {
+  height: calc($spacing * 2);
+  width: calc($spacing * 2);
+}
+
 .size-4 {
-  width: calc($spacing * 4);
   height: calc($spacing * 4);
+  width: calc($spacing * 4);
+}
+
+.size-3\.5 {
+  height: calc($spacing * 3.5);
+  width: calc($spacing * 3.5);
 }
 
 .size-8 {
-  width: calc($spacing * 8);
   height: calc($spacing * 8);
+  width: calc($spacing * 8);
 }

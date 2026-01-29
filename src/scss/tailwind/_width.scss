@@ -18,56 +18,44 @@ $container-7xl: 1280px;
   max-width: $container-xs;
 }
 
-.min-w-3xs {
-  min-width: $container-3xs;
+$min-widths: (
+  "full": 100%,
+  "auto": auto,
+  "3xs": $container-3xs,
+  "2xs": $container-2xs,
+  "xs": $container-xs,
+  "sm": $container-sm,
+  "md": $container-md,
+  "lg": $container-lg,
+  "xl": $container-xl,
+  "2xl": $container-2xl,
+  "3xl": $container-3xl,
+  "4xl": $container-4xl,
+  "5xl": $container-5xl,
+  "6xl": $container-6xl,
+  "7xl": $container-7xl,
+);
+
+@each $name, $value in $min-widths {
+  .min-w-#{$name} {
+    min-width: $value;
+  }
 }
-.min-w-2xs {
-  min-width: $container-2xs;
-}
-.min-w-xs {
-  min-width: $container-xs;
-}
-.min-w-sm {
-  min-width: $container-sm;
-}
-.min-w-md {
-  min-width: $container-md;
-}
-.min-w-lg {
-  min-width: $container-lg;
-}
-.min-w-xl {
-  min-width: $container-xl;
-}
-.min-w-2xl {
-  min-width: $container-2xl;
-}
-.min-w-3xl {
-  min-width: $container-3xl;
-}
-.min-w-4xl {
-  min-width: $container-4xl;
-}
-.min-w-5xl {
-  min-width: $container-5xl;
-}
-.min-w-6xl {
-  min-width: $container-6xl;
-}
-.min-w-7xl {
-  min-width: $container-7xl;
-}
-.min-w-auto {
-  min-width: auto;
-}
-.min-w-full {
-  min-width: 100%;
-}
+
 .w-fit {
   width: fit-content;
 }
+
 .w-full {
   width: 100%;
+}
+
+.w-6 {
+  width: $spacing-6;
+}
+
+.w-8 {
+  width: $spacing-8;
 }
 
 .w-18 {

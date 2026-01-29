@@ -1,5 +1,13 @@
 @use "colors" as *;
 
+.bg-neutral-50 {
+  background-color: $color-neutral-50;
+}
+
+.bg-neutral-200 {
+  background-color: $color-neutral-200;
+}
+
 .bg-neutral-800 {
   background-color: $color-neutral-800;
 }

@@ -1,0 +1,23 @@
+@use "./spacing" as *;
+
+@each $step in (0, 1, 2) {
+  .m-#{$step} {
+    margin: space($step);
+  }
+
+  .mt-#{$step} {
+    margin-top: space($step);
+  }
+
+  .mr-#{$step} {
+    margin-right: space($step);
+  }
+
+  .mb-#{$step} {
+    margin-bottom: space($step);
+  }
+
+  .ml-#{$step} {
+    margin-left: space($step);
+  }
+}

@@ -1,0 +1,62 @@
+@use "./spacing" as *;
+
+@each $step in (0, 1, 2) {
+  .p-#{$step} {
+    padding: space($step);
+  }
+
+  .pt-#{$step} {
+    padding-top: space($step);
+  }
+
+  .pr-#{$step} {
+    padding-right: space($step);
+  }
+
+  .pb-#{$step} {
+    padding-bottom: space($step);
+  }
+
+  .pl-#{$step} {
+    padding-left: space($step);
+  }
+
+  .px-#{$step} {
+    padding-left: space($step);
+    padding-right: space($step);
+  }
+
+  .py-#{$step} {
+    padding-top: space($step);
+    padding-bottom: space($step);
+  }
+}
+
+.px-0\.5 {
+  padding-top: calc($spacing * 0.5);
+  padding-bottom: calc($spacing * 0.5);
+}
+
+.px-1\.5 {
+  padding-left: calc($spacing * 1.5);
+  padding-right: calc($spacing * 1.5);
+}
+
+.px-2\.5 {
+  padding-left: calc($spacing * 2.5);
+  padding-right: calc($spacing * 2.5);
+}
+
+.pl-2\.5 {
+  padding-left: calc($spacing * 2.5);
+}
+
+.py-0\.5 {
+  padding-top: calc($spacing * 0.5);
+  padding-bottom: calc($spacing * 0.5);
+}
+
+.py-1\.5 {
+  padding-left: calc($spacing * 1.5);
+  padding-right: calc($spacing * 1.5);
+}

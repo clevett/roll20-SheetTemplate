@@ -27,36 +27,6 @@ $text-8xl: 96px;
 $text-8xl--line-height: 1;
 $text-9xl: 128px;
 $text-9xl--line-height: 1;
-$font-weight-thin: 100;
-$font-weight-extralight: 200;
-$font-weight-light: 300;
-$font-weight-normal: 400;
-$font-weight-medium: 500;
-$font-weight-semibold: 600;
-$font-weight-bold: 700;
-$font-weight-extrabold: 800;
-$font-weight-black: 900;
-
-$font-weights: (
-  "thin": $font-weight-thin,
-  "extralight": $font-weight-extralight,
-  "light": $font-weight-light,
-  "normal": $font-weight-normal,
-  "medium": $font-weight-medium,
-  "semibold": $font-weight-semibold,
-  "bold": $font-weight-bold,
-  "extrabold": $font-weight-extrabold,
-);
-
-@each $name, $weight in $font-weights {
-  .font-#{$name} {
-    font-weight: $weight;
-  }
-}
-
-.font-black {
-  font-weight: $font-weight-black;
-}
 
 .capitalize {
   text-transform: capitalize;
