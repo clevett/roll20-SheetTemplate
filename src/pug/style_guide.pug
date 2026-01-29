@@ -1,47 +1,47 @@
 .grid.gap-6.style_guide
-    +Header({size: 'h1', name: 'style guide'}).text-center
+    +Header({ name: 'style guide', size: 'h1' }).text-center
     .grid.gap-4.grid-flow-col.grid-cols-2
         .grid.gap-2.auto-rows-min.text-center
             each size in ['h1', 'h2', 'h3', 'h4']
-                +Header({size: size, name: `${size} header`})
+                +Header({ size: size, name: `${size} header` })
 
         .grid.gap-2.auto-rows-min
-            +Header({size: 'h2', name: "inputs"}).text-center
+            +Header({ name: "inputs", size: 'h2' }).text-center
             .grid.gap-2.grid-flow-col.grid-cols-2.items-center.auto-rows-min
                 each type in ['text', 'number']
                     .grid.gap-2.grid-flow-col.items-center.auto-rows-min.col-auto-fr
-                        +Header({size: 'h3', name: `${type}`}).w-fit
-                        +Input({name: `${type}`, type: type})
-                        
+                        +Header({ name: `${type}`, size: 'h3' }).w-fit
+                        +Input({ name: `${type}`, type: type })
+
             .grid.gap-2.grid-flow-col.grid-cols-2.items-center.auto-rows-min
                 each type in ['checkbox', 'radio']
                     .grid.gap-2.grid-flow-col.items-center.auto-rows-min.col-auto-fr
-                        +Header({size: 'h3', name: `${type}`}).w-fit
-                        +Input({name: `${type}`, type: type})
+                        +Header({ name: `${type}`, size: 'h3' }).w-fit
+                        +Input({ name: `${type}`, type: type })
 
     .grid.gap-4.grid-flow-col.content-start
         .grid.gap-2.auto-rows-min 
-            +Header({size: 'h2', name: "buttons"}).text-center
+            +Header({ name: "buttons", size: 'h2' }).text-center
             .grid.gap-2.grid-flow-col.items-center.auto-rows-min 
                 each type in ["action", "roll"]
-                    +Button({type: type, name: `${type} button`})
+                    +Button({name: `${type} button`, type })
                 +Button({type: "roll", name: `icon button`, variant: "icon" }).d20 p
 
         .grid.gap-2.auto-rows-min
-            +Header({size: 'h2', name: "select"}).text-center
+            +Header({ name: "select", size: 'h2' }).text-center
             +Select({name: 'example select', options: [{value: 'option 1', label: 'Option 1'}, {value: 'option 2', label: 'Option 2'}]})
 
         .grid.gap-2.auto-rows-min.items-center.justify-items-center
-            +Header({size: 'h2', name: "switch"}).text-center
-            +Switch({name: 'switch', value: "on"})
+            +Header({ name: "switch", size: 'h2' }).text-center
+            +Switch({name: 'switch', value: "on" })
 
         .grid.gap-2.tablist.items-center.justify-center.auto-rows-min.rounded-t-md
-            +Header({size: 'h2', name: "tabs"}).text-center
+            +Header({ name: "tabs", size: 'h2' }).text-center
             - const viewTabs = ['style guide', 'character'];
-            +Tabs({values: viewTabs, attr: 'sheet_type'})
+            +Tabs({attr: 'sheet_type', values: viewTabs, })
 
     .grid.gap-4.content-start
         .grid.gap-2
-            +Header({size: 'h2', name: "textarea"}).text-center
+            +Header({ name: "textarea", size: 'h2' }).text-center
             +Textarea({name: 'example textarea', placeholder: 'This is an example textarea.'})
 
