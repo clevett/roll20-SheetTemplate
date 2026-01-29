@@ -16,7 +16,13 @@ $default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .duration-100 {
+  -webkit-transition: 100ms;
   transition-duration: 100ms;
+}
+
+.duration-150 {
+  -webkit-transition: 150ms;
+  transition-duration: 150ms;
 }
 
 .ease-in-out {

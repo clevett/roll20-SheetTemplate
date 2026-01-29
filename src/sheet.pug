@@ -10,11 +10,12 @@ input(name='attr_latest_versioning_upgrade' type='hidden' value='1')
 //- include pug/mixins.pug
 include pug/components/button.pug
 include pug/components/header.pug
+include pug/components/icon.pug
 include pug/components/input.pug
-include pug/components/tabs.pug
-include pug/components/textarea.pug
 include pug/components/select.pug
 include pug/components/switch.pug
+include pug/components/tabs.pug
+include pug/components/textarea.pug
 
 - const dashedName = name => name.replace(/ /g, '-');
 - const attrName = name => name.replace(/ /g, '_').toLowerCase();

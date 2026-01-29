@@ -1,38 +1,36 @@
 @use "tailwind" as *;
 
 div.switch {
-  input.dot {
+  input {
     grid-column: 1 / 2;
   }
 
-  input.dot:checked + span.slider {
+  input:checked + span.slider {
     @extend .bg-neutral-800;
   }
 
-  input.dot:checked + .slider:before {
-    -ms-transform: translateX(16px);
-    -webkit-transform: translateX(16px);
+  input:checked + .slider:before {
+    -ms-transform: translateX(14px);
+    -webkit-transform: translateX(14px);
     background-color: $color-neutral-200;
     grid-column: 1 / 2;
-    transform: translateX(16px);
+    transform: translateX(14px);
   }
 
   span.slider {
-    @extend .bg-neutral-200;
-    -webkit-transition: 0.4s;
+    @extend .bg-neutral-600;
+    @extend .duration-150;
     grid-column: 1 / 2;
-    transition: 0.4s;
 
     &:before {
       grid-column: 1 / 2;
-      -webkit-transition: 0.4s;
       @extend .bg-neutral-50;
       @extend .rounded-full;
       @extend .size-3\.5;
+      @extend .duration-150;
       content: "";
       display: block;
-      position: absolute;
-      transition: 0.4s;
+      margin-left: 2px;
     }
   }
 }

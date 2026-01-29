@@ -36,6 +36,10 @@ $text-9xl--line-height: 1;
   text-transform: uppercase;
 }
 
+.lowercase {
+  text-transform: lowercase;
+}
+
 $text-alignments: (
   "center": center,
   "right": right,

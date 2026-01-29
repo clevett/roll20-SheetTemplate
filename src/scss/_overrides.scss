@@ -21,6 +21,11 @@
   width: 100%;
 }
 
+.ui-dialog .charsheet input[type="checkbox"],
+.ui-dialog .charsheet input[type="radio"] {
+  @extend .size-4;
+}
+
 .ui-dialog .charsheet .switch input[type="checkbox"] {
   height: 100%;
   width: 100%;

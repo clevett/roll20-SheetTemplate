@@ -1,20 +1,24 @@
 @use "./spacing" as *;
 
+//8px x 8px square
 .size-2 {
   height: calc($spacing * 2);
   width: calc($spacing * 2);
 }
 
-.size-4 {
-  height: calc($spacing * 4);
-  width: calc($spacing * 4);
-}
-
+//14px x 14px square
 .size-3\.5 {
   height: calc($spacing * 3.5);
   width: calc($spacing * 3.5);
 }
 
+//16px x 16px square
+.size-4 {
+  height: calc($spacing * 4);
+  width: calc($spacing * 4);
+}
+
+//32px x 32px square
 .size-8 {
   height: calc($spacing * 8);
   width: calc($spacing * 8);

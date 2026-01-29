@@ -3,15 +3,15 @@ mixin Input(props)
     const { name, i18n = name, type = 'text', placeholder = name, value = '' } = props || {};
     const attr = attrName(name);
 
-    const baseTextualClasses = 'w-full max-w-xs h-8 bg-transparent border-x-transparent border-t-transparent border-b-neutral-900 border-b-2 rounded-none px-2.5 py-1 text-base transition-colors active:border-none focus:border-none hover:border-none active:outline-solid focus:outline-solid hover:outline-solid active:outline-cyan-500 focus:outline-cyan-500 hover:outline-cyan-500 active:outline-2 focus:outline-2 hover:outline-2 active:rounded-lg focus:rounded-lg hover:rounded-lg  ';
+    const baseTextualClasses = 'w-full max-w-xs h-8 bg-transparent border-x-transparent border-t-transparent border-b-neutral-900 border-b-2 rounded-none px-2.5 py-1 text-base transition-colors active:border-none focus:border-none hover:border-none active:outline-solid focus:outline-solid hover:outline-solid active:outline-neutral-800 focus:outline-neutral-800 hover:outline-neutral-800 active:outline-2 focus:outline-2 hover:outline-2 active:rounded-lg focus:rounded-lg hover:rounded-lg  ';
 
-    const baseChoiceClasses = 'flex items-center justify-center flex-shrink-0 w-4 h-4 p-0 border rounded transition-colors opacity-100 duration-150 ease-in-out opacity-100 ';
+    const baseChoiceClasses = 'color-neutral-50 flex items-center justify-center flex-shrink-0 w-4 h-4 p-0 border rounded transition-colors opacity-100 duration-150 ease-in-out opacity-100 size-4 ';
 
     const typeClasses = {
       text: baseTextualClasses,
       number: `${baseTextualClasses} text-center`,
       radio: `${baseChoiceClasses} `,
-      checkbox: baseChoiceClasses
+      checkbox: `${baseChoiceClasses} `
     };
     
     const tag = type || 'text';

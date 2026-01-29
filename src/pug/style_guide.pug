@@ -15,7 +15,7 @@
 
             .grid.gap-2.grid-flow-col.grid-cols-2.items-center.auto-rows-min
                 each type in ['checkbox', 'radio']
-                    .grid.gap-2.grid-flow-col.items-center.auto-rows-min.col-auto-fr
+                    .grid.gap-2.grid-flow-col.items-center.auto-rows-min.col-auto-fr.justify-items-center
                         +Header({ name: `${type}`, size: 'h3' }).w-fit
                         +Input({ name: `${type}`, type: type })
 
@@ -25,7 +25,8 @@
             .grid.gap-2.grid-flow-col.items-center.auto-rows-min 
                 each type in ["action", "roll"]
                     +Button({name: `${type} button`, type })
-                +Button({type: "roll", name: `icon button`, variant: "icon" }).d20 p
+                +Button({type: "roll", name: `icon button`, variant: "icon" })
+                    +Icon({icon: 'd20'})
 
         .grid.gap-2.auto-rows-min
             +Header({ name: "select", size: 'h2' }).text-center
