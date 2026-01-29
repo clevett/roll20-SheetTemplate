@@ -5,18 +5,23 @@ mixin Button(props)
         const namePrefix = type === 'roll' ? 'roll' : 'act'
         const attr = attrName(name);
         const buttonName = `${namePrefix}_${attr}`;
+        const datai18n = type === 'icon' ? "" : i18n;
 
 
-        const baseClasses = 'ellipse flex items-center justify-center whitespace-nowrap transition-all m-0 py-0\.5 px-1\.5 color-neutral-300 active:color-neutral-50 focus:color-neutral-50 hover:color-neutral-50 text-sm font-medium rounded-lg border  ';
+        const baseClasses = 'bg-neutral-800 ellipse flex items-center justify-center whitespace-nowrap transition-all m-0 py-0\.5 px-1\.5 color-neutral-300 active:color-neutral-50 focus:color-neutral-50 hover:color-neutral-50 rounded-lg border  ';
 
         const variantClasses = {
-            tab: 'tab capitalize border-transparent h-6 gap-1 bg-transparent text-center flex-1  ',
-            default: 'capitalize flex-shrink-0 gap-1.5 h-8 border-neutral-500 bg-neutral-800 duration-150 opacity-100 ease-in-out active:bg-neutral-700 focus:bg-neutral-700 hover:bg-neutral-700  ',
-            icon: 'border size-8 active:bg-neutral-700 focus:bg-neutral-700 hover:bg-neutral-700 '
+            tab: 'tab capitalize border-transparent h-6 gap-1 bg-transparent text-center flex-1 text-sm font-medium   ',
+            default: 'capitalize flex-shrink-0 gap-1.5 h-8 border-neutral-500 duration-150 opacity-100 ease-in-out active:bg-neutral-700 focus:bg-neutral-700 hover:bg-neutral-700 text-sm font-semibold  ',
+            icon: 'border size-8 active:bg-neutral-700 focus:bg-neutral-700 hover:bg-neutral-700 text-xl '
         };
 
-        const classes = `${baseClasses} ${variantClasses[variant] || ''}`;
+        const classes = `${baseClasses} ${variantClasses[variant]  || ''}`;
 
-    button(type=type name=`${buttonName}` data-i18n=i18n class=classes class!=attributes.class)
-        if variant === 'icon'
-            span name
+    if variant === 'icon' 
+        button.icon(type=type name=`${buttonName}` class=classes class!=attributes.class)
+            if block
+                block
+    else
+        button(type=type name=`${buttonName}` data-i18n=`${datai18n}` class=classes class!=attributes.class)
+

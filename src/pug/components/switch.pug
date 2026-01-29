@@ -3,7 +3,7 @@ mixin Switch(props)
         const {name, i18n = name, title = i18n, value } = props || {};
         const attr = attrName(name);
 
-        const baseClasses = 'grid bg-neutral-200 rounded-lg relative h-4.5 w-8  ';
+        const baseClasses = 'cursor-pointer grid bg-neutral-200 rounded-lg relative h-4.5 w-8  ';
         const inputClasses = 'absolute opacity-0 h-full w-full z-index-10 ';
         const sliderClasses = 'grid absolute cursor-pointer rounded-full transition-all bg-neutral-50 items-center w-full h-full  ';
 

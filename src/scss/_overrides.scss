@@ -35,6 +35,10 @@
   @extend .py-0\.5;
 }
 
+.ui-dialog .charsheet button[type="roll"].icon {
+  @extend .text-xl;
+}
+
 .charsheet {
   min-width: $container-lg;
   max-width: 860px;
