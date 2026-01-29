@@ -17,6 +17,22 @@
   background: transparent;
 }
 
+.d4 {
+  font-family: "dicefontd4";
+}
+.d6 {
+  font-family: "dicefontd6";
+}
+.d8 {
+  font-family: "dicefontd8";
+}
+.d10 {
+  font-family: "dicefontd10";
+}
+.d12 {
+  font-family: "dicefontd12";
+}
+
 .ui-dialog .charsheet input[type="number"] {
   width: 100%;
 }
@@ -38,10 +54,6 @@
   @extend .m-0;
   @extend .px-1\.5;
   @extend .py-0\.5;
-}
-
-.ui-dialog .charsheet button[type="roll"].icon {
-  @extend .text-xl;
 }
 
 .charsheet {

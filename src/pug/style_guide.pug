@@ -1,12 +1,39 @@
 .grid.gap-6.style_guide
     +Header({ name: 'style guide', size: 'h1' }).text-center
+
     .grid.gap-4.grid-flow-col.grid-cols-2
-        .grid.gap-2.auto-rows-min.text-center
-            each size in ['h1', 'h2', 'h3', 'h4']
-                +Header({ size: size, name: `${size} header` })
+        .grid.gap-6.content-start
+            .grid.gap-2.auto-rows-min.text-center
+                +Header({ name: "headers", size: 'h2' }).text-center
+                each size in ['h1', 'h2', 'h3', 'h4']
+                    +Header({ size: size, name: `${size} header` })
+                    
+            .grid.gap-2.auto-rows-min
+                +Header({ name: "buttons", size: 'h2' }).text-center
+                .grid.gap-2.grid-flow-col.items-center.justify-center
+                    each type in ["action", "roll"]
+                        +Button({name: `${type} button`, type })
+                    +Button({type: "roll", name: `icon button`, variant: "icon" })
+                        +Icon({icon: 'd20'})
+
+            .grid.gap-2.items-center.justify-center.auto-rows-min.rounded-t-md
+                +Header({ name: "tabs", size: 'h2' }).text-center
+                - const viewTabs = ['style guide', 'character'];
+                +Tabs({attr: 'sheet_type', values: viewTabs, })
+
+            .grid.gap-2.grid-flow-col
+                .grid.gap-2.auto-rows-min
+                    +Header({ name: "select", size: 'h2' }).text-center
+                    +Select({name: 'example select', options: [{value: 'option 1', label: 'Option 1'}, {value: 'option 2', label: 'Option 2'}]})
+
+                .grid.gap-2.auto-rows-min.items-center.justify-items-center
+                    +Header({ name: "switch", size: 'h2' }).text-center
+                    +Switch({name: 'switch', value: "on" })
+
 
         .grid.gap-2.auto-rows-min
             +Header({ name: "inputs", size: 'h2' }).text-center
+
             .grid.gap-2.grid-flow-col.grid-cols-2.items-center.auto-rows-min
                 each type in ['text', 'number']
                     .grid.gap-2.grid-flow-col.items-center.auto-rows-min.col-auto-fr
@@ -19,27 +46,25 @@
                         +Header({ name: `${type}`, size: 'h3' }).w-fit
                         +Input({ name: `${type}`, type: type })
 
-    .grid.gap-4.grid-flow-col.content-start
-        .grid.gap-2.auto-rows-min 
-            +Header({ name: "buttons", size: 'h2' }).text-center
-            .grid.gap-2.grid-flow-col.items-center.auto-rows-min 
-                each type in ["action", "roll"]
-                    +Button({name: `${type} button`, type })
-                +Button({type: "roll", name: `icon button`, variant: "icon" })
-                    +Icon({icon: 'd20'})
+        .grid.gap-4.grid-flow-col.content-start
 
-        .grid.gap-2.auto-rows-min
-            +Header({ name: "select", size: 'h2' }).text-center
-            +Select({name: 'example select', options: [{value: 'option 1', label: 'Option 1'}, {value: 'option 2', label: 'Option 2'}]})
+            .grid.gap-4.justify-items-center.items-center.auto-rows-min
+                +Header({ name: "icons", size: 'h2' }).text-center
 
-        .grid.gap-2.auto-rows-min.items-center.justify-items-center
-            +Header({ name: "switch", size: 'h2' }).text-center
-            +Switch({name: 'switch', value: "on" })
+                .grid.gap-2.grid-flow-col.items-center.justify-center
+                    each icon in ['d4', 'd6', 'd8', 'd10', 'd12', 'd20']
+                        .grid.gap-2.items-center.justify-center
+                            +Icon({ icon, color: 'color-neutral-900' })
 
-        .grid.gap-2.tablist.items-center.justify-center.auto-rows-min.rounded-t-md
-            +Header({ name: "tabs", size: 'h2' }).text-center
-            - const viewTabs = ['style guide', 'character'];
-            +Tabs({attr: 'sheet_type', values: viewTabs, })
+                .grid.gap-2.grid-flow-col.items-center.justify-center
+                    .grid.gap-2.items-center.justify-center
+                        +Icon({ icon: "ellipsis", color: 'color-neutral-900' })
+                    .grid.gap-2.grid-flow-col.items-center
+                        +Icon({ icon: "editAlt", color: 'color-neutral-900' })
+                    .grid.gap-2.grid-flow-col.items-center
+                        +Icon({ icon: "star", color: 'color-neutral-900' })
+                    //- each icon in ['editAlt', 'star', 'chat', 'infoCircle', 'settings', "play"]
+                    //-     +Icon({ icon, color: 'color-neutral-900' })
 
     .grid.gap-4.content-start
         .grid.gap-2

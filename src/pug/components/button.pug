@@ -7,12 +7,12 @@ mixin Button(props)
         const buttonName = `${namePrefix}_${attr}`;
         const datai18n = type === 'icon' ? "" : i18n;
 
-        const baseClasses = 'bg-neutral-800 ellipse flex items-center justify-center whitespace-nowrap transition-all m-0 py-0\.5 px-1\.5 color-neutral-300 active:color-neutral-50 focus:color-neutral-50 hover:color-neutral-50 rounded-lg border  ';
+        const baseClasses = 'bg-neutral-800 ellipse flex items-center justify-center whitespace-nowrap transition-all m-0 py-0\.5 px-1\.5 color-neutral-300 active:color-neutral-50 focus:color-neutral-50 hover:color-neutral-50 rounded-lg border ';
 
         const variantClasses = {
-            tab: 'tab capitalize border-transparent h-6 gap-1 bg-transparent text-center flex-1 text-sm font-medium ',
-            default: 'capitalize flex-shrink-0 gap-1.5 h-8 border-neutral-500 duration-150 opacity-100 ease-in-out active:bg-neutral-600 focus:bg-neutral-600 hover:bg-neutral-600 text-sm font-semibold  ',
-            icon: 'border size-8 active:bg-neutral-600 focus:bg-neutral-600 hover:bg-neutral-600 text-xl '
+            tab: 'bg-transparent border-transparent capitalize flex-1 font-medium gap-1 h-6 tab text-center text-sm ',
+            default: 'active:bg-neutral-600 border-neutral-500 capitalize duration-150 ease-in-out flex-shrink-0 focus:bg-neutral-600 font-semibold gap-1.5 h-8 hover:bg-neutral-600 opacity-100 text-sm ',
+            icon: 'active:bg-neutral-600 focus:bg-neutral-600 hover:bg-neutral-600 size-8 '
         };
 
         const classes = `${baseClasses} ${variantClasses[variant]  || ''}`;

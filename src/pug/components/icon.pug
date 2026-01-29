@@ -3,9 +3,9 @@ include ./icons.pug
 
 mixin Icon(props)
     -
-        const {icon = 'd20' } = props || {};
+        const {icon = 'd20', color = 'color-neutral-50' } = props || {};
 
-        const baseClasses = 'color-neutral-50 flex items-center justify-center shrink-0 size-4 ';
+        const baseClasses = `${color} flex items-center justify-center shrink-0 size-4 text-2xl `;
 
         const isDice = /^(d4|d6|d8|d10|d12|d20)$/.test(icon);
         const font = isDice ? `${icon} lowercase `  : 'pictos';
