@@ -46,7 +46,7 @@
                         +Header({ name: `${type}`, size: "h3" }).w-fit
                         +Input({ name: `${type}`, type: type })
 
-            .grid.gap-6.auto-rows-min.justify-items-center.items-center
+            .grid.gap-4.auto-rows-min.justify-items-center.items-center
                 +Header({ name: "icons", size: "h2" }).text-center
 
                 .grid.gap-4.grid-flow-col
@@ -57,29 +57,22 @@
 
                 .grid.gap-4.auto-rows-min.items-center.w-full
                     .grid.gap-2.grid-flow-col.w-full.grid-cols-3.items-center.justify-items-center 
-                        +Header({ name: "icon", size: "h4" })
-                        +Header({ name: "name", size: "h4" })
-                        +Header({ name: "description", size: "h4" })
-                    .grid.gap-2.grid-flow-col.w-full.grid-cols-3.items-center.justify-items-center 
-                        +Icon({ icon: "ellipsis", color: "color-neutral-900" })
-                        +Header({ name: "ellipsis", size: "h4" })
-                        +Text({name: "ellipsis", text: "Show menu options" })
-                    .grid.gap-2.grid-flow-col.w-full.grid-cols-3.items-center.justify-items-center 
-                        +Icon({ icon: "editAlt", color: "color-neutral-900" })
-                        +Header({name: "editAlt",size: "h4" })
-                        +Text({name: "ellipsis", text: "Toggle edit state" })
-                    .grid.gap-2.grid-flow-col.w-full.grid-cols-3.items-center.justify-items-center
-                        +Icon({ icon: "star", color: "color-neutral-900" })
-                        +Header({name: "star",size: "h4" })
-                        +Text({name: "ellipsis", text: "Toggle favorite state" })
-                    .grid.gap-2.grid-flow-col.w-full.grid-cols-3.items-center.justify-items-center
-                        +Icon({ icon: "settings", color: "color-neutral-900" })
-                        +Header({name: "settings",size: "h4" })
-                        +Text({name: "settings", text: "Toggle settings state" })
-                    .grid.gap-2.grid-flow-col.w-full.grid-cols-3.items-center.justify-items-center
-                        +Icon({ icon: "chat", color: "color-neutral-900" })
-                        +Header({name: "chat",size: "h4" })
-                        +Text({name: "chat", text: "Send to chat" })
+                        +Header({ name: "icon", size: "h3" })
+                        +Header({ name: "name", size: "h3" })
+                        +Header({ name: "description", size: "h3" })
+                    -
+                        const iconData = [
+                            { icon: "ellipsis", description: "Show menu options" },
+                            { icon: "editAlt", description: "Toggle edit state" },
+                            { icon: "star", description: "Toggle favorite state" },
+                            { icon: "settings", description: "Toggle settings state" },
+                            { icon: "chat", description: "Send to chat" }
+                        ];
+                    each item in iconData
+                        .grid.gap-2.grid-flow-col.w-full.grid-cols-3.items-center.justify-items-center
+                            +Icon({ icon: item.icon, color: "color-neutral-900" })
+                            +Header({ name: item.icon, size: "h4" }).lowercase
+                            +Text({ text: item.description })
 
     .grid.gap-4.content-start
         .grid.gap-2

@@ -1,7 +1,7 @@
 mixin Text(props)
     -
         const {name, i18n = name, variant = "default", text } = props || {};
-        const attr = attrName(name);
+        const attr = name ?  attrName(name) : undefined;
 
         const baseClasses = "ellipse text-sm ";
 
