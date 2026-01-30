@@ -1,0 +1,21 @@
+mixin Text(props)
+    -
+        const {name, i18n = name, variant = "default", text } = props || {};
+        const attr = attrName(name);
+
+        const baseClasses = "ellipse text-sm ";
+
+        const variantClasses = {
+            attr: "",
+            default: "",
+        };
+
+        const classes = `${baseClasses} ${variantClasses[variant]  || ""}`;
+
+    if i18n
+        span(class=classes class!=attributes.class data-i18n=i18n)
+    else if name
+        span(class=classes class!=attributes.class name=`attr_${attr}`)
+    else
+        span(class=classes class!=attributes.class)= text
+
