@@ -11,10 +11,14 @@
             .grid.gap-2.auto-rows-min
                 +Header({ name: "buttons", size: "h2" }).text-center
                 .grid.gap-2.grid-flow-col.items-center.justify-center
-                    each type in [BUTTON_TYPES.ACTION, BUTTON_TYPES.ROLL]
-                        +Button({name: `${type} button`, type, value: buttonValue({name: "roll button"}) })
-                    +Button({type: BUTTON_TYPES.ROLL, name: `icon button`, variant: BUTTON_VARIANT.ICON, value: buttonValue()  })
+                    each type in [BUTTON_TYPES.ACTION]
+                        +Button({name: `${type} button`, type, })
+                    each type in [BUTTON_TYPES.ROLL]
+                        +Button({name: `${type} button`, type, value: buttonValue({name: "roll button", type: BUTTON_VALUE_TYPES.D20}) })
+                    +Button({type: BUTTON_TYPES.ROLL, name: `icon button`, variant: BUTTON_VARIANT.ICON, value: buttonValue({name: "icon button", type: BUTTON_VALUE_TYPES.D20 }),  })
                         +Icon({icon: "d20"})
+                    +Button({type: BUTTON_TYPES.ROLL, name: `chat button`, variant: BUTTON_VARIANT.ICON, value: buttonValue({name: "chat button", attr: "@{example_textarea}" }),  })
+                        +Icon({icon: "chat"})
 
             .grid.gap-2.auto-rows-min.items-center.justify-center
                 +Header({ name: "tabs", size: "h2" }).text-center

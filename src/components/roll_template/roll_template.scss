@@ -1,53 +1,27 @@
 @use "tailwind" as *;
 
-.inlinerollresult.fullfail,
-.inlinerollresult.fullcrit,
-.inlinerollresult.importantroll {
-  border: none;
-}
-
-.inlinerollresult.fullfail,
-.inlinerollresult.fullcrit {
-  border: none;
-  color: $color-neutral-950;
-}
-
-.inlinerollresult {
-  background-color: transparent;
-  border: none;
-  font-size: 2em;
-  padding: unset;
-}
-
-.inlinerollresult.fullcrit {
-  color: $color-green-800;
-}
-
-.inlinerollresult.fullfail {
-  color: $color-red-800;
-}
-
 .sheet-rolltemplate-roll {
   min-width: 275px;
   margin-top: 8px;
   margin-left: -40px;
 
   .sheet-template-container {
-    @extend .border;
+    @extend .bg-neutral-200;
     @extend .border-2;
-    @extend .p-2;
+    @extend .border;
+    @extend .color-neutral-800;
+    @extend .gap-2;
+    @extend .grid;
+    @extend .px-2;
+    @extend .py-2\.5;
     @extend .rounded-xl;
     @extend .shadow-lg;
-    @extend .grid;
-    @extend .gap-2;
-    @extend .bg-neutral-200;
-    @extend .color-neutral-800;
 
     .sheet-template-header {
       h1 {
+        @extend .capitalize;
         @extend .color-neutral-800;
         @extend .text-center;
-        @extend .capitalize;
       }
 
       @extend .auto-rows-min;
@@ -62,9 +36,40 @@
     }
 
     .sheet-template-dice {
+      @extend .auto-rows-min;
+      @extend .grid;
+      @extend .items-center;
+      @extend .justify-center;
     }
 
     .sheet-template-description {
+    }
+
+    .inlinerollresult.fullfail,
+    .inlinerollresult.fullcrit,
+    .inlinerollresult.importantroll {
+      border: none;
+    }
+
+    .inlinerollresult.fullfail,
+    .inlinerollresult.fullcrit {
+      border: none;
+      color: $color-neutral-950;
+    }
+
+    .inlinerollresult {
+      @extend .bg-transparent;
+      @extend .text-4xl;
+      border: none;
+      padding: unset;
+    }
+
+    .inlinerollresult.fullcrit {
+      color: $color-green-800;
+    }
+
+    .inlinerollresult.fullfail {
+      color: $color-red-800;
     }
   }
 }

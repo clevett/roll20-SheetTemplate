@@ -59,19 +59,6 @@ viewTabs.forEach(function (tab) {
         setAttrs({ sheet_type: tab });
     });
 });
-var BUTTON_TYPES = {
-    ROLL: "roll",
-    ACTION: "action",
-};
-var BUTTON_VALUE_TYPES = {
-    REPEATING_CHAT_BUTTON: "repeatingChatButton",
-    DAMAGE: "damage",
-};
-var BUTTON_VARIANT = {
-    DEFAULT: "default",
-    ICON: "icon",
-    TAB: "tab",
-};
 var _this = this;
 var versioningAttr = "latest_versioning_upgrade";
 on("sheet:opened", function () {

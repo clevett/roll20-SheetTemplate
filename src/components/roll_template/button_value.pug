@@ -6,7 +6,7 @@
         // const bonus = "(@{modifier}[modifier])"
         //- - const prompt = "(?{Modifier|0}[modifier])"
 
-        const {name, type  } = props || {};
+        const {attr, name, type } = props || {};
         
         let string = `${templatePrefix} `
 
@@ -22,35 +22,13 @@
         }
 
         switch(type) {
+            case BUTTON_VALUE_TYPES.D20:
+                string += ` {{dice=[[1d20]]}} `;
+                break;
             default:
-                string += ` {{description=@{description}}}`;
+                string += ` {{description=${attr}}}`;
         }
-
-
-        // const values = {
-        //     chatButton: ` {{description=@{description}}}`,
-        //     // attribute: ` {{dice=[[1d20+${attribute}+${bonus}]]}} `,
-        //     // attack: ` {{dice=[[1d20+@{attack_bonus}[attack bonus]+${bonus}]]}} {{description=@{description}}}`,
-        //     // damage: ` {{dice=[[@{damage}[damage]+(@{damage_attribute}[damage attribute])]]}} {{type=@{damage_type}}}`,
-        //     // initiative: ` {{dice=[[1d20+@{awareness}[awareness]+@{initiative_bonus}[modifier] &{tracker}]]}}`,
-        // };
 
         return string || "{{description=Roll Template is not working as expected}}";
     }
 
-
-//- mixin ButtonValues(props)
-//-     - 
-//-         const templatePrefix = "&{template:roll}"
-//-         //- - const criticalStrike = "cs@{critical_hit}cf@{critical_fail}"
-//-         const attribute = "@{attribute}[attribute]"
-//-         const bonus = "(@{modifier}[modifier])"
-//-         //- - const prompt = "(?{Modifier|0}[modifier])"
-//- 		const {name, i18n = name, type = 'roll', value, variant = 'default' } = props || {};
-//- 		const values = {
-//- 			chatButton: `${templatePrefix} {{header=@{name}}} {{description=@{description}}}`,
-//- 			//- "attribute": `{{dice=[[1d20+${attribute}+${bonus}+${prompt}]]}} `,
-//- 			//- "attack": `{{dice=[[1d20+@{attack_bonus}[attack bonus]+${bonus}+${prompt}]]}} {{description=@{description}}}`,
-//- 			//- "damage": `{{dice=[[@{damage}[damage]+(@{damage_attribute}[damage attribute])]]}} {{type=@{damage_type}}}`,
-//- 			//- "initiative": `{{dice=[[1d20+@{awareness}[awareness]+@{initiative_bonus}[modifier] &{tracker}]]}}`,
-//- 		}

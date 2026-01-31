@@ -6,6 +6,7 @@
   "character": "character",
   "character name": "character name",
   "chat": "chat",
+  "chat button": "chat button",
   "checkbox": "checkbox",
   "d10": "d10",
   "d12": "d12",
@@ -16,6 +17,7 @@
   "description": "description",
   "editAlt": "editAlt",
   "ellipsis": "ellipsis",
+  "Enter description here...": "Enter description here...",
   "example repeating section": "example repeating section",
   "example textarea": "example textarea",
   "h1 header": "h1 header",
@@ -25,6 +27,7 @@
   "Header 1": "Header 1",
   "headers": "headers",
   "icon": "icon",
+  "icon button": "icon button",
   "icons": "icons",
   "inputs": "inputs",
   "level": "level",
@@ -43,6 +46,6 @@
   "tabs": "tabs",
   "text": "text",
   "textarea": "textarea",
-  "undefined": "undefined",
+  "This is an example textarea.": "This is an example textarea.",
   "value": "value"
 }
