@@ -12,10 +12,10 @@ mixin Text(props)
 
         const classes = `${baseClasses} ${variantClasses[variant]  || ""}`;
 
-    if i18n
-        span(class=classes class!=attributes.class data-i18n=i18n)
+    if block 
+        span(class=classes class!=attributes.class)
+            block
     else if name
         span(class=classes class!=attributes.class name=`attr_${attr}`)
     else
-        span(class=classes class!=attributes.class)= text
-
+        span(class=classes class!=attributes.class data-i18n=`${i18n}`)

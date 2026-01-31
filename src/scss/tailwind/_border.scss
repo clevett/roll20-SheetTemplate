@@ -39,7 +39,6 @@ $radius-map: (
 }
 
 $border-styles: (solid, dotted, hidden, none);
-
 @each $style in $border-styles {
   .border-#{$style} {
     border-style: $style;
@@ -47,10 +46,13 @@ $border-styles: (solid, dotted, hidden, none);
 }
 
 $border-widths: (1, 2);
-
 @each $width in $border-widths {
   .border-b-#{$width} {
     border-bottom-width: #{$width}px;
+  }
+
+  .border-#{$width} {
+    border-width: #{$width}px;
   }
 }
 
@@ -70,12 +72,20 @@ $border-widths: (1, 2);
   border-top-color: transparent;
 }
 
+.border-neutral-200 {
+  border-color: $color-neutral-200;
+}
+
 .border-neutral-500 {
   border-color: $color-neutral-500;
 }
 
 .border-neutral-800 {
   border-color: $color-neutral-800;
+}
+
+.border-solid {
+  border-style: solid;
 }
 
 .active\:rounded-lg:active,

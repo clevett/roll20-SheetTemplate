@@ -13,4 +13,9 @@ mixin Header(props)
     const tag = size || 'h4';
     const classes = `${baseClasses} ${sizeClasses[tag] || ''}`;
 
-  #{tag}(class=classes class!=attributes.class data-i18n=i18n )
+  if block
+    #{tag}(class=classes class!=attributes.class)
+      block
+  else
+    #{tag}(class=classes class!=attributes.class data-i18n=i18n)
+    

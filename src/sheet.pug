@@ -8,7 +8,9 @@ input(name='attr_latest_versioning_upgrade' type='hidden' value='1')
 //- include pug/components/roll_templates.pug
 //- include pug/constants.pug
 //- include pug/mixins.pug
+include constants/index
 include components/index
+
 
 - const dashedName = name => name.replace(/ /g, '-');
 - const attrName = name => name.replace(/ /g, '_').toLowerCase();

@@ -1,0 +1,56 @@
+- 
+    const buttonValue = (props) => {
+        const templatePrefix = "&{template:roll}"
+        //- - const criticalStrike = "cs@{critical_hit}cf@{critical_fail}"
+        // const attribute = "@{attribute}[attribute]"
+        // const bonus = "(@{modifier}[modifier])"
+        //- - const prompt = "(?{Modifier|0}[modifier])"
+
+        const {name, type = BUTTON_VALUE_TYPES.REPEATING_CHAT_BUTTON } = props || {};
+        
+        let string = `${templatePrefix} `
+
+        switch(type) {
+            case BUTTON_VALUE_TYPES.REPEATING_CHAT_BUTTON:
+                string += `{{header=@{name}}} `;
+                break;
+            case BUTTON_VALUE_TYPES.DAMAGE:
+                string += `{{header=^{${name} Damage}}} `;
+                break;
+            default:
+                string += `{{header=^{${name}}}} `;
+        }
+
+        switch(type) {
+            default:
+                string += ` {{description=@{description}}}`;
+        }
+
+
+        // const values = {
+        //     chatButton: ` {{description=@{description}}}`,
+        //     // attribute: ` {{dice=[[1d20+${attribute}+${bonus}]]}} `,
+        //     // attack: ` {{dice=[[1d20+@{attack_bonus}[attack bonus]+${bonus}]]}} {{description=@{description}}}`,
+        //     // damage: ` {{dice=[[@{damage}[damage]+(@{damage_attribute}[damage attribute])]]}} {{type=@{damage_type}}}`,
+        //     // initiative: ` {{dice=[[1d20+@{awareness}[awareness]+@{initiative_bonus}[modifier] &{tracker}]]}}`,
+        // };
+
+        return string || "{{description=Roll Template is not working as expected}}";
+    }
+
+
+//- mixin ButtonValues(props)
+//-     - 
+//-         const templatePrefix = "&{template:roll}"
+//-         //- - const criticalStrike = "cs@{critical_hit}cf@{critical_fail}"
+//-         const attribute = "@{attribute}[attribute]"
+//-         const bonus = "(@{modifier}[modifier])"
+//-         //- - const prompt = "(?{Modifier|0}[modifier])"
+//- 		const {name, i18n = name, type = 'roll', value, variant = 'default' } = props || {};
+//- 		const values = {
+//- 			chatButton: `${templatePrefix} {{header=@{name}}} {{description=@{description}}}`,
+//- 			//- "attribute": `{{dice=[[1d20+${attribute}+${bonus}+${prompt}]]}} `,
+//- 			//- "attack": `{{dice=[[1d20+@{attack_bonus}[attack bonus]+${bonus}+${prompt}]]}} {{description=@{description}}}`,
+//- 			//- "damage": `{{dice=[[@{damage}[damage]+(@{damage_attribute}[damage attribute])]]}} {{type=@{damage_type}}}`,
+//- 			//- "initiative": `{{dice=[[1d20+@{awareness}[awareness]+@{initiative_bonus}[modifier] &{tracker}]]}}`,
+//- 		}

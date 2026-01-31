@@ -1,26 +1,34 @@
 mixin Button(props)
     -
-        const {name, i18n = name, type = 'roll', variant = 'default' } = props || {};
+        const {
+            name, 
+            i18n = name,
+            type =
+            BUTTON_TYPES.ROLL, 
+            value, 
+            variant = BUTTON_VARIANT.DEFAULT 
+        } = props || {};
 
-        const namePrefix = type === 'roll' ? 'roll' : 'act'
+        const namePrefix = type === BUTTON_TYPES.ROLL ? BUTTON_TYPES.ROLL : 'act'
         const attr = attrName(name);
         const buttonName = `${namePrefix}_${attr}`;
-        const datai18n = type === 'icon' ? "" : i18n;
+        const datai18n = variant === BUTTON_VARIANT.ICON ? "" : i18n;
 
-        const baseClasses = 'bg-neutral-800 ellipse flex items-center justify-center whitespace-nowrap transition-all m-0 py-0\.5 px-1\.5 color-neutral-300 active:color-neutral-50 focus:color-neutral-50 hover:color-neutral-50 rounded-lg border ';
+        let classes = 'bg-neutral-800 ellipse whitespace-nowrap transition-all m-0 py-0\.5 px-1\.5 color-neutral-300 active:color-neutral-50 focus:color-neutral-50 hover:color-neutral-50 rounded-lg border ';
 
-        const variantClasses = {
-            tab: 'bg-transparent border-transparent capitalize flex-1 font-medium gap-1 h-6 tab text-center text-sm ',
-            default: 'active:bg-neutral-600 border-neutral-500 capitalize duration-150 ease-in-out flex-shrink-0 focus:bg-neutral-600 font-semibold gap-1.5 h-8 hover:bg-neutral-600 opacity-100 text-sm ',
-            icon: 'active:bg-neutral-600 focus:bg-neutral-600 hover:bg-neutral-600 size-8 '
-        };
+        switch(variant) {
+            case BUTTON_VARIANT.TAB:
+                classes +=  "bg-transparent border-transparent capitalize flex flex-1 font-medium gap-1 h-6 items-center justify-center tab text-center text-sm ";
+                break;
+            case BUTTON_VARIANT.ICON:
+                classes += `active:bg-neutral-600 focus:bg-neutral-600 hover:bg-neutral-600 flex items-center justify-center size-8 `;
+                break;
+            default:
+                classes += 'active:bg-neutral-600 border-neutral-500 capitalize duration-150 ease-in-out flex-shrink-0 focus:bg-neutral-600 font-semibold gap-1.5 h-8 hover:bg-neutral-600 opacity-100 text-sm '
+        }
 
-        const classes = `${baseClasses} ${variantClasses[variant]  || ''}`;
-
-    if variant === 'icon' 
-        button.icon(class=classes class!=attributes.class name=`${buttonName}` type=type)
-            if block
-                block
+    if block
+        button(class=classes class!=attributes.class name=`${buttonName}` type=type value!=value)
+            block
     else
-        button(class=classes class!=attributes.class data-i18n=`${datai18n}` name=`${buttonName}` type=type   )
-
+        button(class=classes class!=attributes.class data-i18n=`${datai18n}` name=`${buttonName}` type=type value!=value)

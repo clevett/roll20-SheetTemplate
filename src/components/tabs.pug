@@ -5,4 +5,4 @@ mixin Tabs(props)
     .flex.gap-2.flex-row.bg-neutral-800.p-1.rounded-md.w-fit.items-center.justify-center.h-8.m-0
         input(name=`attr_${attr}` type="hidden"  value=values[0])
         each tab in values
-            +Button({name: tab, i18n: tab, variant: "tab", type: "action"})
+            +Button({name: tab, i18n: tab, type: BUTTON_TYPES.ACTION, variant: BUTTON_VARIANT.TAB})

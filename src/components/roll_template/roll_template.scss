@@ -8,6 +8,7 @@
 
 .inlinerollresult.fullfail,
 .inlinerollresult.fullcrit {
+  border: none;
   color: $color-neutral-950;
 }
 
@@ -17,3 +18,45 @@
   font-size: 2em;
   padding: unset;
 }
+
+.inlinerollresult.fullcrit {
+  color: $color-green-800;
+}
+
+.inlinerollresult.fullfail {
+  color: $color-red-800;
+}
+
+.sheet-rolltemplate-roll {
+  min-width: 275px;
+  margin-top: 8px;
+  margin-left: -40px;
+
+  .sheet-template-container {
+    @extend .border;
+    @extend .border-2;
+    @extend .p-2;
+    @extend .rounded-xl;
+    @extend .shadow-lg;
+    @extend .grid;
+    @extend .gap-2;
+    @extend .bg-neutral-200;
+    @extend .color-neutral-800;
+
+    .sheet-template-header {
+    }
+
+    .sheet-template-body {
+    }
+
+    .sheet-template-dice {
+    }
+
+    .sheet-template-description {
+    }
+  }
+}
+
+//-     a[href^="~"] {
+//-       @extend %buttons;
+//-       @extend %button;

@@ -1,5 +1,11 @@
 @use "tailwind" as *;
 
+.border-b {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: $color-neutral-900;
+}
+
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
