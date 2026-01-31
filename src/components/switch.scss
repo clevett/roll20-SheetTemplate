@@ -1,4 +1,10 @@
 @use "tailwind" as *;
+@use "../scss/branding" as branding;
+
+.ui-dialog .charsheet .switch input[type="checkbox"] {
+  height: 100%;
+  width: 100%;
+}
 
 div.switch {
   input {
@@ -6,7 +12,7 @@ div.switch {
   }
 
   input:checked + span.slider {
-    @extend .bg-neutral-800;
+    background-color: branding.$active-color;
   }
 
   input:checked + .slider:before {
@@ -18,7 +24,7 @@ div.switch {
   }
 
   span.slider {
-    @extend .bg-neutral-600;
+    @extend .bg-neutral-800;
     @extend .duration-150;
     grid-column: 1 / 2;
 

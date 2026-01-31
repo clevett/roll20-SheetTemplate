@@ -1,7 +1,7 @@
 @use "tailwind" as *;
-@use "../scss/branding" as *;
+@use "../scss/branding" as branding;
 
-$viewTabs: "style_guide", "character", "npc";
+$viewTabs: "style-guide", "character", "npc";
 
 @each $tab in $viewTabs {
   input[name="attr_sheet_type"][value="#{$tab}"] ~ div.#{$tab} {
@@ -13,7 +13,7 @@ $viewTabs: "style_guide", "character", "npc";
     @extend .shadow-sm;
     color: $color-white;
     border-color: $color-neutral-500;
-    background-color: $color-neutral-600;
+    background-color: branding.$active-color;
   }
 
   input[name="attr_sheet_type"]:not([value="#{$tab}"]) ~ div.#{$tab} {

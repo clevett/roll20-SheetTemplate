@@ -1,4 +1,5 @@
 @use "tailwind" as *;
+@use "../../scss/branding" as branding;
 
 %button-base {
   @extend .active\:bg-neutral-600;
@@ -7,7 +8,6 @@
   @extend .bg-none;
   @extend .border-neutral-500;
   @extend .border;
-  @extend .capitalize;
   @extend .color-neutral-300;
   @extend .duration-150;
   @extend .ease-in-out;
@@ -59,5 +59,45 @@
   button.btn {
     @extend .size-8;
     @extend %button-base;
+  }
+}
+
+div.expand,
+div.edit {
+  max-height: 500px;
+  overflow: hidden;
+  opacity: 1;
+  transition: max-height 0.25s, opacity 0.25s, display 0.25s allow-discrete;
+  height: fit-content;
+}
+
+input[name="attr_state"]:not([value*="expand"]) ~ div.expand,
+input[name="attr_state"]:not([value*="edit"]) ~ div.edit {
+  opacity: 0;
+  display: none;
+  max-height: 0px;
+  transition: max-height 0.25s, opacity 0.25s, display 0.25s allow-discrete;
+}
+
+input[name="attr_state"][value*="edit"] ~ .grid .toggles button.edit {
+  background-color: branding.$active-color;
+}
+
+button.expand > span {
+  transform: rotate(90deg);
+}
+
+input[name="attr_state"]:not([value*="expand"])
+  ~ .grid
+  .toggles
+  button.expand
+  > span {
+  transform: rotate(-90deg);
+}
+
+.repitem:hover,
+.repitem:focus {
+  div.toggles {
+    display: flex;
   }
 }

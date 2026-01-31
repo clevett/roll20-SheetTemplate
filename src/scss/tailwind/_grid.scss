@@ -30,6 +30,10 @@
   justify-content: space-around;
 }
 
+.justify-self-end {
+  justify-self: end;
+}
+
 .auto-cols-min {
   grid-auto-columns: min-content;
 }

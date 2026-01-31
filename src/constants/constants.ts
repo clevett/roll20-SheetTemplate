@@ -1,0 +1,15 @@
+const BUTTON_TYPES = {
+  ROLL: "roll",
+  ACTION: "action",
+};
+
+const BUTTON_VALUE_TYPES = {
+  REPEATING_CHAT_BUTTON: "repeatingChatButton",
+  DAMAGE: "damage",
+};
+
+const BUTTON_VARIANT = {
+  DEFAULT: "default",
+  ICON: "icon",
+  TAB: "tab",
+};

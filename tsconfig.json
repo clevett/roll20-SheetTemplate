@@ -10,5 +10,5 @@
     "skipLibCheck": true,
     "sourceMap": false
   },
-  "include": ["src/ts/**/*", "src/Roll20.d.ts"]
+  "include": ["src/**/*.ts", "src/Roll20.d.ts"]
 }

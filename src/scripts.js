@@ -34,6 +34,44 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var sections = ["example-repeating-section"];
+sections.forEach(function (fieldset) {
+    var states = ["edit", "expand"];
+    states.forEach(function (button) {
+        on("clicked:repeating_".concat(fieldset, ":").concat(button), function (event) {
+            var sourceAttribute = event.sourceAttribute;
+            var row = getFieldsetRow(sourceAttribute);
+            getAttrs(["".concat(row, "_state")], function (attrs) {
+                var _a;
+                var state = attrs["".concat(row, "_state")];
+                var newState = state.includes(button)
+                    ? state.replace(button, "").trim()
+                    : "".concat(state, " ").concat(button).trim();
+                setAttrs((_a = {}, _a["".concat(row, "_state")] = newState, _a));
+            });
+        });
+    });
+});
+var viewTabs = ["style-guide", "character", "npc"];
+viewTabs.forEach(function (tab) {
+    on("clicked:".concat(tab), function () {
+        console.log("Switching to tab: ".concat(tab));
+        setAttrs({ sheet_type: tab });
+    });
+});
+var BUTTON_TYPES = {
+    ROLL: "roll",
+    ACTION: "action",
+};
+var BUTTON_VALUE_TYPES = {
+    REPEATING_CHAT_BUTTON: "repeatingChatButton",
+    DAMAGE: "damage",
+};
+var BUTTON_VARIANT = {
+    DEFAULT: "default",
+    ICON: "icon",
+    TAB: "tab",
+};
 var _this = this;
 var versioningAttr = "latest_versioning_upgrade";
 on("sheet:opened", function () {
@@ -113,3 +151,19 @@ var parseIntegers = function (numbers) {
 };
 var sliceAttribute = function (attribute) { return attribute.slice(2, -1); };
 var sumIntegers = function (numbers) { return numbers.reduce(function (a, b) { return a + b; }, 0); };
+var getFieldsetRow = function (sourceAttribute) {
+    var split = sourceAttribute.split("_");
+    return "".concat(split[0], "_").concat(split[1], "_").concat(split[2]);
+};
+var parseJSON = function (jsonString) {
+    try {
+        if (typeof jsonString === "object") {
+            return jsonString;
+        }
+        return JSON.parse(jsonString);
+    }
+    catch (e) {
+        console.warn("Error parsing JSON: ".concat(jsonString));
+        return undefined;
+    }
+};

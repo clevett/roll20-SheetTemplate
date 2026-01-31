@@ -33,42 +33,8 @@
   font-family: "dicefontd12";
 }
 
-.ui-dialog .charsheet input[type="number"] {
-  width: 100%;
-}
-
-.ui-dialog .charsheet input[type="checkbox"],
-.ui-dialog .charsheet input[type="radio"] {
-  @extend .size-4;
-}
-
-.ui-dialog .charsheet .switch input[type="checkbox"] {
-  height: 100%;
-  width: 100%;
-}
-
-.ui-dialog .charsheet button[type="roll"] {
-  background-image: none;
-  text-shadow: none;
-  @extend .text-sm;
-  @extend .m-0;
-  @extend .px-1\.5;
-  @extend .py-0\.5;
-}
-
 .charsheet {
   min-width: $container-lg;
   max-width: 860px;
   overflow: hidden;
-
-  button[type="roll"] {
-    &:before {
-      display: none;
-    }
-  }
-
-  input[type="text"],
-  input[type="number"] {
-    height: $spacing-8;
-  }
 }
