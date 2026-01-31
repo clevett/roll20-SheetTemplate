@@ -3,7 +3,7 @@ mixin Textarea(props)
     const { name, i18n = name, placeholder = name} = props || {};
     const attr = attrName(name);
 
-    const baseClasses = 'flex w-full min-h-16 rounded-lg border px-2.5 py-2 bg-transparent text-base transition-colors active:border-none focus:border-none hover:border-none active:outline-solid focus:outline-solid hover:outline-solid active:outline-neutral-800 focus:outline-neutral-800 hover:outline-neutral-800 active:outline-2 focus:outline-2 hover:outline-2 active:rounded-lg focus:rounded-lg hover:rounded-lg ';
+    const baseClasses = 'flex w-full min-h-16 rounded-lg border px-2.5 py-2 bg-transparent text-base transition-colors active:border-none focus:border-none hover:border-none active:outline-solid focus:outline-solid hover:outline-solid active:outline-neutral-800 focus:outline-neutral-800 hover:outline-neutral-800 active:outline-2 focus:outline-2 hover:outline-2 active:rounded-lg focus:rounded-lg hover:rounded-lg font-normal mb-0 min-h-12 wrap-break-word overflow-x-hidden overflow-y-scroll resize-y text-left align-top  ';
 
     const classes = `${baseClasses}`;
 

@@ -1,17 +1,27 @@
-@use "tailwind" as *;
+@use "branding" as *;
 @use "components" as *;
 @use "scss";
+@use "tailwind" as *;
 
 .sheetform {
   background: transparent;
 }
 
 .charsheet {
+  @extend .brand-font-base;
   @extend .shadow-xl;
+  background-color: $color-neutral-100;
   border: 2px solid $color-neutral-200;
+  font-size: $text-sm;
+  font-weight: $font-weight-normal;
+  line-height: $text-sm--line-height;
   max-width: 860px;
   min-width: $container-lg;
   overflow: hidden;
+
+  p {
+    @extend .brand-font-base;
+  }
 }
 
 .footer {

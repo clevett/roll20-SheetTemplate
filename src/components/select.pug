@@ -3,11 +3,13 @@ mixin Select(props)
     const {name, i18n = name, options = [] } = props || {};
     const attr = attrName(name);
 
-    const selectClasses = "active:bg-neutral-600 focus:bg-neutral-600 hover:bg-neutral-600 active:color-neutral-50 focus:color-neutral-50 hover:color-neutral-50 cursor-pointer flex items-center justify-between gap-1.5 rounded-lg border border-neutral-500 bg-transparent pr-2 pl-2.5 text-sm whitespace-nowrap transition-colors  ";
+    const baseClasses = "border border-neutral-500 bg-transparent cursor-pointer flex font-bold items-center justify-between gap-1.5 rounded-lg pl-2.5 pr-2 text-sm whitespace-nowrap transition-colors "
 
-    const optionClasses = "cursor-pointer flex items-center justify-between gap-1.5 rounded-lg border border-neutral-500 bg-transparent pr-2 pl-2.5 text-sm whitespace-nowrap transition-colors"
+    const selectClasses = "active:bg-neutral-600 active:color-neutral-50 bg-transparent capitalize focus:bg-neutral-600 focus:color-neutral-50 hover:bg-neutral-600 hover:color-neutral-50 mb-0 rounded-lg w-full  ";
 
-  select(class=selectClasses class!=attributes.class name=`attr_${attr}` )
+    const optionClasses = baseClasses
+
+  select(class=`${baseClasses} ${selectClasses}` class!=attributes.class name=`attr_${attr}` )
     each val in options
         - const {value, label } = val
-        option(class=optionClasses data-i18n=label value=`@{${value}}`)
+        option(class=`${baseClasses} ${optionClasses}` data-i18n=label value=`@{${value}}`)
