@@ -16,6 +16,7 @@
   "description": "description",
   "editAlt": "editAlt",
   "ellipsis": "ellipsis",
+  "example repeating": "example repeating",
   "example textarea": "example textarea",
   "h1 header": "h1 header",
   "h2 header": "h2 header",
@@ -41,5 +42,6 @@
   "switch": "switch",
   "tabs": "tabs",
   "text": "text",
-  "textarea": "textarea"
+  "textarea": "textarea",
+  "value": "value"
 }

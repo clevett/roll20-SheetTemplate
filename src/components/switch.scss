@@ -23,14 +23,15 @@ div.switch {
     grid-column: 1 / 2;
 
     &:before {
-      grid-column: 1 / 2;
       @extend .bg-neutral-50;
+      @extend .duration-150;
       @extend .rounded-full;
       @extend .size-3\.5;
-      @extend .duration-150;
       content: "";
       display: block;
+      grid-column: 1 / 2;
       margin-left: 2px;
+      position: absolute;
     }
   }
 }

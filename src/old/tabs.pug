@@ -1,9 +1,0 @@
-
-
-mixin tabs(values)
-    input(type="hidden"  name="attr_tab" value=values[0])
-    .grid.gap-2.grid-flow-col.auto-cols-min
-        each tab in values
-            .grid.tab
-                input(type="radio" name="attr_tab" value=tab checked=!!tab === values[0])
-                span(data-i18n=tab)

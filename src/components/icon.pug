@@ -1,0 +1,17 @@
+//- https://wiki.roll20.net/CSS_Wizardry#Icon_Fonts
+include ./icons.pug
+
+mixin Icon(props)
+    -
+        const {icon = "d20", color = "color-neutral-50", size = "text-2xl" } = props || {};
+
+        const baseClasses = `${color} flex items-center justify-center shrink-0 size-4 ${size} `;
+
+        const isDice = /^(d4|d6|d8|d10|d12|d20)$/.test(icon);
+        const font = isDice ? `${icon} lowercase `  : "pictos";
+
+        const classes = `${baseClasses} ${font}`;
+
+    span(class=classes class!=attributes.class)= icons[icon] || ""
+
+

@@ -1,0 +1,63 @@
+@use "tailwind" as *;
+
+%button-base {
+  @extend .active\:bg-neutral-600;
+  @extend .active\:color-neutral-50;
+  @extend .bg-neutral-800;
+  @extend .bg-none;
+  @extend .border-neutral-500;
+  @extend .border;
+  @extend .capitalize;
+  @extend .color-neutral-300;
+  @extend .duration-150;
+  @extend .ease-in-out;
+  @extend .focus\:bg-neutral-600;
+  @extend .focus\:color-neutral-50;
+  @extend .font-semibold;
+  @extend .gap-1\.5;
+  @extend .h-8;
+  @extend .hover\:bg-neutral-600;
+  @extend .hover\:color-neutral-50;
+  @extend .items-center;
+  @extend .justify-center;
+  @extend .m-0;
+  @extend .px-1\.5;
+  @extend .py-0\.5;
+  @extend .rounded-lg;
+  @extend .text-sm;
+  @extend .transition-all;
+  @extend .whitespace-nowrap;
+  text-shadow: none;
+}
+
+.repitem {
+  button {
+    @extend %button-base;
+  }
+
+  button.repcontrol_del {
+    background-color: $color-red-800;
+    border-color: $color-red-900;
+
+    &:hover {
+      background-color: $color-red-600;
+    }
+  }
+}
+
+.repcontrol {
+  button.btn {
+    @extend %button-base;
+  }
+}
+
+.itemcontrol {
+  z-index: 100;
+  position: absolute;
+
+  a.btn,
+  button.btn {
+    @extend .size-8;
+    @extend %button-base;
+  }
+}

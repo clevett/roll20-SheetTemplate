@@ -46,7 +46,7 @@
                         +Header({ name: `${type}`, size: "h3" }).w-fit
                         +Input({ name: `${type}`, type: type })
 
-            .grid.gap-4.auto-rows-min.justify-items-center.items-center
+            .grid.gap-6.auto-rows-min.justify-items-center.items-center
                 +Header({ name: "icons", size: "h2" }).text-center
 
                 .grid.gap-4.grid-flow-col
@@ -71,7 +71,7 @@
                     each item in iconData
                         .grid.gap-2.grid-flow-col.w-full.grid-cols-3.items-center.justify-items-center
                             +Icon({ icon: item.icon, color: "color-neutral-900" })
-                            +Header({ name: item.icon, size: "h4" }).lowercase
+                            +Text({ name: item.icon, size: "h4" }).font-semibold    
                             +Text({ text: item.description })
 
     .grid.gap-4.content-start
@@ -79,3 +79,5 @@
             +Header({ name: "textarea", size: "h2" }).text-center
             +Textarea({name: "example textarea", placeholder: "This is an example textarea."})
 
+    .grid.gap-4.content-start
+        +repeatingSection({ name: "example repeating", display: ["name", "value"], collapse: ["description"] })
