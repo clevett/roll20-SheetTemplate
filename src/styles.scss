@@ -1,8 +1,19 @@
-@use "./components/index";
+@use "tailwind" as *;
+@use "components" as *;
 @use "scss";
 
-/*  FOOTER
-  ============================= */
+.sheetform {
+  background: transparent;
+}
+
+.charsheet {
+  @extend .shadow-xl;
+  border: 2px solid $color-neutral-200;
+  max-width: 860px;
+  min-width: $container-lg;
+  overflow: hidden;
+}
+
 .footer {
   display: block;
   text-align: center;
