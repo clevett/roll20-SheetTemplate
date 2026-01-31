@@ -3,19 +3,19 @@ mixin repeatingSection({ sectionName, display = [], collapse = [] })
 	.grid.gap-2.content-start.relative(class=dashedName(sectionName))
 		+Header({ name: sectionName, size: "h2" }).block.text-center
 
-		.grid.gap-2.grid-flow-col.items-center.border-b
-			+Header({ name, size: "h3" })
+		.grid.gap-4.grid-flow-col.items-center.border-b.auto-cols-fr
+			+Header({ name, size: "h3" }).w-full
 			each val in [...rest]
-				+Header({ name: val, size: "h3" })
+				+Header({ name: val, size: "h3" }).text-center.w-full
 
 	fieldset(class=`repeating_${dashedName(sectionName)}`)
 		.grid.gap-2.items-center
-			.grid.gap-4.grid-flow-col.items-center
+			.grid.gap-4.grid-flow-col.items-center.auto-cols-fr
 				- const value = buttonValue({ type: BUTTON_VALUE_TYPES.REPEATING_CHAT_BUTTON })
 				+Button({ name, type: BUTTON_TYPES.ROLL, value }).text-left
 					+Text({ name: name })
 				each val in rest
-					+Text({ name: val })
+					+Text({ name: val }).text-center
 			
 			.grid.gap-2.items-center.pl-2
 				+Text({name: "description"})

@@ -44,9 +44,21 @@
     @extend .color-neutral-800;
 
     .sheet-template-header {
+      h1 {
+        @extend .color-neutral-800;
+        @extend .text-center;
+        @extend .capitalize;
+      }
+
+      @extend .auto-rows-min;
+      @extend .content-start;
+      @extend .grid;
     }
 
     .sheet-template-body {
+      @extend .auto-rows-min;
+      @extend .content-start;
+      @extend .grid;
     }
 
     .sheet-template-dice {

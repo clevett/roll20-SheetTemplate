@@ -11,9 +11,16 @@ if [ ! -f "$INPUT_HTML" ]; then
   exit 1
 fi
 
-# Extract, dedupe, and sort keys (line-based)
-grep -o 'data-i18n="[^"]*"' "$INPUT_HTML" \
-  | sed 's/data-i18n="//;s/"$//' \
+# Extract:
+# 1) data-i18n="key"
+# 2) ^{key}
+grep -oE 'data-i18n="[^"]*"|\^\{[^}]+\}' "$INPUT_HTML" \
+  | sed -E '
+      s/data-i18n="//;
+      s/"$//;
+      s/^\^\{//;
+      s/\}$//;
+    ' \
   | sort -u \
   | {
       echo "{"

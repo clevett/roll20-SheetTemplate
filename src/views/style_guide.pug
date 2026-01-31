@@ -12,7 +12,7 @@
                 +Header({ name: "buttons", size: "h2" }).text-center
                 .grid.gap-2.grid-flow-col.items-center.justify-center
                     each type in [BUTTON_TYPES.ACTION, BUTTON_TYPES.ROLL]
-                        +Button({name: `${type} button`, type, value: buttonValue() })
+                        +Button({name: `${type} button`, type, value: buttonValue({name: "roll button"}) })
                     +Button({type: BUTTON_TYPES.ROLL, name: `icon button`, variant: BUTTON_VARIANT.ICON, value: buttonValue()  })
                         +Icon({icon: "d20"})
 

@@ -11,7 +11,7 @@ mixin Button(props)
 
         const namePrefix = type === BUTTON_TYPES.ROLL ? BUTTON_TYPES.ROLL : 'act'
         const attr = attrName(name);
-        const buttonName = `${namePrefix}_${attr}`;
+        const buttonName = `${namePrefix}_${dashedName(name)}`;
         const datai18n = variant === BUTTON_VARIANT.ICON ? "" : i18n;
 
         let classes = 'bg-neutral-800 ellipse whitespace-nowrap transition-all m-0 py-0\.5 px-1\.5 color-neutral-300 active:color-neutral-50 focus:color-neutral-50 hover:color-neutral-50 rounded-lg border ';
