@@ -1,0 +1,7 @@
+mixin RepeatingSectionHeader({ sectionName, name, rest })
+    .grid.gap-2.content-start.relative
+        +Header({ name: sectionName, size: "h2" }).block.text-center
+        .grid.gap-4.grid-flow-col.items-center.border-b.auto-cols-fr
+            +Header({ name, size: "h3" }).w-full
+            each val in [...rest]
+                +Header({ name: val, size: "h3" }).text-center.w-full

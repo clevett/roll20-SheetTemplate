@@ -34,7 +34,6 @@
                     +Header({ name: "switch", size: "h2" }).text-center
                     +Switch({name: "switch", value: "on" })
 
-
         .grid.gap-6.auto-rows-min
             +Header({ name: "inputs", size: "h2" }).text-center
 
@@ -85,3 +84,6 @@
 
     .grid.gap-4.content-start
         +repeatingSection({ sectionName: "example repeating section", display: ["name", "value"], collapse: ["description"] })
+
+    .grid.gap-4.content-start
+        +repeatingSection({ sectionName: "example attack section", display: ["name", "modifier", "damage"], collapse: ["description"] })

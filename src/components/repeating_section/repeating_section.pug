@@ -1,12 +1,6 @@
 mixin repeatingSection({ sectionName, display = [], collapse = [] })
 	- const [name, ...rest] = display
-	.grid.gap-2.content-start.relative(class=dashedName(sectionName))
-		+Header({ name: sectionName, size: "h2" }).block.text-center
-
-		.grid.gap-4.grid-flow-col.items-center.border-b.auto-cols-fr
-			+Header({ name, size: "h3" }).w-full
-			each val in [...rest]
-				+Header({ name: val, size: "h3" }).text-center.w-full
+	+RepeatingSectionHeader({ sectionName, name, rest })
 
 	fieldset(class=`repeating_${dashedName(sectionName)}`)
 		.grid.gap-2.items-center
@@ -18,11 +12,7 @@ mixin repeatingSection({ sectionName, display = [], collapse = [] })
 				each val in rest
 					+Text({ name: val }).text-center
 			
-				.toggles.absolute.auto-cols-min.grid.gap-2.grid-flow-col.items-center.justify-self-end.z-index-10
-					+Button({ name: "edit", type: BUTTON_TYPES.ACTION, variant: BUTTON_VARIANT.ICON }).edit
-						+Icon({ icon: "editAlt", color: "color-neutral-50",  })
-					+Button({ name: "expand", type: BUTTON_TYPES.ACTION, variant: BUTTON_VARIANT.ICON }).expand
-						+Icon({ icon: "play", color: "color-neutral-50", })
+				+RepeatingSectionToggles()
 
 			.expand.grid.gap-2.items-center.pl-2
 				+Text({name: "description"})

@@ -1,0 +1,6 @@
+mixin RepeatingSectionToggles()
+    .toggles.absolute.auto-cols-min.grid.gap-2.grid-flow-col.items-center.justify-self-end.z-index-10
+        +Button({ name: "edit", type: BUTTON_TYPES.ACTION, variant: BUTTON_VARIANT.ICON }).edit
+            +Icon({ icon: "editAlt", color: "color-neutral-50",  })
+        +Button({ name: "expand", type: BUTTON_TYPES.ACTION, variant: BUTTON_VARIANT.ICON }).expand
+            +Icon({ icon: "play", color: "color-neutral-50", })
