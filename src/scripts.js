@@ -52,7 +52,7 @@ sections.forEach(function (fieldset) {
         });
     });
 });
-var viewTabs = ["style-guide", "character", "npc"];
+var viewTabs = ["style_guide", "character", "npc"];
 viewTabs.forEach(function (tab) {
     on("clicked:".concat(tab), function () {
         console.log("Switching to tab: ".concat(tab));

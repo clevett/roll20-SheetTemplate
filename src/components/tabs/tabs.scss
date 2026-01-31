@@ -1,7 +1,7 @@
 @use "tailwind" as *;
 @use "../scss/branding" as branding;
 
-$viewTabs: "style-guide", "character", "npc";
+$viewTabs: "style_guide", "character", "npc";
 
 @each $tab in $viewTabs {
   input[name="attr_sheet_type"][value="#{$tab}"] ~ div.#{$tab} {
