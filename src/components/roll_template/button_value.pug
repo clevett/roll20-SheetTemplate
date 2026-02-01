@@ -31,7 +31,7 @@
         }
 
         if(!description) {
-            string += " {{description=@{description}}}";
+            string += ` {{description=${description}}}`
         }
 
         return string || "{{description=Roll Template is not working as expected}}";
