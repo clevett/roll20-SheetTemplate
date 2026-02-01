@@ -17,7 +17,7 @@
                         +Button({name: `${type} button`, type, value: buttonValue({name: "roll button", type: BUTTON_VALUE_TYPES.D20}) })
                     +Button({type: BUTTON_TYPES.ROLL, name: `icon button`, variant: BUTTON_VARIANT.ICON, value: buttonValue({name: "icon button", type: BUTTON_VALUE_TYPES.D20 }),  })
                         +Icon({icon: "d20"})
-                    +Button({type: BUTTON_TYPES.ROLL, name: `chat button`, variant: BUTTON_VARIANT.ICON, value: buttonValue({name: "chat button", attr: "@{example_textarea}" }),  })
+                    +Button({type: BUTTON_TYPES.ROLL, name: `chat button`, variant: BUTTON_VARIANT.ICON, value: buttonValue({name: "chat button", description: "@{example_textarea}" }),  })
                         +Icon({icon: "chat"})
 
             .grid.gap-2.auto-rows-min.items-center.justify-center
@@ -83,12 +83,44 @@
             +Textarea({name: "example textarea", placeholder: "This is an example textarea."})
 
     .grid.gap-4.content-start
-        +repeatingSection({ sectionName: "example repeating section", display: ["name", "value"] })
+        - const sectionName = "example repeating section"
+        - const display = ["name", "value"]
+        - const expand = []
+        +RepeatingSectionHeader({ sectionName, display })
+        +RepeatingSection({ sectionName })
+            +RepeatingSectionRow()
+                each val in display.filter(v => v !== "name")
+                    +Text({ name: val }).text-center
+            +RepeatingSectionExpand()
+            +RepeatingSectionEdit()
+                each val in display
+                    .col-auto-fr.grid.gap-2.grid-flow-col.items-center
+                        +Header({ name: val, size: "h4" })
+                        +Input({ name: val })
 
-                
-    //- .grid.gap-4.content-start
-    //-     +repeatingSection({ sectionName: "example attack section", display: ["name", "modifier", "damage"] })
-
-        
-
-        //- Name: string, display: true, displayElement: text | select | button | undefined, editElement: input | select | undefined
+    .grid.gap-4.content-start
+        - const attackSection = "example attack repeating section"
+        - const attackDisplays = ["name", "modifier", "damage"]
+        - const attackExpand = ["range", "damage type"]
+        +RepeatingSectionHeader({ sectionName: attackSection, display: attackDisplays })
+        +RepeatingSection({ sectionName: attackSection })
+            +RepeatingSectionRow()
+                each val in attackDisplays.filter(v => v !== "name")
+                    if val === "damage"
+                        +Button({name: val, value: buttonValue({name: val, type: BUTTON_VALUE_TYPES.REPEATING_DAMAGE })}).text-center.max-w-3xs
+                            +Text({name: val }).text-center.capitalize
+                    else
+                        +Text({ name: val }).text-center
+            +RepeatingSectionExpand()
+                .grid.grid-cols-2.gap-2.items-center
+                    each val in attackExpand
+                        .col-auto-fr.grid.gap-2.grid-flow-col.items-center
+                            +Header({ name: val, size: "h4" })
+                            +Text({ name: val })
+            +RepeatingSectionEdit()
+                .grid.grid-cols-2.gap-2.items-center
+                    each val in [...attackDisplays, ...attackExpand]
+                        .col-auto-fr.grid.gap-2.grid-flow-col.items-center
+                            +Header({ name: val, size: "h4" })
+                            +Input({ name: val })
+                                            

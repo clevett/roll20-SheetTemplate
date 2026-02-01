@@ -40,6 +40,10 @@ $min-widths: (
   .min-w-#{$name} {
     min-width: $value;
   }
+
+  .max-w-#{$name} {
+    max-width: $value;
+  }
 }
 
 .w-fit {

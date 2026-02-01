@@ -34,11 +34,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var sections = ["example-repeating-section"];
-sections.forEach(function (fieldset) {
+var repeatingSections = [
+    "example-repeating-section",
+    "example-attack-repeating-section",
+];
+repeatingSections.forEach(function (sectionName) {
     var states = ["edit", "expand"];
     states.forEach(function (button) {
-        on("clicked:repeating_".concat(fieldset, ":").concat(button), function (event) {
+        on("clicked:repeating_".concat(sectionName, ":").concat(button), function (event) {
             var sourceAttribute = event.sourceAttribute;
             var row = getFieldsetRow(sourceAttribute);
             getAttrs(["".concat(row, "_state")], function (attrs) {

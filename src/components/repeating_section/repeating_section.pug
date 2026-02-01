@@ -1,35 +1,46 @@
-mixin repeatingSection({ sectionName, display = [], collapse = [] })
+mixin RepeatingSectionHeader({ sectionName, display })
 	- const [name, ...rest] = display
-	+RepeatingSectionHeader({ sectionName, name, rest })
+	.grid.gap-2.content-start.relative
+		+Header({ name: sectionName, size: "h2" }).block.text-center
+		.grid.gap-4.grid-flow-col.items-center.border-b.auto-cols-fr
+			+Header({ name, size: "h3" }).w-full
+			each val in [...rest]
+				+Header({ name: val, size: "h3" }).text-center.w-full
 
+mixin RepeatingSection({ sectionName })
+	//- fieldset class format = repeating_example-repeating-section
+	//- Add section name to repeating_section.ts to enable toggle buttons
 	fieldset(class=`repeating_${dashedName(sectionName)}`)
 		.grid.gap-2.items-center
 			input(type="hidden" name="attr_state" value="edit expand")
-			.grid.gap-4.grid-flow-col.items-center.auto-cols-fr.relative
-				- const value = buttonValue({ type: BUTTON_VALUE_TYPES.REPEATING_CHAT_BUTTON })
-				+Button({ name, type: BUTTON_TYPES.ROLL, value }).text-left
-					+Text({ name: name })
-				each val in [...rest]
-					//-Text, Select, Button
-					+Text({ name: val }).text-center
-					//- down here
-			
-				+RepeatingSectionToggles()
+			block
 
-			.expand.grid.gap-2.items-center.pl-2
-				+Text({name: "description"})
-			
-			.edit.bg-neutral-200.border-neutral-200.border-solid.border-2.grid.gap-2.items-center.rounded-xl.p-2
-				.auto-cols-fr.grid.gap-2.grid-flow-col.items-center
-					each val in rest
-						.col-auto-fr.grid.gap-2.grid-flow-col.items-center
-							+Header({ name: val, size: "h4" })
-							//-Input or
-							+Input({ name: val })
-							//-
-							
-				.grid.gap-2.items-center.w-full
-					+Header({ name: "description", size: "h4" })
-					+Textarea({ name: "description", placeholder: "Enter description here..." })
+mixin RepeatingSectionRow()
+	.grid.gap-4.grid-flow-col.items-center.auto-cols-fr.relative
+		- const value = buttonValue({ type: BUTTON_VALUE_TYPES.REPEATING_CHAT })
+		+Button({ name: "name", type: BUTTON_TYPES.ROLL, value }).text-left
+			+Text({ name: "name" })
+		block
+		.toggles.absolute.auto-cols-min.grid.gap-2.grid-flow-col.items-center.justify-self-end.z-index-10
+			+Button({ name: "edit", type: BUTTON_TYPES.ACTION, variant: BUTTON_VARIANT.ICON }).edit
+				+Icon({ icon: "editAlt", color: "color-neutral-50",  })
+			+Button({ name: "expand", type: BUTTON_TYPES.ACTION, variant: BUTTON_VARIANT.ICON }).expand
+				+Icon({ icon: "play", color: "color-neutral-50", })
 
+
+mixin RepeatingSectionExpand()
+	.expand.grid.gap-2.items-center.pl-2
+		.grid.gap-2.items-center.content-start.w-full
+			block
+		.flex.ellipse.w-full
+			+Text({name: "description"})
+	
+mixin RepeatingSectionEdit()
+	.edit.bg-neutral-200.border-neutral-200.border-solid.border-2.grid.gap-2.items-center.rounded-xl.p-2
+		.auto-cols-fr.grid.gap-2.grid-flow-col.items-center
+			block
+					
+		.grid.gap-2.items-center.w-full
+			+Header({ name: "description", size: "h4" })
+			+Textarea({ name: "description", placeholder: "Enter description here..." })
 

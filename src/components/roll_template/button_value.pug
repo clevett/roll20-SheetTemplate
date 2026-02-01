@@ -6,16 +6,14 @@
         // const bonus = "(@{modifier}[modifier])"
         //- - const prompt = "(?{Modifier|0}[modifier])"
 
-        const {attr, name, type } = props || {};
+        const {description, name, type } = props || {};
         
         let string = `${templatePrefix} `
 
         switch(type) {
-            case BUTTON_VALUE_TYPES.REPEATING_CHAT_BUTTON:
+            case BUTTON_VALUE_TYPES.REPEATING_CHAT:
+            case BUTTON_VALUE_TYPES.REPEATING_DAMAGE:
                 string += `{{header=@{name}}} `;
-                break;
-            case BUTTON_VALUE_TYPES.DAMAGE:
-                string += `{{header=^{${name} Damage}}} `;
                 break;
             default:
                 string += `{{header=^{${name}}}} `;
@@ -25,10 +23,58 @@
             case BUTTON_VALUE_TYPES.D20:
                 string += ` {{dice=[[1d20]]}} `;
                 break;
+            case BUTTON_VALUE_TYPES.REPEATING_DAMAGE:
+                string += `{{dice=[[@{damage}[damage]+(@{modifier}[damage modifier])]]}} {{damage=@{damage_type} ^{damage}}} `;
+                break;
             default:
-                string += ` {{description=${attr}}}`;
+                string += ` {{description=${description}}}`;
         }
 
         return string || "{{description=Roll Template is not working as expected}}";
     }
 
+
+//- mixin attributeRoll(name, attr)
+//- 	value!=`${templatePrefix} {{header=^{${attr}}}} {{dice=[[1d20+@{${attr}}[attribute]]]}} `)
+
+//- mixin rollButton(name, formula)
+//- 	value!=`${templatePrefix} {{header=^{${name}}}} {{dice=[[1d20+${formula}]]}} {{description=@{description}}}`)
+
+//- mixin initiativeButton()
+//- 	- const name = "initiative"
+//- 	value!=`${templatePrefix} {{header=^{${name}}}} {{dice=[[1d20+@{awareness}[awareness]+@{initiative_bonus}[modifier] &{tracker}]]}}`)
+
+//- mixin repeatingRollButton(name, includeDescription = false)
+//- 	- const description = includeDescription ? "{{description=@{description}}" : ""
+//-     value!=`${templatePrefix} {{header=@{name}}} {{dice=[[1d20+${attribute}+${bonus}]]}} {${description}}}`)
+//- 		span(name='attr_name')
+
+//- mixin repeatingAttackRollButton(name)
+//-     value!=`${templatePrefix} {{header=@{name}}} @{roll_formula}`)
+//- 		span(name='attr_name')
+
+//- mixin repeatingMagicButton(name)
+//-     value!=`${templatePrefix} {{header=@{name}}} @{roll_formula}`)
+//- 		span(name='attr_name')
+
+//- mixin repeatingDamageButton(name, includeDescription = false)
+//- 	value!=`${templatePrefix} {{header=@{name} Damage}} {{dice=[[@{damage}[damage]+(@{damage_attribute}[damage attribute])]]}} {{type=@{damage_type}}}`)
+//- 		span(name='attr_damage')
+
+//- mixin repeatingChatIconButton(name)
+//- 	value!=`${templatePrefix} {{header=@{name}}} {{dice=@{description}}}`)
+//- 		span.pictos q
+
+//- mixin repeatingChatButton(name)
+//- 	 =value!=`${templatePrefix} {{header=@{name}}} {{description=@{description}}}`)
+//- 		span(name='attr_name')
+
+
+//- // This need an even handler as well to update damage roll when effect is added but damage is empty
+//- mixin repeatingCreatureDamageButton(name)
+//- 	value!=`${templatePrefix} {{header=@{name} Damage}}  {{type=@{damage_type}}} {{dice=[[@{damage}[damage]+0]]}} {{effect=@{effect}}} {{description=@{description}}}`)
+//- 		span(name='attr_damage')
+
+//- mixin repeatingCreatureEffect(name)
+//- 	value!=`${templatePrefix} {{header=@{name}}}  {{type=@{damage_type}}} {{effect=@{effect}}} {{description=@{description}}}`)
+//- 		span(data-i18n="effect" )

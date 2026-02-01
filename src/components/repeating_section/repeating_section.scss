@@ -95,6 +95,10 @@ input[name="attr_state"]:not([value*="expand"])
   transform: rotate(-90deg);
 }
 
+div.toggles {
+  display: none;
+}
+
 .repitem:hover,
 .repitem:focus {
   div.toggles {

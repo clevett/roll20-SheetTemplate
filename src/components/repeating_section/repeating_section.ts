@@ -1,8 +1,11 @@
-const sections = ["example-repeating-section"];
-sections.forEach((fieldset) => {
+const repeatingSections = [
+  "example-repeating-section",
+  "example-attack-repeating-section",
+];
+repeatingSections.forEach((sectionName) => {
   const states = ["edit", "expand"];
   states.forEach((button) => {
-    on(`clicked:repeating_${fieldset}:${button}`, (event) => {
+    on(`clicked:repeating_${sectionName}:${button}`, (event) => {
       const { sourceAttribute } = event;
       const row = getFieldsetRow(sourceAttribute);
 
