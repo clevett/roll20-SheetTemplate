@@ -83,7 +83,12 @@
             +Textarea({name: "example textarea", placeholder: "This is an example textarea."})
 
     .grid.gap-4.content-start
-        +repeatingSection({ sectionName: "example repeating section", display: ["name", "value"], collapse: ["description"] })
+        +repeatingSection({ sectionName: "example repeating section", display: ["name", "value"] })
 
-    .grid.gap-4.content-start
-        +repeatingSection({ sectionName: "example attack section", display: ["name", "modifier", "damage"], collapse: ["description"] })
+                
+    //- .grid.gap-4.content-start
+    //-     +repeatingSection({ sectionName: "example attack section", display: ["name", "modifier", "damage"] })
+
+        
+
+        //- Name: string, display: true, displayElement: text | select | button | undefined, editElement: input | select | undefined

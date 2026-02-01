@@ -9,8 +9,10 @@ mixin repeatingSection({ sectionName, display = [], collapse = [] })
 				- const value = buttonValue({ type: BUTTON_VALUE_TYPES.REPEATING_CHAT_BUTTON })
 				+Button({ name, type: BUTTON_TYPES.ROLL, value }).text-left
 					+Text({ name: name })
-				each val in rest
+				each val in [...rest]
+					//-Text, Select, Button
 					+Text({ name: val }).text-center
+					//- down here
 			
 				+RepeatingSectionToggles()
 
@@ -19,12 +21,13 @@ mixin repeatingSection({ sectionName, display = [], collapse = [] })
 			
 			.edit.bg-neutral-200.border-neutral-200.border-solid.border-2.grid.gap-2.items-center.rounded-xl.p-2
 				.auto-cols-fr.grid.gap-2.grid-flow-col.items-center
-					.col-auto-fr.grid.gap-2.grid-flow-col.items-center
-						+Header({ name: "name", size: "h4" })
-						+Input({ name: "name" })
-					.col-auto-fr.grid.gap-2.grid-flow-col.items-center
-						+Header({ name: "value", size: "h4" })
-						+Input({ name: "value", type: "number" })
+					each val in rest
+						.col-auto-fr.grid.gap-2.grid-flow-col.items-center
+							+Header({ name: val, size: "h4" })
+							//-Input or
+							+Input({ name: val })
+							//-
+							
 				.grid.gap-2.items-center.w-full
 					+Header({ name: "description", size: "h4" })
 					+Textarea({ name: "description", placeholder: "Enter description here..." })
