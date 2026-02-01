@@ -27,7 +27,11 @@
                 string += `{{dice=[[@{damage}[damage]+(@{modifier}[damage modifier])]]}} {{damage=@{damage_type} ^{damage}}} `;
                 break;
             default:
-                string += ` {{description=${description}}}`;
+                string += "";
+        }
+
+        if(!description) {
+            string += " {{description=@{description}}}";
         }
 
         return string || "{{description=Roll Template is not working as expected}}";
