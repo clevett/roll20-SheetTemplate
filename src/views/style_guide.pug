@@ -19,9 +19,11 @@
                             { name: "chat button", variant: BUTTON_VARIANT.ICON, value: BUTTON_VALUE.DESCRIPTION, icon: "chat" }
                         ];
                     each button in buttonExamples
-                        +Button({ type: button.type, name: button.name, variant: button.variant, value: button.value })
-                            if button.icon
+                        if button.icon
+                            +Button({ name: button.name, type: button.type,  variant: button.variant, value: button.value })
                                 +Icon({ icon: button.icon })
+                        else
+                            +Button({ name: button.name, type: button.type,  variant: button.variant, value: button.value })
 
             .grid.gap-2.auto-rows-min.items-center.justify-center
                 +Header({ name: "tabs", size: "h2" }).text-center
