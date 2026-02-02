@@ -5,7 +5,7 @@ mixin Button(props)
             i18n = name,
             type =
             BUTTON_TYPES.ROLL, 
-            value, 
+            value = BUTTON_VALUE.DESCRIPTION, 
             variant = BUTTON_VARIANT.DEFAULT 
         } = props || {};
 
@@ -13,6 +13,7 @@ mixin Button(props)
         const attr = attrName(name);
         const buttonName = `${namePrefix}_${attrName(name)}`;
         const datai18n = variant === BUTTON_VARIANT.ICON ? "" : i18n;
+        const Value = buttonValue({ name: name, type: value });
 
         let classes = 'bg-neutral-800 ellipse whitespace-nowrap transition-all m-0 py-0\.5 px-1\.5 color-neutral-300 active:color-neutral-50 focus:color-neutral-50 hover:color-neutral-50 rounded-lg border ';
 
@@ -28,7 +29,7 @@ mixin Button(props)
         }
 
     if block
-        button(class=classes class!=attributes.class name=`${buttonName}` type=type value!=value)
+        button(class=classes class!=attributes.class name=`${buttonName}` type=type value!=Value)
             block
     else
-        button(class=classes class!=attributes.class data-i18n=`${datai18n}` name=`${buttonName}` type=type value!=value)
+        button(class=classes class!=attributes.class data-i18n=`${datai18n}` name=`${buttonName}` type=type value!=Value)

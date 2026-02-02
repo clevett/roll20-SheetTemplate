@@ -43,6 +43,13 @@
       @extend .justify-center;
     }
 
+    .sheet-template-damage {
+      @extend .auto-rows-min;
+      @extend .grid;
+      @extend .items-center;
+      @extend .justify-center;
+    }
+
     .sheet-template-description {
     }
 

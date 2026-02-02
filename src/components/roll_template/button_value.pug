@@ -6,13 +6,13 @@
         // const bonus = "(@{modifier}[modifier])"
         //- - const prompt = "(?{Modifier|0}[modifier])"
 
-        const {description, name, type } = props || {};
+        const {name, type } = props || {};
         
         let string = `${templatePrefix} `
 
         switch(type) {
-            case BUTTON_VALUE_TYPES.REPEATING_CHAT:
-            case BUTTON_VALUE_TYPES.REPEATING_DAMAGE:
+            case BUTTON_VALUE.REPEATING_CHAT:
+            case BUTTON_VALUE.REPEATING_DAMAGE:
                 string += `{{header=@{name}}} `;
                 break;
             default:
@@ -20,23 +20,27 @@
         }
 
         switch(type) {
-            case BUTTON_VALUE_TYPES.D20:
+            case BUTTON_VALUE.ATTACK:
+                string += ` {{dice=[[1d20]+(@{modifier}[modifier])]}} {{damage=[Damage](~repeating_actions-roll_damage)}}`;
+                break;
+            case BUTTON_VALUE.D20:
                 string += ` {{dice=[[1d20]]}} `;
                 break;
-            case BUTTON_VALUE_TYPES.REPEATING_DAMAGE:
+            case BUTTON_VALUE.REPEATING_DAMAGE:
                 string += `{{dice=[[@{damage}[damage]+(@{modifier}[damage modifier])]]}} {{damage=@{damage_type} ^{damage}}} `;
+                break;
+            case BUTTON_VALUE.DESCRIPTION: 
+                string += ` {{description=@{example_textarea}}} `;
                 break;
             default:
                 string += "";
         }
 
-        if(!description) {
-            string += ` {{description=${description}}}`
-        }
-
         return string || "{{description=Roll Template is not working as expected}}";
     }
 
+//-   const damage = "{{damage=[Damage](~repeating_actions-roll_damage)}}";
+//-   const effect = "{{effect=[Effect](~repeating_actions-roll_effect)}}";
 
 //- mixin attributeRoll(name, attr)
 //- 	value!=`${templatePrefix} {{header=^{${attr}}}} {{dice=[[1d20+@{${attr}}[attribute]]]}} `)

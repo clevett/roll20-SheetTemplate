@@ -14,10 +14,6 @@ $container-5xl: 1024px;
 $container-6xl: 1152px;
 $container-7xl: 1280px;
 
-.max-w-xs {
-  max-width: $container-xs;
-}
-
 $min-widths: (
   "full": 100%,
   "auto": auto,
@@ -64,4 +60,8 @@ $min-widths: (
 
 .w-18 {
   width: $spacing-18;
+}
+
+.min-w-24 {
+  min-width: $spacing-24;
 }
