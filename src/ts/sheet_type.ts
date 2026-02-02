@@ -1,4 +1,4 @@
-const sheetTypes = ["character", "npc", "style_guide"];
+const sheetTypes = ["character", "npc"];
 sheetTypes.forEach((v) => {
   on(`clicked:${v}`, () => {
     setAttrs({ sheet_type: v });

@@ -61,7 +61,7 @@ tabs.forEach(function (tab) {
         setAttrs({ character_tab: tab });
     });
 });
-var sheetTypes = ["character", "npc", "style_guide"];
+var sheetTypes = ["character", "npc"];
 sheetTypes.forEach(function (v) {
     on("clicked:".concat(v), function () {
         setAttrs({ sheet_type: v });

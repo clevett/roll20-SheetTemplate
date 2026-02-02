@@ -17,8 +17,7 @@ mixin RepeatingSection({ sectionName })
 
 mixin RepeatingSectionRow()
 	.grid.gap-4.grid-flow-col.items-center.auto-cols-fr.relative
-		- const value = buttonValue({ type: BUTTON_VALUE.REPEATING_CHAT })
-		+Button({ name: "name", type: BUTTON_TYPES.ROLL, value }).text-left
+		+Button({ name: "name", type: BUTTON_TYPES.ROLL, value: BUTTON_VALUE.REPEATING_CHAT }).text-left
 			+Text({ name: "name" })
 		block
 		.toggles.absolute.auto-cols-min.grid.gap-2.grid-flow-col.items-center.justify-self-end.z-index-10

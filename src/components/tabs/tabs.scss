@@ -8,9 +8,7 @@
       display: grid;
     }
 
-    input[name="attr_#{$attr}"][value="#{$tab}"]
-      ~ div.tablist
-      button[name="act_#{$tab}"] {
+    input[name="attr_#{$attr}"][value="#{$tab}"] ~ button[name="act_#{$tab}"] {
       @extend .border;
       @extend .shadow-sm;
       color: $color-white;

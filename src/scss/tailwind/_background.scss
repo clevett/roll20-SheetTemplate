@@ -36,3 +36,10 @@
 .hover\:bg-neutral-700:hover {
   background-color: $color-neutral-700;
 }
+
+.bg-neutral-800,
+.active\:bg-neutral-800:active,
+.focus\:bg-neutral-800:focus,
+.hover\:bg-neutral-800:hover {
+  background-color: $color-neutral-800;
+}
