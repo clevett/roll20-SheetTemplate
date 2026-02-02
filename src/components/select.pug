@@ -12,4 +12,4 @@ mixin Select(props)
   select(class=`${baseClasses} ${selectClasses}` class!=attributes.class name=`attr_${attr}` )
     each val in options
         - const {value, label } = val
-        option(class=`${baseClasses} ${optionClasses}` data-i18n=label value=`@{${value}}`)
+        option(class=`${baseClasses} ${optionClasses}` data-i18n=label value=`${value}`)

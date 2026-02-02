@@ -1,0 +1,10 @@
+.settings.grid.gap-6
+    +Header({ name: "settings", size: "h1" }).text-center
+    .grid.gap-4.grid-flow-col.grid-cols-2.items-start
+        .grid.gap-4.items-start.text-center
+            +Header({ name: "sheet layout", size: "h2" })
+            .col-auto-fr.grid.gap-4.grid-flow-col.items-start
+                +Header({ name: "sheet type", size: "h3" })
+                +Select({ name: "sheet type", options: [ { value: "character", label: "character" }, { value: "npc", label: "npc" } ] })
+        .grid.gap-4.items-start
+            +Header({ name: "other settings", size: "h2" }).text-center

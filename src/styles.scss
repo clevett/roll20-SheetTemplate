@@ -2,6 +2,7 @@
 @use "components" as *;
 @use "scss";
 @use "tailwind" as *;
+@use "./views/views" as *;
 
 .sheetform {
   background: transparent;
@@ -9,12 +10,13 @@
 
 .charsheet {
   @extend .brand-font-base;
-  @extend .shadow-xl;
+  @extend .shadow-2xl;
   background-color: $color-neutral-100;
   border: 2px solid $color-neutral-200;
   font-size: $text-sm;
   font-weight: $font-weight-normal;
   line-height: $text-sm--line-height;
+  min-height: 600px;
   max-width: 860px;
   min-width: $container-lg;
   overflow: hidden;

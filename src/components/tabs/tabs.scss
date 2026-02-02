@@ -12,7 +12,7 @@ $viewTabs: "style_guide", "character", "npc";
     @extend .border;
     @extend .shadow-sm;
     color: $color-white;
-    border-color: $color-neutral-500;
+    border: 1px solid $color-neutral-500;
     background-color: branding.$active-color;
   }
 

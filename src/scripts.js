@@ -55,11 +55,17 @@ repeatingSections.forEach(function (sectionName) {
         });
     });
 });
-var viewTabs = ["style_guide", "character", "npc"];
-viewTabs.forEach(function (tab) {
+var tabs = ["style_guide", "character", "npc"];
+tabs.forEach(function (tab) {
     on("clicked:".concat(tab), function () {
         console.log("Switching to tab: ".concat(tab));
         setAttrs({ sheet_type: tab });
+    });
+});
+var sheetTypes = ["character", "npc", "style_guide"];
+sheetTypes.forEach(function (v) {
+    on("clicked:".concat(v), function () {
+        setAttrs({ sheet_type: v });
     });
 });
 var _this = this;
@@ -157,3 +163,14 @@ var parseJSON = function (jsonString) {
         return undefined;
     }
 };
+var views = ["edit_mode", "settings"];
+views.forEach(function (v) {
+    on("clicked:".concat(v), function () {
+        getAttrs(["".concat(v)], function (attrs) {
+            var _a;
+            var current = attrs[v] || "off";
+            var newValue = current === "on" ? "off" : "on";
+            setAttrs((_a = {}, _a["".concat(v)] = newValue, _a));
+        });
+    });
+});

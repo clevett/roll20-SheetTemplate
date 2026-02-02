@@ -1,29 +1,20 @@
-.character.grid.gap-6
-  .grid.gap-4
-    +Header({size: 'h1', name: 'Header 1'}).text-center
-    .grid.grid-cols-2.gap-4.grid-flow-col
-      each val in ["character name"]
-        .grid.col-auto-fr.gap-2.grid-flow-col.items-center
-          +Header({size: 'h3', name: val})
-          +Input({name: val})
-      .grid.col-auto-fr.gap-2.grid-flow-col.items-center
-        +Header({size: 'h3', name: "level"})
-        +Input({name: "level", type: "number"}).text-center
-      each val in ['1', 'radio']
-        .grid.col-auto-fr.gap-2.grid-flow-col.items-center
-          +Header({size: 'h3', name: val})
-          +Input({name: "radio choice", type: 'radio', value: val}).text-center
-      .grid.col-auto-fr.gap-2.grid-flow-col.items-center
-        +Header({size: 'h3', name: "checkbox"})
-        +Input({name: "checkbox", type: "checkbox"}).text-center
-    
+.character.grid.gap-4
+    .grid.gap-4.grid-flow-col.p-4.items-center.items-start
+        .bg-neutral-200.grid.min-w-3xs.max-w-3xs.items-center
+            span.text-center Logo goes here
+        .grid.grid-cols-2.gap-2.items-center
+            .col-auto-fr.grid.gap-2.grid-flow-col.items-center
+                +Header({ name: "name", size: "h4" })
+                +Input({ name: "character name" })
+            each val in ["class", "background" , "age", "size", "appearance"]
+                .col-auto-fr.grid.gap-2.grid-flow-col.items-center
+                    +Header({ name: val, size: "h4" })
+                    +Input({ name: val })
+                                            
+    .grid.tablist.rounded-t-md
+     +Tabs({values: Object.values(TABS), attr: 'sheet_type'})
 
-  //- .core
-  //-   .grid.gap-2
-  //-     +repeatingSection('skills', {display: ['name', 'level', 'attribute'], collapse: ['category']})
+    .grid.gap-6.items-center
+        span.text-center Main character sheet content goes here
 
-  //- .journal
-  //-   .grid.gap-2
-  //-     +Header({size: 'h2', name: 'background',}).text-center
-  //-     +textarea('background')
 

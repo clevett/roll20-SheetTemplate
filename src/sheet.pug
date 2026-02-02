@@ -1,5 +1,5 @@
 //- Semantic Versioning MAJOR.MINORPATCH
-input(name='attr_version' type='hidden' value='2.0')
+input(name='attr_version' type='hidden' value='3.3')
 
 //- Do not manually change this. Hidden attribute used by versioning script
 input(name='attr_latest_versioning_upgrade' type='hidden' value='1')
@@ -10,6 +10,7 @@ input(name='attr_latest_versioning_upgrade' type='hidden' value='1')
 //- include pug/mixins.pug
 include constants/index
 include components/index
+
 
 - const dashedName = name => name.replace(/ /g, '-');
 - const attrName = name => name.replace(/ /g, '_').toLowerCase();
@@ -23,14 +24,24 @@ include components/index
         input(name=`attr_drop_${val.toLowerCase()}` type='hidden' value='' accept=val)
 
     //- Hidden input to identify sheet type. Used CSS to change the view based value
-    input.type(name='attr_sheet_type' type='hidden' value='character')
+    input(name='attr_sheet_type' type='hidden' value='character')
+    input(name='attr_edit_mode' type='hidden' value='off')
+    input(name='attr_settings' type='hidden' value='on')
 
-    include views/style_guide.pug
+    .relative
+        .mode-toggles.absolute.grid.gap-2.grid-flow-col.items-center.justify-self-end.z-index-10
+            +Button({name: "edit mode", type: BUTTON_TYPES.ACTION, variant: BUTTON_VARIANT.ICON })
+                +Icon({ icon: "editAlt" })
+            +Button({name: "settings", type: BUTTON_TYPES.ACTION, variant: BUTTON_VARIANT.ICON })
+                +Icon({ icon: "settings" })
 
-    .grid.gap-6.character
-        .grid.tablist.rounded-t-md
-            +Tabs({values: viewTabs, attr: 'sheet_type'})
-        include views/character.pug
+    include views/settings.pug
+
+    .view.w-full.h-full
+      include views/style_guide.pug
+      include views/character.pug
+      include views/npc.pug
+
 
 
 

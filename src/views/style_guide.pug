@@ -27,8 +27,7 @@
 
             .grid.gap-2.auto-rows-min.items-center.justify-center
                 +Header({ name: "tabs", size: "h2" }).text-center
-                - const viewTabs = ["style guide", "character"];
-                +Tabs({attr: "sheet_type", values: viewTabs, })
+                +Tabs({attr: "sheet_type", values: Object.values(TABS), })
 
             .grid.gap-2.grid-flow-col
                 .grid.gap-2.auto-rows-min
