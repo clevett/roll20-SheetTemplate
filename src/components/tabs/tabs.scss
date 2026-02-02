@@ -1,22 +1,30 @@
 @use "tailwind" as *;
 @use "../scss/branding" as branding;
 
-$viewTabs: "style_guide", "character", "npc";
+//- Array is in pug, ts, and scss - keep in sync
+@mixin tabs($tabs, $attr) {
+  @each $tab in $tabs {
+    input[name="attr_#{$attr}"][value="#{$tab}"] ~ div.#{$tab} {
+      display: grid;
+    }
 
-@each $tab in $viewTabs {
-  input[name="attr_sheet_type"][value="#{$tab}"] ~ div.#{$tab} {
-    display: grid;
-  }
+    input[name="attr_#{$attr}"][value="#{$tab}"]
+      ~ div.tablist
+      button[name="act_#{$tab}"] {
+      @extend .border;
+      @extend .shadow-sm;
+      color: $color-white;
+      border: 1px solid $color-neutral-500;
+      background-color: branding.$active-color;
+    }
 
-  input[name="attr_sheet_type"][value="#{$tab}"] ~ button[name="act_#{$tab}"] {
-    @extend .border;
-    @extend .shadow-sm;
-    color: $color-white;
-    border: 1px solid $color-neutral-500;
-    background-color: branding.$active-color;
-  }
-
-  input[name="attr_sheet_type"]:not([value="#{$tab}"]) ~ div.#{$tab} {
-    display: none;
+    input[name="attr_#{$attr}"]:not([value="#{$tab}"]) ~ div.#{$tab} {
+      display: none;
+    }
   }
 }
+
+// Usage:
+$tabs: "main", "combat", "magic";
+$attr: "character_tab";
+@include tabs($tabs, $attr);

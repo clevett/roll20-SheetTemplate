@@ -1,8 +1,7 @@
-const tabs = ["style_guide", "character", "npc"];
+//- Array is in pug, ts, and scss - keep in sync
+const tabs = ["main", "combat", "magic"];
 tabs.forEach((tab) => {
   on(`clicked:${tab}`, () => {
-    console.log(`Switching to tab: ${tab}`);
-
-    setAttrs({ sheet_type: tab });
+    setAttrs({ character_tab: tab });
   });
 });

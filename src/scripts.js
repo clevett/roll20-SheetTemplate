@@ -55,11 +55,10 @@ repeatingSections.forEach(function (sectionName) {
         });
     });
 });
-var tabs = ["style_guide", "character", "npc"];
+var tabs = ["main", "combat", "magic"];
 tabs.forEach(function (tab) {
     on("clicked:".concat(tab), function () {
-        console.log("Switching to tab: ".concat(tab));
-        setAttrs({ sheet_type: tab });
+        setAttrs({ character_tab: tab });
     });
 });
 var sheetTypes = ["character", "npc", "style_guide"];
@@ -163,8 +162,8 @@ var parseJSON = function (jsonString) {
         return undefined;
     }
 };
-var views = ["edit_mode", "settings"];
-views.forEach(function (v) {
+var modes = ["edit_mode", "settings"];
+modes.forEach(function (v) {
     on("clicked:".concat(v), function () {
         getAttrs(["".concat(v)], function (attrs) {
             var _a;

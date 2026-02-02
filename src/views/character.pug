@@ -1,4 +1,5 @@
 .character.grid.gap-4
+    input(type="hidden" name="attr_character_tab" value="main")
     .grid.gap-4.grid-flow-col.p-4.items-center.items-start
         .bg-neutral-200.grid.min-w-3xs.max-w-3xs.items-center
             span.text-center Logo goes here
@@ -12,9 +13,14 @@
                     +Input({ name: val })
                                             
     .grid.tablist.rounded-t-md
-     +Tabs({values: Object.values(TABS), attr: 'sheet_type'})
+        +Tabs({values: Object.values(TABS), attr: 'sheet_type'})
 
-    .grid.gap-6.items-center
+
+    .main 
         span.text-center Main character sheet content goes here
 
+    .combat
+        span.text-center Combat character sheet content goes here
 
+    .magic
+        span.text-center Magic character sheet content goes here

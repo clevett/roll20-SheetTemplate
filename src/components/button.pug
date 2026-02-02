@@ -1,3 +1,25 @@
+-
+    const BUTTON_TYPES = {
+        ROLL: 'roll',
+        ACTION: 'action',
+    };
+
+    const BUTTON_VALUE = {
+        ATTACK: 'attack',
+        EFFECT: 'effect',
+        REPEATING_CHAT: 'repeatingChatButton',
+        REPEATING_DAMAGE: 'repeatingDamage',
+        DAMAGE: 'damage',
+        DESCRIPTION: 'description',
+        D20: 'd20',
+    };
+
+    const BUTTON_VARIANT = {
+        DEFAULT: 'default',
+        ICON: 'icon',
+        TAB: 'tab',
+    }
+
 mixin Button(props)
     -
         const {

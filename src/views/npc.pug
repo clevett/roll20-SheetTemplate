@@ -1,6 +1,4 @@
-.npc.grid.gap-6.relative
-    .grid.gap-4.grid-flow-col.items-center.absolute
+.npc.grid.gap-6.p-2.relative.auto-rows-max
+    +Header({ name: "npc sheet", size: "h1" }).text-center
 
-
-    .grid.tablist.rounded-t-md
-        +Tabs({values: Object.values(TABS), attr: 'sheet_type'})
+    

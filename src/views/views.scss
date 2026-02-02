@@ -2,28 +2,36 @@
 @use "../scss/branding" as branding;
 
 .mode-toggles {
+  display: none;
   top: -5px;
 }
 
-$viewTabs: "style_guide", "character", "npc";
+.dropzone:hover .relative .mode-toggles {
+  display: grid;
+}
 
-@each $tab in $viewTabs {
-  input[name="attr_sheet_type"][value="#{$tab}"] ~ div.view div.#{$tab} {
+$sheetTypes: "style_guide", "character", "npc";
+
+@each $type in $sheetTypes {
+  input[name="attr_sheet_type"][value="#{$type}"] ~ div.view div.#{$type} {
     display: grid;
   }
 
-  input[name="attr_sheet_type"]:not([value="#{$tab}"]) ~ div.view div.#{$tab} {
+  input[name="attr_sheet_type"]:not([value="#{$type}"])
+    ~ div.view
+    div.#{$type} {
     display: none;
   }
 }
 
+input[name="attr_settings"][value="on"] ~ div.relative div.mode-toggles,
 input[name="attr_settings"][value="on"] ~ .settings {
   display: grid;
 }
 
 input[name="attr_settings"][value="on"]
-  ~ div.grid
-  div.absolute
+  ~ div.relative
+  div.mode-toggles
   button[name="act_settings"] {
   @extend .border;
   @extend .shadow-sm;
